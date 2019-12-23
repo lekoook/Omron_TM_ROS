@@ -38,7 +38,7 @@ def getCheckSum(packet):
 # length = "37"
 def command():
     BUFFER_SIZE = 1024
-    command =  "$TMSCT,{},1,PTP(JPP,0,0,0,0,0,0,10,200,0,false),*{}".format(length, cs)
+    command =  "$TMSCT,{},1,PTP(JPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3,j4,j5,j6,cs)
     print "Running Command:", command
     command = command.encode('ascii')
     s.send(command+b"\r\n")
@@ -46,9 +46,14 @@ def command():
     rcv = data.decode("utf-8")
     print (rcv)
 
-
-print utf8len("1,PTP(JPP,0,0,0,0,0,0,10,200,0,false)")
-print getCheckSum("TMSCT,{},1,PTP(JPP,0,0,0,0,0,0,10,200,0,false),".format(length))
+j1 = 0
+j2 = -50
+j3 = -50
+j4 = -100
+j5 = 50
+j6 = -20
+print utf8len("1,PTP(JPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3,j4,j5,j6))
+print getCheckSum("TMSCT,{},1,PTP(JPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
 socketconnect()
 check_server()
 command()
