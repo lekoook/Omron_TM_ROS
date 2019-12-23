@@ -12,11 +12,17 @@ def modbus(address, data, units):
     rr = client.read_input_registers(address,2,unit=2)
     # print rr.registers
     if rr.registers[1]<10000:
-        a = hex(rr.registers[0])[2:]
-        b = '{:04x}'.format(rr.registers[1])
-        c = a+b
-        # print c
-        print data, "%.2f" % struct.unpack('!f', c.decode('hex'))[0], units
+        if rr.registers[0]<1000:
+            a = '{:04x}'.format(rr.registers[0])
+            b = '{:04x}'.format(rr.registers[1])
+            c = a+b
+            print data, "%.2f" % struct.unpack('!f', c.decode('hex'))[0], units
+        else:
+            a = hex(rr.registers[0])[2:]
+            b = '{:04x}'.format(rr.registers[1])
+            c = a+b
+            # print c
+            print data, "%.2f" % struct.unpack('!f', c.decode('hex'))[0], units
     else:
         a = hex(rr.registers[0])[2:]
         b = hex(rr.registers[1])[2:]
