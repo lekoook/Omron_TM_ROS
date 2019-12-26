@@ -16,7 +16,7 @@ def socketconnect():
 def check_server():
     # ip_address = rospy.get_param("ip_address")
     # port = rospy.get_param("port")
-    ip_address = '192.168.1.2'
+    # ip_address = '192.168.1.2'
     port = 5890
     try:
         s.connect((ip_address, port))
@@ -50,16 +50,17 @@ def command():
     print (rcv)
 
 def usage():
-    return "please specify joint values <j1> <j2> <j3> <j4> <j5> <j6>"
+    return "please specify joint values and ip address <ip_address> <j1> <j2> <j3> <j4> <j5> <j6>"
 
 if __name__ == "__main__":
-    if len(sys.argv) == 7:
-        j1 = str(sys.argv[1])
-        j2 = str(sys.argv[2])
-        j3 = str(sys.argv[3])
-        j4 = str(sys.argv[4])
-        j5 = str(sys.argv[5])
-        j6 = str(sys.argv[6])
+    if len(sys.argv) == 8:
+        ip_address = str(sys.argv[1])
+        j1 = str(sys.argv[2])
+        j2 = str(sys.argv[3])
+        j3 = str(sys.argv[4])
+        j4 = str(sys.argv[5])
+        j5 = str(sys.argv[6])
+        j6 = str(sys.argv[7])
     else:
         print usage()
         sys.exit(1)
