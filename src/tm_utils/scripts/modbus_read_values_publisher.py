@@ -20,34 +20,42 @@ def modbus(address, data, units):
             a = '{:04x}'.format(rr.registers[0])
             b = '{:04x}'.format(rr.registers[1])
             c = a+b
-            print data, "%.2f" % struct.unpack('!f', c.decode('hex'))[0], units
+            return data, "%.2f" % struct.unpack('!f', c.decode('hex'))[0], units
         else:
             a = hex(rr.registers[0])[2:]
             b = '{:04x}'.format(rr.registers[1])
             c = a+b
             # print c
-            print data, "%.2f" % struct.unpack('!f', c.decode('hex'))[0], units
+            return data, "%.2f" % struct.unpack('!f', c.decode('hex'))[0], units
     else:
         a = hex(rr.registers[0])[2:]
         b = hex(rr.registers[1])[2:]
         c = a+b
         # print c
-        print data, "%.2f" % struct.unpack('!f', c.decode('hex'))[0], units
+        return data, "%.2f" % struct.unpack('!f', c.decode('hex'))[0], units
 
-def X_cbwt():
+def X_cbwot():
     pub = rospy.Publisher('X_currentBase_woTool', String, queue_size=10)
-    pub.publish(modbus(7001, "X (Cartesian coordinate w.r.t. current Base without tool):", "mm"))
+    print modbus(7001, "X (Cartesian coordinate w.r.t. current Base without tool):", "mm")
+    pub.publish(str(modbus(7001, "X (Cartesian coordinate w.r.t. current Base without tool):", "mm")))
+    rospy.sleep(1.)
+
+def Y_cbwot():
+    pub = rospy.Publisher('Y_currentBase_woTool', String, queue_size=10)
+    print modbus(7003, "Y (Cartesian coordinate w.r.t. current Base without tool):", "mm")
+    pub.publish(str(modbus(7003, "Y (Cartesian coordinate w.r.t. current Base without tool):", "mm")))
     rospy.sleep(1.)
 
 if __name__ == '__main__':
     try:
         while not rospy.is_shutdown():
-            X_cbwt()
+            X_cbwot()
+            Y_cbwot()
+
 
     except rospy.ROSInterruptException:
         pass
 
-# modbus(7003, "Y (Cartesian coordinate w.r.t. current Base without tool):", "mm")
 # modbus(7005, "Z (Cartesian coordinate w.r.t. current Base without tool):", "mm")
 # modbus(7007, "Rx (Cartesian coordinate w.r.t. current Base without tool):", "degree")
 # modbus(7009, "Ry (Cartesian coordinate w.r.t. current Base without tool):", "degree")
