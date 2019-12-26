@@ -48,17 +48,23 @@ def command():
     rcv = data.decode("utf-8")
     print (rcv)
 
-j1 = 0
-j2 = -50
-j3 = -50
-j4 = -100
-j5 = 50
-j6 = -20
-utf8len("1,PTP(JPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3,j4,j5,j6))
-getCheckSum("TMSCT,{},1,PTP(JPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
-socketconnect()
-check_server()
-command()
+def usage():
+    return "%s <j1 value> <j2> <j3> <j4> <j5> <j6>"%sys.argv[0]
 
-
-s.close()
+if __name__ == "__main__":
+    if len(sys.argv) == 7:
+        j1 = str(sys.argv[1])
+        j2 = str(sys.argv[2])
+        j2 = str(sys.argv[3])
+        j2 = str(sys.argv[4])
+        j2 = str(sys.argv[5])
+        j2 = str(sys.argv[6])
+    else:
+        print usage()
+        sys.exit(1)
+    utf8len("1,PTP(JPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3,j4,j5,j6))
+    getCheckSum("TMSCT,{},1,PTP(JPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
+    socketconnect()
+    check_server()
+    command()
+    s.close()
