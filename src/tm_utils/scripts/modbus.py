@@ -1,6 +1,6 @@
 from pymodbus.client.sync import ModbusTcpClient
 import struct
-import bitstring
+# import bitstring
 from ctypes import *
 host = '192.168.1.2'
 port = 502
@@ -48,4 +48,3 @@ modbus(7029, "Z (Cartesian coordinate w.r.t. current Base with tool):", "mm")
 modbus(7031, "Rx (Cartesian coordinate w.r.t. current Base with tool):", "degree")
 modbus(7033, "Ry (Cartesian coordinate w.r.t. current Base with tool):", "degree")
 modbus(7035, "Rz (Cartesian coordinate w.r.t. current Base with tool):", "degree")
-# modbus(7037, "X (Cartesian coordinate w.r.t. Robot Base without tool)", "mm")

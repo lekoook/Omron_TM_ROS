@@ -11,6 +11,7 @@ def socketconnect():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.settimeout(5)
     print"socket timeout:" , s.gettimeout(),"s"
+    print"connecting to tm robot......"
 
 def check_server():
     # ip_address = rospy.get_param("ip_address")
@@ -49,16 +50,16 @@ def command():
     print (rcv)
 
 def usage():
-    return "%s <j1 value> <j2> <j3> <j4> <j5> <j6>"%sys.argv[0]
+    return "please specify joint values <j1> <j2> <j3> <j4> <j5> <j6>"
 
 if __name__ == "__main__":
     if len(sys.argv) == 7:
         j1 = str(sys.argv[1])
         j2 = str(sys.argv[2])
-        j2 = str(sys.argv[3])
-        j2 = str(sys.argv[4])
-        j2 = str(sys.argv[5])
-        j2 = str(sys.argv[6])
+        j3 = str(sys.argv[3])
+        j4 = str(sys.argv[4])
+        j5 = str(sys.argv[5])
+        j6 = str(sys.argv[6])
     else:
         print usage()
         sys.exit(1)
