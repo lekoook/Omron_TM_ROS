@@ -48,7 +48,7 @@ if __name__ == '__main__':
             modbus(7001, "X (Cartesian coordinate w.r.t. current Base without tool):", "mm", "X_currentBase_woTool")
             modbus(7003, "Y (Cartesian coordinate w.r.t. current Base without tool):", "mm", "Y_currentBase_woTool")
             modbus(7005, "Z (Cartesian coordinate w.r.t. current Base without tool):", "mm", "Z_currentBase_woTool")
-
+            modbus(7007, "Rx (Cartesian coordinate w.r.t. current Base without tool):", "degree", "Rx_currentBase_woTool")
     except rospy.ROSInterruptException:
         pass
 
