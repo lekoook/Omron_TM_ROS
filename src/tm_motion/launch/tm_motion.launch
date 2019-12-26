@@ -4,7 +4,7 @@
   <!-- <group ns="robot1"> -->
   <!-- <arg name="name" />
   <group ns="$(arg name)"> -->
-    <node name="move_joint" pkg="tm_motion" type="test_move_joint.py" output="screen" />
+    <node name="move_joint" pkg="tm_motion" type="move_joint.py" output="screen" />
       <!-- <param name="ip_address" value="168.3.201.123" />
       <param name="ip_address" value="172.21.5.123" />
       <param name="port" value="7171" /> -->

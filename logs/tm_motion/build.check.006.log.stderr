@@ -1,0 +1,5 @@
+[31m[1mCMake Error[0m at /home/tthmatt/Omron-TM-ROS/src/tm_motion/CMakeLists.txt:69 (add_action_files):
+  Unknown CMake command "add_action_files".
+
+
+make: *** [cmake_check_build_system] Error 1
