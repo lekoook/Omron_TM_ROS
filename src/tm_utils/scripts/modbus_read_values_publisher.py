@@ -1,14 +1,17 @@
 #!/usr/bin/env python
 from pymodbus.client.sync import ModbusTcpClient
 import struct
+import rospy
 # import bitstring
 from ctypes import *
-host = '192.168.1.2'
-port = 502
+# host = '192.168.1.2'
+# port = 502
+ip_address = rospy.get_param("ip_address")
+port = rospy.get_param("port")
 
 client = ModbusTcpClient(host, port)
 client.connect()
-
+rospy.init_node('modbus_read_values_publisher', anonymous=True)
 def modbus(address, data, units):
     rr = client.read_input_registers(address,2,unit=2)
     # print rr.registers
@@ -31,21 +34,32 @@ def modbus(address, data, units):
         # print c
         print data, "%.2f" % struct.unpack('!f', c.decode('hex'))[0], units
 
-modbus(7001, "X (Cartesian coordinate w.r.t. current Base without tool):", "mm")
-modbus(7003, "Y (Cartesian coordinate w.r.t. current Base without tool):", "mm")
-modbus(7005, "Z (Cartesian coordinate w.r.t. current Base without tool):", "mm")
-modbus(7007, "Rx (Cartesian coordinate w.r.t. current Base without tool):", "degree")
-modbus(7009, "Ry (Cartesian coordinate w.r.t. current Base without tool):", "degree")
-modbus(7011, "Rz (Cartesian coordinate w.r.t. current Base without tool):", "degree")
-modbus(7013, "Joint 1:", "degree")
-modbus(7015, "Joint 2:", "degree")
-modbus(7017, "Joint 3:", "degree")
-modbus(7019, "Joint 4:", "degree")
-modbus(7021, "Joint 5:", "degree")
-modbus(7023, "Joint 6:", "degree")
-modbus(7025, "X (Cartesian coordinate w.r.t. current Base with tool):", "mm")
-modbus(7027, "Y (Cartesian coordinate w.r.t. current Base with tool):", "mm")
-modbus(7029, "Z (Cartesian coordinate w.r.t. current Base with tool):", "mm")
-modbus(7031, "Rx (Cartesian coordinate w.r.t. current Base with tool):", "degree")
-modbus(7033, "Ry (Cartesian coordinate w.r.t. current Base with tool):", "degree")
-modbus(7035, "Rz (Cartesian coordinate w.r.t. current Base with tool):", "degree")
+def X_cbwt():
+    pub = rospy.Publisher('X_currentBase_woTool', String, queue_size=10)
+    pub.publish(modbus(7001, "X (Cartesian coordinate w.r.t. current Base without tool):", "mm"))
+
+if __name__ == '__main__':
+    try:
+        while not rospy.is_shutdown():
+            X_cbwt()
+
+    except rospy.ROSInterruptException:
+        pass
+
+# modbus(7003, "Y (Cartesian coordinate w.r.t. current Base without tool):", "mm")
+# modbus(7005, "Z (Cartesian coordinate w.r.t. current Base without tool):", "mm")
+# modbus(7007, "Rx (Cartesian coordinate w.r.t. current Base without tool):", "degree")
+# modbus(7009, "Ry (Cartesian coordinate w.r.t. current Base without tool):", "degree")
+# modbus(7011, "Rz (Cartesian coordinate w.r.t. current Base without tool):", "degree")
+# modbus(7013, "Joint 1:", "degree")
+# modbus(7015, "Joint 2:", "degree")
+# modbus(7017, "Joint 3:", "degree")
+# modbus(7019, "Joint 4:", "degree")
+# modbus(7021, "Joint 5:", "degree")
+# modbus(7023, "Joint 6:", "degree")
+# modbus(7025, "X (Cartesian coordinate w.r.t. current Base with tool):", "mm")
+# modbus(7027, "Y (Cartesian coordinate w.r.t. current Base with tool):", "mm")
+# modbus(7029, "Z (Cartesian coordinate w.r.t. current Base with tool):", "mm")
+# modbus(7031, "Rx (Cartesian coordinate w.r.t. current Base with tool):", "degree")
+# modbus(7033, "Ry (Cartesian coordinate w.r.t. current Base with tool):", "degree")
+# modbus(7035, "Rz (Cartesian coordinate w.r.t. current Base with tool):", "degree")
