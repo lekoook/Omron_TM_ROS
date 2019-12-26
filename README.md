@@ -10,3 +10,6 @@ pip install  -U pymodbus
 ```
 roslaunch tm_utils tm_utils.launch ip:=<robot ip address>
 ```
+```
+rosrun tm_motion move_joint.py <ip address> <j1> <j2> <j3> <j4> <j5> <j6>
+```
