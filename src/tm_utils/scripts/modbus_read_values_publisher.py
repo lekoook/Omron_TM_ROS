@@ -4,7 +4,7 @@ import struct
 import rospy
 from std_msgs.msg import String
 from ctypes import *
-# host = '192.168.1.2'
+# ip_address = '192.168.1.2'
 # port = 502
 ip_address = rospy.get_param("ip_address")
 port = rospy.get_param("port")
@@ -12,7 +12,8 @@ port = rospy.get_param("port")
 client = ModbusTcpClient(ip_address, port)
 client.connect()
 rospy.init_node('modbus_read_values_publisher', anonymous=True)
-def modbus(address, data, units):
+def modbus(address, data, units, topic_name):
+    pub = rospy.Publisher(topic_name, String, queue_size=10)
     rr = client.read_input_registers(address,2,unit=2)
     # print rr.registers
     if rr.registers[1]<10000:
@@ -20,42 +21,39 @@ def modbus(address, data, units):
             a = '{:04x}'.format(rr.registers[0])
             b = '{:04x}'.format(rr.registers[1])
             c = a+b
-            return data, "%.2f" % struct.unpack('!f', c.decode('hex'))[0], units
+            value = data, "%.2f" % struct.unpack('!f', c.decode('hex'))[0], units
+            print value
+            pub.publish(str(value))
         else:
             a = hex(rr.registers[0])[2:]
             b = '{:04x}'.format(rr.registers[1])
             c = a+b
             # print c
-            return data, "%.2f" % struct.unpack('!f', c.decode('hex'))[0], units
+            value = data, "%.2f" % struct.unpack('!f', c.decode('hex'))[0], units
+            print value
+            pub.publish(str(value))
     else:
         a = hex(rr.registers[0])[2:]
         b = hex(rr.registers[1])[2:]
         c = a+b
         # print c
-        return data, "%.2f" % struct.unpack('!f', c.decode('hex'))[0], units
-
-def X_cbwot():
-    pub = rospy.Publisher('X_currentBase_woTool', String, queue_size=10)
-    print modbus(7001, "X (Cartesian coordinate w.r.t. current Base without tool):", "mm")
-    pub.publish(str(modbus(7001, "X (Cartesian coordinate w.r.t. current Base without tool):", "mm")))
-    rospy.sleep(1.)
-
-def Y_cbwot():
-    pub = rospy.Publisher('Y_currentBase_woTool', String, queue_size=10)
-    print modbus(7003, "Y (Cartesian coordinate w.r.t. current Base without tool):", "mm")
-    pub.publish(str(modbus(7003, "Y (Cartesian coordinate w.r.t. current Base without tool):", "mm")))
-    rospy.sleep(1.)
+        value = data, "%.2f" % struct.unpack('!f', c.decode('hex'))[0], units
+        print value
+        pub.publish(str(value))
+    rospy.sleep(0.1)
 
 if __name__ == '__main__':
     try:
         while not rospy.is_shutdown():
-            X_cbwot()
-            Y_cbwot()
-
+            modbus(7001, "X (Cartesian coordinate w.r.t. current Base without tool):", "mm", "X_currentBase_woTool")
+            modbus(7003, "Y (Cartesian coordinate w.r.t. current Base without tool):", "mm", "Y_currentBase_woTool")
+            modbus(7005, "Z (Cartesian coordinate w.r.t. current Base without tool):", "mm", "Z_currentBase_woTool")
 
     except rospy.ROSInterruptException:
         pass
 
+# modbus(7001, "X (Cartesian coordinate w.r.t. current Base without tool):", "mm")
+# modbus(7003, "Y (Cartesian coordinate w.r.t. current Base without tool):", "mm")
 # modbus(7005, "Z (Cartesian coordinate w.r.t. current Base without tool):", "mm")
 # modbus(7007, "Rx (Cartesian coordinate w.r.t. current Base without tool):", "degree")
 # modbus(7009, "Ry (Cartesian coordinate w.r.t. current Base without tool):", "degree")
