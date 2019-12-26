@@ -13,10 +13,12 @@ def socketconnect():
     print"socket timeout:" , s.gettimeout(),"s"
 
 def check_server():
-    TCP_IP = '192.168.1.2'
-    TCP_PORT = 5890
+    # ip_address = rospy.get_param("ip_address")
+    # port = rospy.get_param("port")
+    ip_address = '192.168.1.2'
+    port = 5890
     try:
-        s.connect((TCP_IP, TCP_PORT))
+        s.connect((ip_address, port))
         print("Connected")
 
     except socket.error:
@@ -52,8 +54,8 @@ j3 = -50
 j4 = -100
 j5 = 50
 j6 = -20
-print utf8len("1,PTP(JPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3,j4,j5,j6))
-print getCheckSum("TMSCT,{},1,PTP(JPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
+utf8len("1,PTP(JPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3,j4,j5,j6))
+getCheckSum("TMSCT,{},1,PTP(JPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
 socketconnect()
 check_server()
 command()
