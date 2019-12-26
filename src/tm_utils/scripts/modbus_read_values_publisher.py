@@ -2,14 +2,14 @@
 from pymodbus.client.sync import ModbusTcpClient
 import struct
 import rospy
-# import bitstring
+from std_msgs.msg import String
 from ctypes import *
 # host = '192.168.1.2'
 # port = 502
 ip_address = rospy.get_param("ip_address")
 port = rospy.get_param("port")
 
-client = ModbusTcpClient(host, port)
+client = ModbusTcpClient(ip_address, port)
 client.connect()
 rospy.init_node('modbus_read_values_publisher', anonymous=True)
 def modbus(address, data, units):
@@ -37,6 +37,7 @@ def modbus(address, data, units):
 def X_cbwt():
     pub = rospy.Publisher('X_currentBase_woTool', String, queue_size=10)
     pub.publish(modbus(7001, "X (Cartesian coordinate w.r.t. current Base without tool):", "mm"))
+    rospy.sleep(1.)
 
 if __name__ == '__main__':
     try:
