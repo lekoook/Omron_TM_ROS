@@ -49,6 +49,17 @@ if __name__ == '__main__':
             modbus(7003, "Y (Cartesian coordinate w.r.t. current Base without tool):", "mm", "Y_currentBase_woTool")
             modbus(7005, "Z (Cartesian coordinate w.r.t. current Base without tool):", "mm", "Z_currentBase_woTool")
             modbus(7007, "Rx (Cartesian coordinate w.r.t. current Base without tool):", "degree", "Rx_currentBase_woTool")
+            modbus(7009, "Ry (Cartesian coordinate w.r.t. current Base without tool):", "degree", "Ry_currentBase_woTool")
+            modbus(7011, "Rz (Cartesian coordinate w.r.t. current Base without tool):", "degree", "Rz_currentBase_woTool")
+            modbus(7013, "Joint 1:", "degree", "Joint1")
+            modbus(7015, "Joint 2:", "degree", "Joint2")
+            modbus(7017, "Joint 3:", "degree", "Joint3")
+            modbus(7019, "Joint 4:", "degree", "Joint4")
+            modbus(7021, "Joint 5:", "degree", "Joint5")
+            modbus(7023, "Joint 6:", "degree", "Joint6")
+
+
+
     except rospy.ROSInterruptException:
         pass
 
