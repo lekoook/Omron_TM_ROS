@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from pymodbus.client.sync import ModbusTcpClient
 import struct
 # import bitstring
