@@ -1,0 +1,3 @@
+Symlinking /home/tthmatt/Omron-TM-ROS/devel/lib/pkgconfig/tm_motion.pc
+Symlinking /home/tthmatt/Omron-TM-ROS/devel/share/tm_motion/cmake/tm_motionConfig-version.cmake
+Symlinking /home/tthmatt/Omron-TM-ROS/devel/share/tm_motion/cmake/tm_motionConfig.cmake

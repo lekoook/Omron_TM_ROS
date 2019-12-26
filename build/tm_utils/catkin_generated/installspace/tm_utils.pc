@@ -1,0 +1,8 @@
+prefix=/home/tthmatt/Omron-TM-ROS/install
+
+Name: tm_utils
+Description: Description of tm_utils
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/tthmatt/Omron-TM-ROS/install/lib 
+Requires: 

@@ -1,0 +1,6 @@
+devel_space: /home/tthmatt/Omron-TM-ROS/devel
+install: false
+install_space: /home/tthmatt/Omron-TM-ROS/install
+profile: default
+source_space: /home/tthmatt/Omron-TM-ROS/src
+workspace: /home/tthmatt/Omron-TM-ROS

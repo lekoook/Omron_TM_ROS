@@ -1,0 +1,3 @@
+Symlinking /home/tthmatt/Omron-TM-ROS/devel/lib/pkgconfig/tm_utils.pc
+Symlinking /home/tthmatt/Omron-TM-ROS/devel/share/tm_utils/cmake/tm_utilsConfig.cmake
+Symlinking /home/tthmatt/Omron-TM-ROS/devel/share/tm_utils/cmake/tm_utilsConfig-version.cmake

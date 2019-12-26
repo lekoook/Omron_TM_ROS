@@ -1,0 +1,8 @@
+prefix=/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion
+
+Name: tm_motion
+Description: Description of tm_motion
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib 
+Requires: 
