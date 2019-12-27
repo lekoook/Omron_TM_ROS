@@ -6,6 +6,7 @@ from std_msgs.msg import String
 from sensor_msgs.msg import JointState
 from geometry_msgs.msg import Pose
 from ctypes import *
+import numpy as np
 # ip_address = '192.168.1.2'
 # port = 502
 ip_address = rospy.get_param("ip_address")
@@ -13,6 +14,13 @@ port = rospy.get_param("port")
 
 client = ModbusTcpClient(ip_address, port)
 client.connect()
+def euler_to_quaternion(yaw, pitch, roll):
+    global qx, qy, qz, qw
+    qx = np.sin(roll/2) * np.cos(pitch/2) * np.cos(yaw/2) - np.cos(roll/2) * np.sin(pitch/2) * np.sin(yaw/2)
+    qy = np.cos(roll/2) * np.sin(pitch/2) * np.cos(yaw/2) + np.sin(roll/2) * np.cos(pitch/2) * np.sin(yaw/2)
+    qz = np.cos(roll/2) * np.cos(pitch/2) * np.sin(yaw/2) - np.sin(roll/2) * np.sin(pitch/2) * np.cos(yaw/2)
+    qw = np.cos(roll/2) * np.cos(pitch/2) * np.cos(yaw/2) + np.sin(roll/2) * np.sin(pitch/2) * np.sin(yaw/2)
+
 def modbus(address):
     rr = client.read_input_registers(address,2,unit=2)
     # print rr.registers
@@ -43,15 +51,16 @@ def cartesian_coordinate_wrt_current_Base_without_tool():
     Rx = modbus(7007)
     Ry = modbus(7009)
     Rz = modbus(7011)
+    euler_to_quaternion(Rx, Ry, Rz)
     pub = rospy.Publisher('Cartesian_coordinate_wrt_current_Base_without_tool', Pose, queue_size=10)
     msg = Pose()
     msg.position.x = X
     msg.position.y = Y
     msg.position.z = Z
-    msg.orientation.x = Rx
-    msg.orientation.y = Ry
-    msg.orientation.z = Rz
-    msg.orientation.w = float(None)
+    msg.orientation.x = float("%.2f" %qx)
+    msg.orientation.y = float("%.2f" %qy)
+    msg.orientation.z = float("%.2f" %qz)
+    msg.orientation.w = float("%.2f" %qw)
     rospy.loginfo(msg)
     pub.publish(msg)
     rospy.sleep(0.1)
@@ -79,15 +88,9 @@ if __name__ == '__main__':
         while not rospy.is_shutdown():
             rospy.init_node('modbus_read_values_publisher', anonymous=True)
             cartesian_coordinate_wrt_current_Base_without_tool()
-            rospy.sleep(1)
+            # rospy.sleep(1)
             joint_values()
-            rospy.sleep(1)
-            # modbus(7013, "Joint 1:", "degree", "Joint1")
-            # modbus(7015, "Joint 2:", "degree", "Joint2")
-            # modbus(7017, "Joint 3:", "degree", "Joint3")
-            # modbus(7019, "Joint 4:", "degree", "Joint4")
-            # modbus(7021, "Joint 5:", "degree", "Joint5")
-            # modbus(7023, "Joint 6:", "degree", "Joint6")
+            # rospy.sleep(1)
             # modbus(7025, "X (Cartesian coordinate w.r.t. current Base with tool):", "mm", "X_currentBase_wTool")
             # modbus(7027, "Y (Cartesian coordinate w.r.t. current Base with tool):", "mm", "Y_currentBase_wTool")
             # modbus(7029, "Z (Cartesian coordinate w.r.t. current Base with tool):", "mm", "Z_currentBase_wTool")
