@@ -3,6 +3,6 @@ prefix=/home/tthmatt/Omron-TM-ROS/install
 Name: tm_motion
 Description: Description of tm_motion
 Version: 0.0.0
-Cflags: 
-Libs: -L/home/tthmatt/Omron-TM-ROS/install/lib 
-Requires: 
+Cflags: -I/home/tthmatt/Omron-TM-ROS/install/include
+Libs: -L/home/tthmatt/Omron-TM-ROS/install/lib -lld_actions
+Requires: actionlib_msgs rospy std_msgs message_runtime
