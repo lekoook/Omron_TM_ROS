@@ -82,6 +82,27 @@ def joint_values():
     pub.publish(msg)
     rospy.sleep(0.1)
 
+def cartesian_coordinate_wrt_current_Base_with_tool():
+    X = modbus(7025)
+    Y = modbus(7027)
+    Z = modbus(7029)
+    Rx = modbus(7031)
+    Ry = modbus(7033)
+    Rz = modbus(7035)
+    euler_to_quaternion(Rx, Ry, Rz)
+    pub = rospy.Publisher('Cartesian_coordinate_wrt_current_Base_with_tool', Pose, queue_size=10)
+    msg = Pose()
+    msg.position.x = X
+    msg.position.y = Y
+    msg.position.z = Z
+    msg.orientation.x = float("%.2f" %qx)
+    msg.orientation.y = float("%.2f" %qy)
+    msg.orientation.z = float("%.2f" %qz)
+    msg.orientation.w = float("%.2f" %qw)
+    rospy.loginfo(msg)
+    pub.publish(msg)
+    rospy.sleep(0.1)
+
 
 if __name__ == '__main__':
     try:
@@ -91,12 +112,8 @@ if __name__ == '__main__':
             # rospy.sleep(1)
             joint_values()
             # rospy.sleep(1)
-            # modbus(7025, "X (Cartesian coordinate w.r.t. current Base with tool):", "mm", "X_currentBase_wTool")
-            # modbus(7027, "Y (Cartesian coordinate w.r.t. current Base with tool):", "mm", "Y_currentBase_wTool")
-            # modbus(7029, "Z (Cartesian coordinate w.r.t. current Base with tool):", "mm", "Z_currentBase_wTool")
-            # modbus(7031, "Rx (Cartesian coordinate w.r.t. current Base with tool):", "degree", "Rx_currentBase_wTool")
-            # modbus(7033, "Ry (Cartesian coordinate w.r.t. current Base with tool):", "degree", "Ry_currentBase_wTool")
-            # modbus(7035, "Rz (Cartesian coordinate w.r.t. current Base with tool):", "degree", "Rz_currentBase_wTool")
+            cartesian_coordinate_wrt_current_Base_with_tool():
+            #rospy.sleep(1)
     except rospy.ROSInterruptException:
         pass
 
