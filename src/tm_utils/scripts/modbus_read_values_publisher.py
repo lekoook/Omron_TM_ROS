@@ -51,7 +51,7 @@ def cartesian_coordinate_wrt_current_Base_without_tool():
     msg.orientation.x = Rx
     msg.orientation.y = Ry
     msg.orientation.z = Rz
-    # msg.orientation.w = None
+    msg.orientation.w = float(None)
     rospy.loginfo(msg)
     pub.publish(msg)
     rospy.sleep(0.1)
