@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 import rospy
 import actionlib
+import sys
 from tm_motion.msg import ActionAction, ActionGoal
 
 def feedback_cb(msg):
@@ -13,7 +14,12 @@ def call_server():
     client.wait_for_server()
 
     goal = ActionGoal()
-    goal.goal_goal = j1, j2, j3, j4, j5, j6
+    goal.goal_goal1 = j1
+    goal.goal_goal2 = j2
+    goal.goal_goal3 = j3
+    goal.goal_goal4 = j4
+    goal.goal_goal5 = j5
+    goal.goal_goal6 = j6
 
     client.send_goal(goal, feedback_cb=feedback_cb)
 
@@ -22,6 +28,9 @@ def call_server():
     result = client.get_result()
 
     return result
+
+def usage():
+    return "please specify joint values and ip address <j1> <j2> <j3> <j4> <j5> <j6>"
 
 if __name__ == '__main__':
     if len(sys.argv) == 7:

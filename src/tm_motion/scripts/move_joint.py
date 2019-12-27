@@ -11,9 +11,22 @@ from std_msgs.msg import String
 from tm_motion.msg import ActionAction, ActionFeedback, ActionResult
 
 class ActionServer():
-    action_command = None
-    def move_joint(self,result,feedback):
 
+    def __init__(self):
+        self.a_server = actionlib.SimpleActionServer(
+            "move_joint", ActionAction, execute_cb=self.execute_cb, auto_start=False)
+        self.a_server.start()
+
+    def execute_cb(self, goal):
+        success = True
+        feedback = ActionFeedback()
+        result = ActionResult()
+        j1 = goal.goal_goal1
+        j2 = goal.goal_goal2
+        j3 = goal.goal_goal3
+        j4 = goal.goal_goal4
+        j5 = goal.goal_goal5
+        j6 = goal.goal_goal6
         def socketconnect():
             global s
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -68,25 +81,8 @@ class ActionServer():
         command()
         s.close()
 
-def usage():
-    return "please specify joint values and ip address <ip_address> <j1> <j2> <j3> <j4> <j5> <j6>"
-
-def __init__(self, action_name):
-        self.action_command = action_name
-        self.a_server = actionlib.SimpleActionServer(
-            action_name, ActionAction, execute_cb=self.execute_cb, auto_start=False)
-        self.a_server.start()
-
-def execute_cb(self, goal):
-        success = True
-        feedback = ActionFeedback()
-        result = ActionResult()
-        joint_values = goal.goal_goal
-
-        if self.action_command == "move_joint":
-            self.move_joint(result, feedback)
 
 if __name__ == "__main__":
     rospy.init_node("move_joint_action_server")
-    s = ActionServer("move_joint")
+    s = ActionServer()
     rospy.spin()

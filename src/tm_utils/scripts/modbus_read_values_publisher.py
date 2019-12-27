@@ -112,7 +112,7 @@ if __name__ == '__main__':
             # rospy.sleep(1)
             joint_values()
             # rospy.sleep(1)
-            cartesian_coordinate_wrt_current_Base_with_tool():
+            cartesian_coordinate_wrt_current_Base_with_tool()
             #rospy.sleep(1)
     except rospy.ROSInterruptException:
         pass
