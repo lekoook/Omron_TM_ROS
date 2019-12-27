@@ -4,6 +4,7 @@ import struct
 import rospy
 from std_msgs.msg import String
 from sensor_msgs.msg import JointState
+from geometry_msgs.msg import Pose
 from ctypes import *
 # ip_address = '192.168.1.2'
 # port = 502
@@ -42,13 +43,15 @@ def cartesian_coordinate_wrt_current_Base_without_tool():
     Rx = modbus(7007)
     Ry = modbus(7009)
     Rz = modbus(7011)
-    pub = rospy.Publisher('Cartesian_coordinate_wrt_current_Base_without_tool', JointState, queue_size=10)
-    msg = JointState()
-    # msg.header = str("Cartesian_coordinate_wrt_current_Base_without_tool")
-    msg.header.stamp = rospy.Time.now() # Note you need to call rospy.init_node() before this will work
-    msg.name = ['X', 'Y', 'Z', 'Rx', 'Ry', 'Rz']
-    msg.position = [X, Y, Z, Rx, Ry, Rz]
-    msg.effort = []
+    pub = rospy.Publisher('Cartesian_coordinate_wrt_current_Base_without_tool', Pose, queue_size=10)
+    msg = Pose()
+    msg.position.x = X
+    msg.position.y = Y
+    msg.position.z = Z
+    msg.orientation.x = Rx
+    msg.orientation.y = Ry
+    msg.orientation.z = Rz
+    # msg.orientation.w = None
     rospy.loginfo(msg)
     pub.publish(msg)
     rospy.sleep(0.1)
@@ -62,7 +65,7 @@ def joint_values():
     j6 = modbus(7023)
     pub = rospy.Publisher('joint_state', JointState, queue_size=10)
     msg = JointState()
-    msg.header.stamp = rospy.Time.now() # Note you need to call rospy.init_node() before this will work
+    msg.header.stamp = rospy.Time.now()
     msg.name = ['joint 1(in degrees)', 'joint 2', 'joint 3', 'joint 4', 'joint 5', 'joint 6']
     msg.position = [j1, j2, j3, j4, j5, j6]
     msg.effort = []
@@ -76,7 +79,9 @@ if __name__ == '__main__':
         while not rospy.is_shutdown():
             rospy.init_node('modbus_read_values_publisher', anonymous=True)
             cartesian_coordinate_wrt_current_Base_without_tool()
+            rospy.sleep(1)
             joint_values()
+            rospy.sleep(1)
             # modbus(7013, "Joint 1:", "degree", "Joint1")
             # modbus(7015, "Joint 2:", "degree", "Joint2")
             # modbus(7017, "Joint 3:", "degree", "Joint3")
