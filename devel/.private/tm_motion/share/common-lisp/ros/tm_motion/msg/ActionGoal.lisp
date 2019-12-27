@@ -7,7 +7,17 @@
 ;//! \htmlinclude ActionGoal.msg.html
 
 (cl:defclass <ActionGoal> (roslisp-msg-protocol:ros-message)
-  ((goal_goal1
+  ((goal_function
+    :reader goal_function
+    :initarg :goal_function
+    :type cl:string
+    :initform "")
+   (goal_param
+    :reader goal_param
+    :initarg :goal_param
+    :type cl:string
+    :initform "")
+   (goal_goal1
     :reader goal_goal1
     :initarg :goal_goal1
     :type cl:string
@@ -47,6 +57,16 @@
   (cl:unless (cl:typep m 'ActionGoal)
     (roslisp-msg-protocol:msg-deprecation-warning "using old message class name tm_motion-msg:<ActionGoal> is deprecated: use tm_motion-msg:ActionGoal instead.")))
 
+(cl:ensure-generic-function 'goal_function-val :lambda-list '(m))
+(cl:defmethod goal_function-val ((m <ActionGoal>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader tm_motion-msg:goal_function-val is deprecated.  Use tm_motion-msg:goal_function instead.")
+  (goal_function m))
+
+(cl:ensure-generic-function 'goal_param-val :lambda-list '(m))
+(cl:defmethod goal_param-val ((m <ActionGoal>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader tm_motion-msg:goal_param-val is deprecated.  Use tm_motion-msg:goal_param instead.")
+  (goal_param m))
+
 (cl:ensure-generic-function 'goal_goal1-val :lambda-list '(m))
 (cl:defmethod goal_goal1-val ((m <ActionGoal>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader tm_motion-msg:goal_goal1-val is deprecated.  Use tm_motion-msg:goal_goal1 instead.")
@@ -78,6 +98,18 @@
   (goal_goal6 m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <ActionGoal>) ostream)
   "Serializes a message object of type '<ActionGoal>"
+  (cl:let ((__ros_str_len (cl:length (cl:slot-value msg 'goal_function))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_str_len) ostream))
+  (cl:map cl:nil #'(cl:lambda (c) (cl:write-byte (cl:char-code c) ostream)) (cl:slot-value msg 'goal_function))
+  (cl:let ((__ros_str_len (cl:length (cl:slot-value msg 'goal_param))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_str_len) ostream))
+  (cl:map cl:nil #'(cl:lambda (c) (cl:write-byte (cl:char-code c) ostream)) (cl:slot-value msg 'goal_param))
   (cl:let ((__ros_str_len (cl:length (cl:slot-value msg 'goal_goal1))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_str_len) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_str_len) ostream)
@@ -117,6 +149,22 @@
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <ActionGoal>) istream)
   "Deserializes a message object of type '<ActionGoal>"
+    (cl:let ((__ros_str_len 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'goal_function) (cl:make-string __ros_str_len))
+      (cl:dotimes (__ros_str_idx __ros_str_len msg)
+        (cl:setf (cl:char (cl:slot-value msg 'goal_function) __ros_str_idx) (cl:code-char (cl:read-byte istream)))))
+    (cl:let ((__ros_str_len 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'goal_param) (cl:make-string __ros_str_len))
+      (cl:dotimes (__ros_str_idx __ros_str_len msg)
+        (cl:setf (cl:char (cl:slot-value msg 'goal_param) __ros_str_idx) (cl:code-char (cl:read-byte istream)))))
     (cl:let ((__ros_str_len 0))
       (cl:setf (cl:ldb (cl:byte 8 0) __ros_str_len) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) __ros_str_len) (cl:read-byte istream))
@@ -175,18 +223,20 @@
   "tm_motion/ActionGoal")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<ActionGoal>)))
   "Returns md5sum for a message object of type '<ActionGoal>"
-  "d026b0c3503b37f6876f367f2288888a")
+  "bdea93a608d7ca728e6127b539a20557")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'ActionGoal)))
   "Returns md5sum for a message object of type 'ActionGoal"
-  "d026b0c3503b37f6876f367f2288888a")
+  "bdea93a608d7ca728e6127b539a20557")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<ActionGoal>)))
   "Returns full string definition for message of type '<ActionGoal>"
-  (cl:format cl:nil "# ====== DO NOT MODIFY! AUTOGENERATED FROM AN ACTION DEFINITION ======~%# Goal~%string goal_goal1~%string goal_goal2~%string goal_goal3~%string goal_goal4~%string goal_goal5~%string goal_goal6~%~%~%~%"))
+  (cl:format cl:nil "# ====== DO NOT MODIFY! AUTOGENERATED FROM AN ACTION DEFINITION ======~%# Goal~%string goal_function~%string goal_param~%string goal_goal1~%string goal_goal2~%string goal_goal3~%string goal_goal4~%string goal_goal5~%string goal_goal6~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'ActionGoal)))
   "Returns full string definition for message of type 'ActionGoal"
-  (cl:format cl:nil "# ====== DO NOT MODIFY! AUTOGENERATED FROM AN ACTION DEFINITION ======~%# Goal~%string goal_goal1~%string goal_goal2~%string goal_goal3~%string goal_goal4~%string goal_goal5~%string goal_goal6~%~%~%~%"))
+  (cl:format cl:nil "# ====== DO NOT MODIFY! AUTOGENERATED FROM AN ACTION DEFINITION ======~%# Goal~%string goal_function~%string goal_param~%string goal_goal1~%string goal_goal2~%string goal_goal3~%string goal_goal4~%string goal_goal5~%string goal_goal6~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <ActionGoal>))
   (cl:+ 0
+     4 (cl:length (cl:slot-value msg 'goal_function))
+     4 (cl:length (cl:slot-value msg 'goal_param))
      4 (cl:length (cl:slot-value msg 'goal_goal1))
      4 (cl:length (cl:slot-value msg 'goal_goal2))
      4 (cl:length (cl:slot-value msg 'goal_goal3))
@@ -197,6 +247,8 @@
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <ActionGoal>))
   "Converts a ROS message object to a list"
   (cl:list 'ActionGoal
+    (cl:cons ':goal_function (goal_function msg))
+    (cl:cons ':goal_param (goal_param msg))
     (cl:cons ':goal_goal1 (goal_goal1 msg))
     (cl:cons ':goal_goal2 (goal_goal2 msg))
     (cl:cons ':goal_goal3 (goal_goal3 msg))

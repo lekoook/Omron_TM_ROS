@@ -21,6 +21,8 @@ class ActionServer():
         success = True
         feedback = ActionFeedback()
         result = ActionResult()
+        function = goal.goal_function
+        param = goal.goal_param
         j1 = goal.goal_goal1
         j2 = goal.goal_goal2
         j3 = goal.goal_goal3
@@ -63,7 +65,7 @@ class ActionServer():
         # length = "37"
         def command():
             BUFFER_SIZE = 1024
-            command =  "$TMSCT,{},1,PTP(JPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3,j4,j5,j6,cs)
+            command =  "$TMSCT,{},1,{}({},{},{},{},{},{},{},50,200,0,false),*{}".format(length,function,param,j1,j2,j3,j4,j5,j6,cs)
             print "Running Command:", command
             command = command.encode('ascii')
             s.send(command+b"\r\n")
@@ -74,8 +76,8 @@ class ActionServer():
             self.a_server.set_succeeded(result)
             return(0)
 
-        utf8len("1,PTP(JPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3,j4,j5,j6))
-        getCheckSum("TMSCT,{},1,PTP(JPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
+        utf8len("1,{}({},{},{},{},{},{},{},50,200,0,false)".format(function,param,j1,j2,j3,j4,j5,j6))
+        getCheckSum("TMSCT,{},1,{}({},{},{},{},{},{},{},50,200,0,false),".format(length,function,param,j1,j2,j3,j4,j5,j6))
         socketconnect()
         check_server()
         command()

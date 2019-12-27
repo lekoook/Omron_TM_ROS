@@ -1,4 +1,6 @@
 # Goal
+string goal_function
+string goal_param
 string goal_goal1
 string goal_goal2
 string goal_goal3

@@ -1,5 +1,9 @@
 (cl:in-package tm_motion-msg)
-(cl:export '(GOAL_GOAL1-VAL
+(cl:export '(GOAL_FUNCTION-VAL
+          GOAL_FUNCTION
+          GOAL_PARAM-VAL
+          GOAL_PARAM
+          GOAL_GOAL1-VAL
           GOAL_GOAL1
           GOAL_GOAL2-VAL
           GOAL_GOAL2

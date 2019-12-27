@@ -17,6 +17,15 @@
 [36m--[0m Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
 [36m--[0m Generating .msg files for action tm_motion/Action /home/tthmatt/Omron-TM-ROS/src/tm_motion/action/Action.action
 Generating for action Action
+[36m--[0m tm_motion: 7 messages, 0 services
+[33m[1mCMake Warning[0m at /opt/ros/melodic/share/catkin/cmake/catkin_package.cmake:166 (message):
+  catkin_package() DEPENDS on 'system_lib' but neither
+  'system_lib_INCLUDE_DIRS' nor 'system_lib_LIBRARIES' is defined.
+[36mCall Stack (most recent call first):[0m
+  /opt/ros/melodic/share/catkin/cmake/catkin_package.cmake:102 (_catkin_package)
+  CMakeLists.txt:109 (catkin_package)
+
+
 [36m--[0m Configuring done
 [36m--[0m Generating done
 [36m--[0m Build files have been written to: /home/tthmatt/Omron-TM-ROS/build/tm_motion
