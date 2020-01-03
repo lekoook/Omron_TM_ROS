@@ -32,7 +32,7 @@ def call_server():
     return result
 
 def usage():
-    return "please specify joint values and ip address <j1> <j2> <j3> <j4> <j5> <j6>"
+    return "please specify function, parameters and joint values <function> <parameters> <j1> <j2> <j3> <j4> <j5> <j6>"
 
 if __name__ == '__main__':
     if len(sys.argv) == 9:
