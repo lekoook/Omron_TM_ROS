@@ -6,14 +6,7 @@ port = 502
 
 client = ModbusTcpClient(host, port)
 client.connect()
-#
-# address = 7701
-# reg = client.read_input_registers(address,98,unit=1)
-# print(reg.registers)
 
-# First digital input address
-address = 7701
-# Written value
 
-# It will send '11111111' to the output
-client.write_registers(7701, 1161011151161169248)
+reg = client.read_holding_registers(7701 , 2, unit=2)
+print(reg.registers)
