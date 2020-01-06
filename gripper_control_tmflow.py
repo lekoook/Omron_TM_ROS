@@ -7,7 +7,10 @@ port = 502
 
 client = ModbusTcpClient(host, port)
 client.connect()
-
+# address 0000 is Digital Output 0
+# address 0001 is Digital Output 1
+status = client.write_coil(0002, True, unit=1)
+print(status)
 i = 1
 while i == 1:
 

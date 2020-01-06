@@ -9,6 +9,15 @@ import rospy
 import actionlib
 from std_msgs.msg import String
 from tm_motion.msg import ActionAction, ActionFeedback, ActionResult
+from pymodbus.client.sync import ModbusTcpClient
+import struct
+import time
+from ctypes import *
+host = '192.168.1.2'
+po = 502
+
+client = ModbusTcpClient(host, po)
+client.connect()
 
 class ActionServer():
 
@@ -64,6 +73,9 @@ class ActionServer():
         # cs = "09"
         # length = "37"
         def command():
+            status = client.write_coil(0003, True, unit=1)
+            print(status)
+            time.sleep(1)
             BUFFER_SIZE = 1024
             command =  "$TMSCT,{},1,{}({},{},{},{},{},{},{},50,200,0,false),*{}".format(length,function,param,j1,j2,j3,j4,j5,j6,cs)
             print "Running Command:", command
@@ -73,8 +85,43 @@ class ActionServer():
             rcv = data.decode("utf-8")
             result.status = rcv
             print (rcv)
+
+            time.sleep(20)
+            #stop program
+            status = client.write_coil(7105, True, unit=1)
+            print(status)
+            time.sleep(1)
+            #start program
+            status = client.write_coil(7104, True, unit=1)
+            print(status)
+            time.sleep(5)
+
+            #gripper
+            status = client.write_coil(0003, False, unit=1)
+            print(status)
+            status = client.write_coil(0002, True, unit=1)
+            print(status)
+            time.sleep(1)
+            status = client.write_coil(0000, True, unit=1)
+            time.sleep(1)
+            status = client.write_coil(0000, False, unit=1)
+            # status = client.write_coil(0001, True, unit=1)
+            # time.sleep(1)
+            # status = client.write_coil(0001, False, unit=1)
+            # print(status)
+            #stop program
+            status = client.write_coil(7105, True, unit=1)
+            print(status)
+            time.sleep(1)
+            #start program
+            status = client.write_coil(7104, True, unit=1)
+            print(status)
+            time.sleep(5)
+            print "COMPLETED"
             self.a_server.set_succeeded(result)
             return(0)
+
+
 
         utf8len("1,{}({},{},{},{},{},{},{},50,200,0,false)".format(function,param,j1,j2,j3,j4,j5,j6))
         getCheckSum("TMSCT,{},1,{}({},{},{},{},{},{},{},50,200,0,false),".format(length,function,param,j1,j2,j3,j4,j5,j6))
