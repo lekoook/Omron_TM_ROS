@@ -79,7 +79,7 @@ class ActionServer():
             time.sleep(1)
             BUFFER_SIZE = 1024
             # command =  "$TMSCT,{},1,{}({},{},{},{},{},{},{},50,200,0,false),*{}".format(length,function,param,j1,j2,j3,j4,j5,j6,cs)
-            command = "$TMSCT,66,1,PTP(CPP,596.30,551.41,329.92,177.24,-0.58,168.35,50,200,0,false),*20"
+            command = "$TMSCT,66,1,PTP(CPP,573.78,525.17,546.92,-179.31,1.27,163.44,50,200,0,false),*26"
             print "Running Command:", command
             command = command.encode('ascii')
             s.send(command+b"\r\n")
@@ -90,7 +90,7 @@ class ActionServer():
             time.sleep(10)
             status = client.write_coil(0001, True, unit=1)
             time.sleep(1)
-            command =  "$TMSCT,{},1,{}({},{},{},{},{},{},{},50,200,0,false),*{}".format(length,function,param,j1,j2,j3,j4,j5,j6,cs)
+            command = "$TMSCT,66,1,PTP(CPP,596.30,551.41,329.92,177.24,-0.58,168.35,50,200,0,false),*20"
             print "Running Command:", command
             command = command.encode('ascii')
             s.send(command+b"\r\n")
@@ -139,12 +139,12 @@ class ActionServer():
             command = command.encode('ascii')
             socketconnect()
             check_server()
-            command = "$TMSCT,47,1,PTP(JPP,-125,20,57,12,93,-215,50,200,0,false),*03"
+            # command = "$TMSCT,66,1,PTP(CPP,596.30,551.41,329.92,177.24,-0.58,168.35,50,200,0,false),*20"
             s.send(command+b"\r\n")
             time.sleep(5)
             data = s.recv(BUFFER_SIZE)
             rcv = data.decode("utf-8")
-            result.status = rcv
+            result.status = "COMPLETED"
             print (rcv)
             print "COMPLETED"
             self.a_server.set_succeeded(result)
@@ -152,8 +152,8 @@ class ActionServer():
 
 
 
-        utf8len("1,{}({},{},{},{},{},{},{},50,200,0,false)".format(function,param,j1,j2,j3,j4,j5,j6))
-        getCheckSum("TMSCT,{},1,{}({},{},{},{},{},{},{},50,200,0,false),".format(length,function,param,j1,j2,j3,j4,j5,j6))
+        # utf8len("1,{}({},{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3,j4,j5,j6))
+        # getCheckSum("TMSCT,{},1,{}({},{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
         socketconnect()
         check_server()
         command()
