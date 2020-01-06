@@ -41,7 +41,7 @@ def getCheckSum(packet):
 # length = "37"
 def command():
     BUFFER_SIZE = 1024
-    command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3,j4,j5,j6,cs)
+    command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},100,200,0,false),*{}".format(length,j1,j2,j3,j4,j5,j6,cs)
     print "Running Command:", command
     command = command.encode('ascii')
     s.send(command+b"\r\n")
@@ -64,8 +64,8 @@ if __name__ == "__main__":
     else:
         print usage()
         sys.exit(1)
-    utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3,j4,j5,j6))
-    getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
+    utf8len("1,PTP(CPP,{},{},{},{},{},{},100,200,0,false)".format(j1,j2,j3,j4,j5,j6))
+    getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},100,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
     socketconnect()
     check_server()
     command()

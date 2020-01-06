@@ -70,13 +70,12 @@ class ActionServer():
                 checksum ^= ord(el)
             cs = '{:02x}'.format(checksum)
             return cs
-        # cs = "09"
-        # length = "37"
+
         def command():
             #go into listen node
             status = client.write_coil(0003, True, unit=1)
             print(status)
-            time.sleep(1)
+            # time.sleep(1)
             BUFFER_SIZE = 1024
             command = "$TMSCT,66,1,PTP(CPP,573.78,525.17,546.92,-179.31,1.27,163.44,50,200,0,false),*26"
             print "Running Command:", command
@@ -93,6 +92,7 @@ class ActionServer():
             print(status)
             time.sleep(2)
 
+            #open gripper
             #start program
             print "starting program"
             status = client.write_coil(7104, True, unit=1)
@@ -104,7 +104,7 @@ class ActionServer():
             time.sleep(1)
             #open gripper
             status = client.write_coil(0001, True, unit=1)
-            time.sleep(1)
+            time.sleep(0.5)
             #stop program
             print "stopping program"
             status = client.write_coil(7105, True, unit=1)
@@ -119,7 +119,7 @@ class ActionServer():
             #go into listen node
             status = client.write_coil(0003, True, unit=1)
             print(status)
-            print "entering listen node"
+            print "moving to object"
             time.sleep(1)
             socketconnect()
             check_server()
@@ -131,20 +131,21 @@ class ActionServer():
             rcv = data.decode("utf-8")
             result.status = rcv
             time.sleep(10)
-
             #stop program
             print "stopping program"
             status = client.write_coil(7105, True, unit=1)
             print(status)
             time.sleep(2)
+
+            print "GRIP FUNCTION"
             #start program
             print "starting program"
             status = client.write_coil(7104, True, unit=1)
             print(status)
             time.sleep(5)
-
             #gripper
-            print "openning griper"
+            print "griping object"
+            #go into gipper function
             status = client.write_coil(0003, False, unit=1)
             print(status)
             status = client.write_coil(0002, True, unit=1)
@@ -152,16 +153,12 @@ class ActionServer():
             time.sleep(1)
             status = client.write_coil(0000, True, unit=1)
             time.sleep(1)
-            status = client.write_coil(0000, False, unit=1)
-            # status = client.write_coil(0001, True, unit=1)
-            # time.sleep(1)
-            # status = client.write_coil(0001, False, unit=1)
-            # print(status)
             #stop program
             print "stopping program"
             status = client.write_coil(7105, True, unit=1)
             print(status)
-            time.sleep(2)
+            time.sleep(1)
+
             #start program
             status = client.write_coil(7104, True, unit=1)
             print(status)
@@ -170,29 +167,41 @@ class ActionServer():
             print "going into listen node"
             status = client.write_coil(0003, True, unit=1)
             print(status)
-            time.sleep(3)
-            command = command.encode('ascii')
+            time.sleep(1)
             socketconnect()
             check_server()
-            command = "$TMSCT,66,1,PTP(CPP,573.78,525.17,546.92,-179.31,1.27,163.44,50,200,0,false),*26"
+            print "moving to dropoff position"
+            command = "$TMSCT,67,1,PTP(CPP,-339.68,10.84,299.88,178.47,-1.18,-62.75,100,200,0,false),*13"
+            print "Running Command:", command
+            command = command.encode('ascii')
             s.send(command+b"\r\n")
-            time.sleep(10)
             data = s.recv(BUFFER_SIZE)
             rcv = data.decode("utf-8")
             print rcv
-            print "moving to orginal position"
-            command = "$TMSCT,66,1,PTP(CPP,596.30,551.41,329.92,177.24,-0.58,168.35,50,200,0,false),*20"
-            s.send(command+b"\r\n")
-            time.sleep(10)
-            data = s.recv(BUFFER_SIZE)
-            rcv = data.decode("utf-8")
-            print (rcv)
+            time.sleep(15)
+            #stop program
+            print "stopping program"
+            status = client.write_coil(7105, True, unit=1)
+            print(status)
+
+            #open gripper
+            #start program
+            print "starting program"
+            status = client.write_coil(7104, True, unit=1)
+            print(status)
+            time.sleep(5)
+            #go into gipper function
+            status = client.write_coil(0002, True, unit=1)
+            print(status)
+            time.sleep(1)
+            #open gripper
+            status = client.write_coil(0001, True, unit=1)
+            time.sleep(0.5)
             #stop program
             print "stopping program"
             status = client.write_coil(7105, True, unit=1)
             print(status)
             time.sleep(2)
-
 
             result.status = "COMPLETED"
             print "COMPLETED"
