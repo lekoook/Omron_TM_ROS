@@ -73,6 +73,7 @@ class ActionServer():
         # cs = "09"
         # length = "37"
         def command():
+            #go into listen node
             status = client.write_coil(0003, True, unit=1)
             print(status)
             time.sleep(1)
@@ -86,17 +87,18 @@ class ActionServer():
             result.status = rcv
             print (rcv)
 
-            time.sleep(20)
+            time.sleep(10)
             #stop program
             status = client.write_coil(7105, True, unit=1)
             print(status)
-            time.sleep(1)
+            time.sleep(2)
             #start program
             status = client.write_coil(7104, True, unit=1)
             print(status)
             time.sleep(5)
 
             #gripper
+            print "openning griper"
             status = client.write_coil(0003, False, unit=1)
             print(status)
             status = client.write_coil(0002, True, unit=1)
@@ -110,13 +112,37 @@ class ActionServer():
             # status = client.write_coil(0001, False, unit=1)
             # print(status)
             #stop program
+            print "stopping program"
             status = client.write_coil(7105, True, unit=1)
             print(status)
-            time.sleep(1)
+            time.sleep(2)
             #start program
             status = client.write_coil(7104, True, unit=1)
             print(status)
             time.sleep(5)
+            #go into listen node
+            print "going into listen node"
+            status = client.write_coil(0003, True, unit=1)
+            print(status)
+            time.sleep(3)
+            BUFFER_SIZE = 1024
+            command = "$TMSCT,52,1,PTP(JPP,-8,-726,477,178,1.69,-0.69,50,200,0,false),*23"
+            print "Running Command:", command
+            command = command.encode('ascii')
+            socketconnect()
+            check_server()
+            s.send(command+b"\r\n")
+            time.sleep(5)
+            data = s.recv(BUFFER_SIZE)
+            rcv = data.decode("utf-8")
+            result.status = rcv
+            print (rcv)
+            command = "$TMSCT,47,1,PTP(JPP,-125,20,57,12,93,-215,50,200,0,false),*03"
+            s.send(command+b"\r\n")
+            data = s.recv(BUFFER_SIZE)
+            rcv = data.decode("utf-8")
+            result.status = rcv
+            print (rcv)
             print "COMPLETED"
             self.a_server.set_succeeded(result)
             return(0)
