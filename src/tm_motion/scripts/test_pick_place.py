@@ -77,7 +77,8 @@ class ActionServer():
             print(status)
             # time.sleep(1)
             BUFFER_SIZE = 1024
-            command = "$TMSCT,66,1,PTP(CPP,573.78,525.17,546.92,-179.31,1.27,163.44,50,200,0,false),*26"
+            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3+200,j4,j5,j6,cs)
+            # command = "$TMSCT,66,1,PTP(CPP,573.78,525.17,546.92,-179.31,1.27,163.44,50,200,0,false),*26"
             print "Running Command:", command
             command = command.encode('ascii')
             s.send(command+b"\r\n")
@@ -123,7 +124,9 @@ class ActionServer():
             time.sleep(1)
             socketconnect()
             check_server()
-            command = "$TMSCT,66,1,PTP(CPP,596.30,551.41,329.92,177.24,-0.58,168.35,50,200,0,false),*20"
+            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3,j4,j5,j6,cs)
+
+            # command = "$TMSCT,66,1,PTP(CPP,596.30,551.41,329.92,177.24,-0.58,168.35,50,200,0,false),*20"
             print "Running Command:", command
             command = command.encode('ascii')
             s.send(command+b"\r\n")
@@ -157,7 +160,7 @@ class ActionServer():
             print "stopping program"
             status = client.write_coil(7105, True, unit=1)
             print(status)
-            time.sleep(1)
+            time.sleep(2)
 
             #start program
             status = client.write_coil(7104, True, unit=1)
@@ -167,7 +170,7 @@ class ActionServer():
             print "going into listen node"
             status = client.write_coil(0003, True, unit=1)
             print(status)
-            time.sleep(1)
+            time.sleep(3)
             socketconnect()
             check_server()
             print "moving to dropoff position"
@@ -183,6 +186,7 @@ class ActionServer():
             print "stopping program"
             status = client.write_coil(7105, True, unit=1)
             print(status)
+            time.sleep(2)
 
             #open gripper
             #start program
@@ -201,7 +205,6 @@ class ActionServer():
             print "stopping program"
             status = client.write_coil(7105, True, unit=1)
             print(status)
-            time.sleep(2)
 
             result.status = "COMPLETED"
             print "COMPLETED"
