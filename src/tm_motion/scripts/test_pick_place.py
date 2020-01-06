@@ -171,17 +171,30 @@ class ActionServer():
             status = client.write_coil(0003, True, unit=1)
             print(status)
             time.sleep(3)
-            BUFFER_SIZE = 1024
             command = command.encode('ascii')
             socketconnect()
             check_server()
             command = "$TMSCT,66,1,PTP(CPP,573.78,525.17,546.92,-179.31,1.27,163.44,50,200,0,false),*26"
             s.send(command+b"\r\n")
-            time.sleep(5)
+            time.sleep(10)
             data = s.recv(BUFFER_SIZE)
             rcv = data.decode("utf-8")
-            result.status = "COMPLETED"
+            print rcv
+            print "moving to orginal position"
+            command = "$TMSCT,66,1,PTP(CPP,596.30,551.41,329.92,177.24,-0.58,168.35,50,200,0,false),*20"
+            s.send(command+b"\r\n")
+            time.sleep(10)
+            data = s.recv(BUFFER_SIZE)
+            rcv = data.decode("utf-8")
             print (rcv)
+            #stop program
+            print "stopping program"
+            status = client.write_coil(7105, True, unit=1)
+            print(status)
+            time.sleep(2)
+
+
+            result.status = "COMPLETED"
             print "COMPLETED"
             self.a_server.set_succeeded(result)
             return(0)
