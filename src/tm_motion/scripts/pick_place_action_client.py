@@ -30,18 +30,18 @@ def call_server():
     return result
 
 def usage():
-    return "please specify cordinates <j1> <j2> <j3> <j4> <j5> <j6>"
+    return "please specify cordinates for robot to move to object <j1> <j2> <j3> <j4> <j5> <j6>"
 
 if __name__ == '__main__':
-    if len(sys.argv) == 9:
-        function = str(sys.argv[1])
-        param = str(sys.argv[2])
-        j1 = str(sys.argv[3])
-        j2 = str(sys.argv[4])
-        j3 = str(sys.argv[5])
-        j4 = str(sys.argv[6])
-        j5 = str(sys.argv[7])
-        j6 = str(sys.argv[8])
+    if len(sys.argv) == 7:
+        # function = str(sys.argv[1])
+        # param = str(sys.argv[2])
+        j1 = str(sys.argv[1])
+        j2 = str(sys.argv[2])
+        j3 = str(sys.argv[3])
+        j4 = str(sys.argv[4])
+        j5 = str(sys.argv[5])
+        j6 = str(sys.argv[6])
     else:
         print usage()
         sys.exit(1)

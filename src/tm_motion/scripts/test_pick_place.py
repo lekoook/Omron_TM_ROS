@@ -34,7 +34,7 @@ class ActionServer():
         param = goal.goal_param
         j1 = goal.goal_goal1
         j2 = goal.goal_goal2
-        j3 = goal.goal_goal3
+        j3 = int(goal.goal_goal3)
         j4 = goal.goal_goal4
         j5 = goal.goal_goal5
         j6 = goal.goal_goal6
@@ -77,6 +77,8 @@ class ActionServer():
             print(status)
             # time.sleep(1)
             BUFFER_SIZE = 1024
+            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3+200,j4,j5,j6))
+            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3+200,j4,j5,j6))
             command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3+200,j4,j5,j6,cs)
             # command = "$TMSCT,66,1,PTP(CPP,573.78,525.17,546.92,-179.31,1.27,163.44,50,200,0,false),*26"
             print "Running Command:", command
@@ -124,6 +126,8 @@ class ActionServer():
             time.sleep(1)
             socketconnect()
             check_server()
+            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3,j4,j5,j6))
+            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
             command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3,j4,j5,j6,cs)
 
             # command = "$TMSCT,66,1,PTP(CPP,596.30,551.41,329.92,177.24,-0.58,168.35,50,200,0,false),*20"
@@ -132,7 +136,7 @@ class ActionServer():
             s.send(command+b"\r\n")
             data = s.recv(BUFFER_SIZE)
             rcv = data.decode("utf-8")
-            result.status = rcv
+            print rcv
             time.sleep(10)
             #stop program
             print "stopping program"
@@ -213,8 +217,8 @@ class ActionServer():
 
 
 
-        # utf8len("1,{}({},{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3,j4,j5,j6))
-        # getCheckSum("TMSCT,{},1,{}({},{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
+        # utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3,j4,j5,j6))
+        # getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
         socketconnect()
         check_server()
         command()
