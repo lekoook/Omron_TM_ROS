@@ -34,7 +34,7 @@ class ActionServer():
         param = goal.goal_param
         j1 = goal.goal_goal1
         j2 = goal.goal_goal2
-        j3 = int(goal.goal_goal3)
+        j3 = float(goal.goal_goal3)
         j4 = goal.goal_goal4
         j5 = goal.goal_goal5
         j6 = goal.goal_goal6
@@ -167,6 +167,7 @@ class ActionServer():
             time.sleep(2)
 
             #start program
+            print "starting program"
             status = client.write_coil(7104, True, unit=1)
             print(status)
             time.sleep(5)
@@ -178,14 +179,15 @@ class ActionServer():
             socketconnect()
             check_server()
             print "moving to dropoff position"
-            command = "$TMSCT,67,1,PTP(CPP,-339.68,10.84,299.88,178.47,-1.18,-62.75,100,200,0,false),*13"
+            # command = "$TMSCT,67,1,PTP(CPP,-339.68,10.84,299.88,178.47,-1.18,-62.75,100,200,0,false),*13"
+            command = "$TMSCT,69,1,PTP(CPP,-519.88,-202.10,253.36,179.47,-0.47,-89.75,100,200,0,false),*0a"
             print "Running Command:", command
             command = command.encode('ascii')
             s.send(command+b"\r\n")
             data = s.recv(BUFFER_SIZE)
             rcv = data.decode("utf-8")
             print rcv
-            time.sleep(15)
+            time.sleep(10)
             #stop program
             print "stopping program"
             status = client.write_coil(7105, True, unit=1)
