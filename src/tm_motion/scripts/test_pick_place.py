@@ -83,9 +83,9 @@ class ActionServer():
             print(status)
             # time.sleep(1)
             BUFFER_SIZE = 1024
-            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3+200,j4,j5,j6))
-            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3+200,j4,j5,j6))
-            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3+200,j4,j5,j6,cs)
+            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3+100,j4,j5,j6))
+            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3+100,j4,j5,j6))
+            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3+100,j4,j5,j6,cs)
             # command = "$TMSCT,66,1,PTP(CPP,573.78,525.17,546.92,-179.31,1.27,163.44,50,200,0,false),*26"
             print "Running Command:", command
             command = command.encode('ascii')
@@ -185,9 +185,9 @@ class ActionServer():
             socketconnect()
             check_server()
             print "moving to dropoff on top position"
-            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1d,j2d,j3d+200,j4d,j5d,j6d))
-            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1d,j2d,j3d+200,j4d,j5d,j6d))
-            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1d,j2d,j3d+200,j4d,j5d,j6d,cs)
+            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1d,j2d,j3d+100,j4d,j5d,j6d))
+            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1d,j2d,j3d+100,j4d,j5d,j6d))
+            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1d,j2d,j3d+100,j4d,j5d,j6d,cs)
             # command = "$TMSCT,69,1,PTP(CPP,-519.88,-202.10,280,179.47,-0.47,-89.75,100,200,0,false),*0a"
             print "Running Command:", command
             command = command.encode('ascii')
@@ -208,7 +208,7 @@ class ActionServer():
             rcv = data.decode("utf-8")
             print rcv
             time.sleep(10)
-            stop program
+            #stop program
             print "stopping program"
             status = client.write_coil(7105, True, unit=1)
             print(status)
