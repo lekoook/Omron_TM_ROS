@@ -46,6 +46,36 @@
     :reader goal_goal6
     :initarg :goal_goal6
     :type cl:string
+    :initform "")
+   (goal_goal7
+    :reader goal_goal7
+    :initarg :goal_goal7
+    :type cl:string
+    :initform "")
+   (goal_goal8
+    :reader goal_goal8
+    :initarg :goal_goal8
+    :type cl:string
+    :initform "")
+   (goal_goal9
+    :reader goal_goal9
+    :initarg :goal_goal9
+    :type cl:string
+    :initform "")
+   (goal_goal10
+    :reader goal_goal10
+    :initarg :goal_goal10
+    :type cl:string
+    :initform "")
+   (goal_goal11
+    :reader goal_goal11
+    :initarg :goal_goal11
+    :type cl:string
+    :initform "")
+   (goal_goal12
+    :reader goal_goal12
+    :initarg :goal_goal12
+    :type cl:string
     :initform ""))
 )
 
@@ -96,6 +126,36 @@
 (cl:defmethod goal_goal6-val ((m <ActionGoal>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader tm_motion-msg:goal_goal6-val is deprecated.  Use tm_motion-msg:goal_goal6 instead.")
   (goal_goal6 m))
+
+(cl:ensure-generic-function 'goal_goal7-val :lambda-list '(m))
+(cl:defmethod goal_goal7-val ((m <ActionGoal>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader tm_motion-msg:goal_goal7-val is deprecated.  Use tm_motion-msg:goal_goal7 instead.")
+  (goal_goal7 m))
+
+(cl:ensure-generic-function 'goal_goal8-val :lambda-list '(m))
+(cl:defmethod goal_goal8-val ((m <ActionGoal>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader tm_motion-msg:goal_goal8-val is deprecated.  Use tm_motion-msg:goal_goal8 instead.")
+  (goal_goal8 m))
+
+(cl:ensure-generic-function 'goal_goal9-val :lambda-list '(m))
+(cl:defmethod goal_goal9-val ((m <ActionGoal>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader tm_motion-msg:goal_goal9-val is deprecated.  Use tm_motion-msg:goal_goal9 instead.")
+  (goal_goal9 m))
+
+(cl:ensure-generic-function 'goal_goal10-val :lambda-list '(m))
+(cl:defmethod goal_goal10-val ((m <ActionGoal>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader tm_motion-msg:goal_goal10-val is deprecated.  Use tm_motion-msg:goal_goal10 instead.")
+  (goal_goal10 m))
+
+(cl:ensure-generic-function 'goal_goal11-val :lambda-list '(m))
+(cl:defmethod goal_goal11-val ((m <ActionGoal>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader tm_motion-msg:goal_goal11-val is deprecated.  Use tm_motion-msg:goal_goal11 instead.")
+  (goal_goal11 m))
+
+(cl:ensure-generic-function 'goal_goal12-val :lambda-list '(m))
+(cl:defmethod goal_goal12-val ((m <ActionGoal>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader tm_motion-msg:goal_goal12-val is deprecated.  Use tm_motion-msg:goal_goal12 instead.")
+  (goal_goal12 m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <ActionGoal>) ostream)
   "Serializes a message object of type '<ActionGoal>"
   (cl:let ((__ros_str_len (cl:length (cl:slot-value msg 'goal_function))))
@@ -146,6 +206,42 @@
     (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_str_len) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_str_len) ostream))
   (cl:map cl:nil #'(cl:lambda (c) (cl:write-byte (cl:char-code c) ostream)) (cl:slot-value msg 'goal_goal6))
+  (cl:let ((__ros_str_len (cl:length (cl:slot-value msg 'goal_goal7))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_str_len) ostream))
+  (cl:map cl:nil #'(cl:lambda (c) (cl:write-byte (cl:char-code c) ostream)) (cl:slot-value msg 'goal_goal7))
+  (cl:let ((__ros_str_len (cl:length (cl:slot-value msg 'goal_goal8))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_str_len) ostream))
+  (cl:map cl:nil #'(cl:lambda (c) (cl:write-byte (cl:char-code c) ostream)) (cl:slot-value msg 'goal_goal8))
+  (cl:let ((__ros_str_len (cl:length (cl:slot-value msg 'goal_goal9))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_str_len) ostream))
+  (cl:map cl:nil #'(cl:lambda (c) (cl:write-byte (cl:char-code c) ostream)) (cl:slot-value msg 'goal_goal9))
+  (cl:let ((__ros_str_len (cl:length (cl:slot-value msg 'goal_goal10))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_str_len) ostream))
+  (cl:map cl:nil #'(cl:lambda (c) (cl:write-byte (cl:char-code c) ostream)) (cl:slot-value msg 'goal_goal10))
+  (cl:let ((__ros_str_len (cl:length (cl:slot-value msg 'goal_goal11))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_str_len) ostream))
+  (cl:map cl:nil #'(cl:lambda (c) (cl:write-byte (cl:char-code c) ostream)) (cl:slot-value msg 'goal_goal11))
+  (cl:let ((__ros_str_len (cl:length (cl:slot-value msg 'goal_goal12))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_str_len) ostream))
+  (cl:map cl:nil #'(cl:lambda (c) (cl:write-byte (cl:char-code c) ostream)) (cl:slot-value msg 'goal_goal12))
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <ActionGoal>) istream)
   "Deserializes a message object of type '<ActionGoal>"
@@ -213,6 +309,54 @@
       (cl:setf (cl:slot-value msg 'goal_goal6) (cl:make-string __ros_str_len))
       (cl:dotimes (__ros_str_idx __ros_str_len msg)
         (cl:setf (cl:char (cl:slot-value msg 'goal_goal6) __ros_str_idx) (cl:code-char (cl:read-byte istream)))))
+    (cl:let ((__ros_str_len 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'goal_goal7) (cl:make-string __ros_str_len))
+      (cl:dotimes (__ros_str_idx __ros_str_len msg)
+        (cl:setf (cl:char (cl:slot-value msg 'goal_goal7) __ros_str_idx) (cl:code-char (cl:read-byte istream)))))
+    (cl:let ((__ros_str_len 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'goal_goal8) (cl:make-string __ros_str_len))
+      (cl:dotimes (__ros_str_idx __ros_str_len msg)
+        (cl:setf (cl:char (cl:slot-value msg 'goal_goal8) __ros_str_idx) (cl:code-char (cl:read-byte istream)))))
+    (cl:let ((__ros_str_len 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'goal_goal9) (cl:make-string __ros_str_len))
+      (cl:dotimes (__ros_str_idx __ros_str_len msg)
+        (cl:setf (cl:char (cl:slot-value msg 'goal_goal9) __ros_str_idx) (cl:code-char (cl:read-byte istream)))))
+    (cl:let ((__ros_str_len 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'goal_goal10) (cl:make-string __ros_str_len))
+      (cl:dotimes (__ros_str_idx __ros_str_len msg)
+        (cl:setf (cl:char (cl:slot-value msg 'goal_goal10) __ros_str_idx) (cl:code-char (cl:read-byte istream)))))
+    (cl:let ((__ros_str_len 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'goal_goal11) (cl:make-string __ros_str_len))
+      (cl:dotimes (__ros_str_idx __ros_str_len msg)
+        (cl:setf (cl:char (cl:slot-value msg 'goal_goal11) __ros_str_idx) (cl:code-char (cl:read-byte istream)))))
+    (cl:let ((__ros_str_len 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'goal_goal12) (cl:make-string __ros_str_len))
+      (cl:dotimes (__ros_str_idx __ros_str_len msg)
+        (cl:setf (cl:char (cl:slot-value msg 'goal_goal12) __ros_str_idx) (cl:code-char (cl:read-byte istream)))))
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<ActionGoal>)))
@@ -223,16 +367,16 @@
   "tm_motion/ActionGoal")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<ActionGoal>)))
   "Returns md5sum for a message object of type '<ActionGoal>"
-  "bdea93a608d7ca728e6127b539a20557")
+  "f77355aacb91e97eb06df0dbd18cbf5e")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'ActionGoal)))
   "Returns md5sum for a message object of type 'ActionGoal"
-  "bdea93a608d7ca728e6127b539a20557")
+  "f77355aacb91e97eb06df0dbd18cbf5e")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<ActionGoal>)))
   "Returns full string definition for message of type '<ActionGoal>"
-  (cl:format cl:nil "# ====== DO NOT MODIFY! AUTOGENERATED FROM AN ACTION DEFINITION ======~%# Goal~%string goal_function~%string goal_param~%string goal_goal1~%string goal_goal2~%string goal_goal3~%string goal_goal4~%string goal_goal5~%string goal_goal6~%~%~%~%"))
+  (cl:format cl:nil "# ====== DO NOT MODIFY! AUTOGENERATED FROM AN ACTION DEFINITION ======~%# Goal~%string goal_function~%string goal_param~%string goal_goal1~%string goal_goal2~%string goal_goal3~%string goal_goal4~%string goal_goal5~%string goal_goal6~%string goal_goal7~%string goal_goal8~%string goal_goal9~%string goal_goal10~%string goal_goal11~%string goal_goal12~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'ActionGoal)))
   "Returns full string definition for message of type 'ActionGoal"
-  (cl:format cl:nil "# ====== DO NOT MODIFY! AUTOGENERATED FROM AN ACTION DEFINITION ======~%# Goal~%string goal_function~%string goal_param~%string goal_goal1~%string goal_goal2~%string goal_goal3~%string goal_goal4~%string goal_goal5~%string goal_goal6~%~%~%~%"))
+  (cl:format cl:nil "# ====== DO NOT MODIFY! AUTOGENERATED FROM AN ACTION DEFINITION ======~%# Goal~%string goal_function~%string goal_param~%string goal_goal1~%string goal_goal2~%string goal_goal3~%string goal_goal4~%string goal_goal5~%string goal_goal6~%string goal_goal7~%string goal_goal8~%string goal_goal9~%string goal_goal10~%string goal_goal11~%string goal_goal12~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <ActionGoal>))
   (cl:+ 0
      4 (cl:length (cl:slot-value msg 'goal_function))
@@ -243,6 +387,12 @@
      4 (cl:length (cl:slot-value msg 'goal_goal4))
      4 (cl:length (cl:slot-value msg 'goal_goal5))
      4 (cl:length (cl:slot-value msg 'goal_goal6))
+     4 (cl:length (cl:slot-value msg 'goal_goal7))
+     4 (cl:length (cl:slot-value msg 'goal_goal8))
+     4 (cl:length (cl:slot-value msg 'goal_goal9))
+     4 (cl:length (cl:slot-value msg 'goal_goal10))
+     4 (cl:length (cl:slot-value msg 'goal_goal11))
+     4 (cl:length (cl:slot-value msg 'goal_goal12))
 ))
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <ActionGoal>))
   "Converts a ROS message object to a list"
@@ -255,4 +405,10 @@
     (cl:cons ':goal_goal4 (goal_goal4 msg))
     (cl:cons ':goal_goal5 (goal_goal5 msg))
     (cl:cons ':goal_goal6 (goal_goal6 msg))
+    (cl:cons ':goal_goal7 (goal_goal7 msg))
+    (cl:cons ':goal_goal8 (goal_goal8 msg))
+    (cl:cons ':goal_goal9 (goal_goal9 msg))
+    (cl:cons ':goal_goal10 (goal_goal10 msg))
+    (cl:cons ':goal_goal11 (goal_goal11 msg))
+    (cl:cons ':goal_goal12 (goal_goal12 msg))
 ))

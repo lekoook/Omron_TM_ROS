@@ -31,7 +31,13 @@ struct ActionGoal_
     , goal_goal3()
     , goal_goal4()
     , goal_goal5()
-    , goal_goal6()  {
+    , goal_goal6()
+    , goal_goal7()
+    , goal_goal8()
+    , goal_goal9()
+    , goal_goal10()
+    , goal_goal11()
+    , goal_goal12()  {
     }
   ActionGoal_(const ContainerAllocator& _alloc)
     : goal_function(_alloc)
@@ -41,7 +47,13 @@ struct ActionGoal_
     , goal_goal3(_alloc)
     , goal_goal4(_alloc)
     , goal_goal5(_alloc)
-    , goal_goal6(_alloc)  {
+    , goal_goal6(_alloc)
+    , goal_goal7(_alloc)
+    , goal_goal8(_alloc)
+    , goal_goal9(_alloc)
+    , goal_goal10(_alloc)
+    , goal_goal11(_alloc)
+    , goal_goal12(_alloc)  {
   (void)_alloc;
     }
 
@@ -70,6 +82,24 @@ struct ActionGoal_
 
    typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _goal_goal6_type;
   _goal_goal6_type goal_goal6;
+
+   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _goal_goal7_type;
+  _goal_goal7_type goal_goal7;
+
+   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _goal_goal8_type;
+  _goal_goal8_type goal_goal8;
+
+   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _goal_goal9_type;
+  _goal_goal9_type goal_goal9;
+
+   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _goal_goal10_type;
+  _goal_goal10_type goal_goal10;
+
+   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _goal_goal11_type;
+  _goal_goal11_type goal_goal11;
+
+   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _goal_goal12_type;
+  _goal_goal12_type goal_goal12;
 
 
 
@@ -149,12 +179,12 @@ struct MD5Sum< ::tm_motion::ActionGoal_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "bdea93a608d7ca728e6127b539a20557";
+    return "f77355aacb91e97eb06df0dbd18cbf5e";
   }
 
   static const char* value(const ::tm_motion::ActionGoal_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xbdea93a608d7ca72ULL;
-  static const uint64_t static_value2 = 0x8e6127b539a20557ULL;
+  static const uint64_t static_value1 = 0xf77355aacb91e97eULL;
+  static const uint64_t static_value2 = 0xb06df0dbd18cbf5eULL;
 };
 
 template<class ContainerAllocator>
@@ -183,6 +213,12 @@ struct Definition< ::tm_motion::ActionGoal_<ContainerAllocator> >
 "string goal_goal4\n"
 "string goal_goal5\n"
 "string goal_goal6\n"
+"string goal_goal7\n"
+"string goal_goal8\n"
+"string goal_goal9\n"
+"string goal_goal10\n"
+"string goal_goal11\n"
+"string goal_goal12\n"
 "\n"
 ;
   }
@@ -210,6 +246,12 @@ namespace serialization
       stream.next(m.goal_goal4);
       stream.next(m.goal_goal5);
       stream.next(m.goal_goal6);
+      stream.next(m.goal_goal7);
+      stream.next(m.goal_goal8);
+      stream.next(m.goal_goal9);
+      stream.next(m.goal_goal10);
+      stream.next(m.goal_goal11);
+      stream.next(m.goal_goal12);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -244,6 +286,18 @@ struct Printer< ::tm_motion::ActionGoal_<ContainerAllocator> >
     Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.goal_goal5);
     s << indent << "goal_goal6: ";
     Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.goal_goal6);
+    s << indent << "goal_goal7: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.goal_goal7);
+    s << indent << "goal_goal8: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.goal_goal8);
+    s << indent << "goal_goal9: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.goal_goal9);
+    s << indent << "goal_goal10: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.goal_goal10);
+    s << indent << "goal_goal11: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.goal_goal11);
+    s << indent << "goal_goal12: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.goal_goal12);
   }
 };
 

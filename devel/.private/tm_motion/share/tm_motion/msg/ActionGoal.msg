@@ -8,4 +8,10 @@ string goal_goal3
 string goal_goal4
 string goal_goal5
 string goal_goal6
+string goal_goal7
+string goal_goal8
+string goal_goal9
+string goal_goal10
+string goal_goal11
+string goal_goal12
 

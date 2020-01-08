@@ -6,7 +6,7 @@ from tm_motion.msg import ActionAction, ActionGoal
 
 def feedback_cb(msg):
  print 'Feedback received:', msg
-# $TMSCT,66,1,PTP(CPP,596.30,551.41,329.92,177.24,-0.58,168.35,50,200,0,false),*20
+
 def call_server():
 
     client = actionlib.SimpleActionClient('move_joint', ActionAction)
@@ -20,6 +20,12 @@ def call_server():
     goal.goal_goal4 = j4
     goal.goal_goal5 = j5
     goal.goal_goal6 = j6
+    goal.goal_goal7 = j1d
+    goal.goal_goal8 = j2d
+    goal.goal_goal9 = j3d
+    goal.goal_goal10 = j4d
+    goal.goal_goal11 = j5d
+    goal.goal_goal12 = j6d
 
     client.send_goal(goal, feedback_cb=feedback_cb)
 
@@ -30,10 +36,10 @@ def call_server():
     return result
 
 def usage():
-    return "please specify cordinates for robot to move to object <j1> <j2> <j3> <j4> <j5> <j6>"
+    return "please specify cordinates for robot to move to object and dropoff cordinates <c1> <c2> <c3> <c4> <c5> <c6> <d1> <d2> <d3> <d4> <d5> <d6>"
 
 if __name__ == '__main__':
-    if len(sys.argv) == 7:
+    if len(sys.argv) == 13:
         # function = str(sys.argv[1])
         # param = str(sys.argv[2])
         j1 = str(sys.argv[1])
@@ -42,6 +48,12 @@ if __name__ == '__main__':
         j4 = str(sys.argv[4])
         j5 = str(sys.argv[5])
         j6 = str(sys.argv[6])
+        j1d = str(sys.argv[7])
+        j2d = str(sys.argv[8])
+        j3d = str(sys.argv[9])
+        j4d = str(sys.argv[10])
+        j5d = str(sys.argv[11])
+        j6d = str(sys.argv[12])
     else:
         print usage()
         sys.exit(1)

@@ -86,7 +86,7 @@ class ActionActionGoal {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'ca7a52cd5696fc93d9d55f9fd603ae95';
+    return '1671958fa9f75596f876ea051c2e9e5e';
   }
 
   static messageDefinition() {
@@ -139,6 +139,12 @@ class ActionActionGoal {
     string goal_goal4
     string goal_goal5
     string goal_goal6
+    string goal_goal7
+    string goal_goal8
+    string goal_goal9
+    string goal_goal10
+    string goal_goal11
+    string goal_goal12
     
     
     `;

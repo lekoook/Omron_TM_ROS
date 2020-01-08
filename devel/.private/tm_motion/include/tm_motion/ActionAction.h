@@ -127,12 +127,12 @@ struct MD5Sum< ::tm_motion::ActionAction_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "f0a1db5f1bb4c4ec7566fc243dc8d352";
+    return "6e0fe85c0d52d60fb55764f694d59748";
   }
 
   static const char* value(const ::tm_motion::ActionAction_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xf0a1db5f1bb4c4ecULL;
-  static const uint64_t static_value2 = 0x7566fc243dc8d352ULL;
+  static const uint64_t static_value1 = 0x6e0fe85c0d52d60fULL;
+  static const uint64_t static_value2 = 0xb55764f694d59748ULL;
 };
 
 template<class ContainerAllocator>
@@ -206,6 +206,12 @@ struct Definition< ::tm_motion::ActionAction_<ContainerAllocator> >
 "string goal_goal4\n"
 "string goal_goal5\n"
 "string goal_goal6\n"
+"string goal_goal7\n"
+"string goal_goal8\n"
+"string goal_goal9\n"
+"string goal_goal10\n"
+"string goal_goal11\n"
+"string goal_goal12\n"
 "\n"
 "\n"
 "================================================================================\n"

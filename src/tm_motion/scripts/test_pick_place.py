@@ -38,6 +38,12 @@ class ActionServer():
         j4 = goal.goal_goal4
         j5 = goal.goal_goal5
         j6 = goal.goal_goal6
+        j1d = goal.goal_goal7
+        j2d = goal.goal_goal8
+        j3d = float(goal.goal_goal9)
+        j4d = goal.goal_goal10
+        j5d = goal.goal_goal11
+        j6d = goal.goal_goal12
         def socketconnect():
             global s
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -178,9 +184,11 @@ class ActionServer():
             time.sleep(3)
             socketconnect()
             check_server()
-            print "moving to dropoff position"
-            # command = "$TMSCT,67,1,PTP(CPP,-339.68,10.84,299.88,178.47,-1.18,-62.75,100,200,0,false),*13"
-            command = "$TMSCT,69,1,PTP(CPP,-519.88,-202.10,253.36,179.47,-0.47,-89.75,100,200,0,false),*0a"
+            print "moving to dropoff on top position"
+            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1d,j2d,j3d+200,j4d,j5d,j6d))
+            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1d,j2d,j3d+200,j4d,j5d,j6d))
+            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1d,j2d,j3d+200,j4d,j5d,j6d,cs)
+            # command = "$TMSCT,69,1,PTP(CPP,-519.88,-202.10,280,179.47,-0.47,-89.75,100,200,0,false),*0a"
             print "Running Command:", command
             command = command.encode('ascii')
             s.send(command+b"\r\n")
@@ -188,6 +196,16 @@ class ActionServer():
             rcv = data.decode("utf-8")
             print rcv
             time.sleep(10)
+            # print "moving to dropoff position"
+            # # command = "$TMSCT,67,1,PTP(CPP,-339.68,10.84,299.88,178.47,-1.18,-62.75,100,200,0,false),*13"
+            # command = "$TMSCT,69,1,PTP(CPP,-519.88,-202.10,253.36,179.47,-0.47,-89.75,100,200,0,false),*0a"
+            # print "Running Command:", command
+            # command = command.encode('ascii')
+            # s.send(command+b"\r\n")
+            # data = s.recv(BUFFER_SIZE)
+            # rcv = data.decode("utf-8")
+            # print rcv
+            # time.sleep(10)
             #stop program
             print "stopping program"
             status = client.write_coil(7105, True, unit=1)

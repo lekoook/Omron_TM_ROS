@@ -26,6 +26,12 @@ class ActionGoal {
       this.goal_goal4 = null;
       this.goal_goal5 = null;
       this.goal_goal6 = null;
+      this.goal_goal7 = null;
+      this.goal_goal8 = null;
+      this.goal_goal9 = null;
+      this.goal_goal10 = null;
+      this.goal_goal11 = null;
+      this.goal_goal12 = null;
     }
     else {
       if (initObj.hasOwnProperty('goal_function')) {
@@ -76,6 +82,42 @@ class ActionGoal {
       else {
         this.goal_goal6 = '';
       }
+      if (initObj.hasOwnProperty('goal_goal7')) {
+        this.goal_goal7 = initObj.goal_goal7
+      }
+      else {
+        this.goal_goal7 = '';
+      }
+      if (initObj.hasOwnProperty('goal_goal8')) {
+        this.goal_goal8 = initObj.goal_goal8
+      }
+      else {
+        this.goal_goal8 = '';
+      }
+      if (initObj.hasOwnProperty('goal_goal9')) {
+        this.goal_goal9 = initObj.goal_goal9
+      }
+      else {
+        this.goal_goal9 = '';
+      }
+      if (initObj.hasOwnProperty('goal_goal10')) {
+        this.goal_goal10 = initObj.goal_goal10
+      }
+      else {
+        this.goal_goal10 = '';
+      }
+      if (initObj.hasOwnProperty('goal_goal11')) {
+        this.goal_goal11 = initObj.goal_goal11
+      }
+      else {
+        this.goal_goal11 = '';
+      }
+      if (initObj.hasOwnProperty('goal_goal12')) {
+        this.goal_goal12 = initObj.goal_goal12
+      }
+      else {
+        this.goal_goal12 = '';
+      }
     }
   }
 
@@ -97,6 +139,18 @@ class ActionGoal {
     bufferOffset = _serializer.string(obj.goal_goal5, buffer, bufferOffset);
     // Serialize message field [goal_goal6]
     bufferOffset = _serializer.string(obj.goal_goal6, buffer, bufferOffset);
+    // Serialize message field [goal_goal7]
+    bufferOffset = _serializer.string(obj.goal_goal7, buffer, bufferOffset);
+    // Serialize message field [goal_goal8]
+    bufferOffset = _serializer.string(obj.goal_goal8, buffer, bufferOffset);
+    // Serialize message field [goal_goal9]
+    bufferOffset = _serializer.string(obj.goal_goal9, buffer, bufferOffset);
+    // Serialize message field [goal_goal10]
+    bufferOffset = _serializer.string(obj.goal_goal10, buffer, bufferOffset);
+    // Serialize message field [goal_goal11]
+    bufferOffset = _serializer.string(obj.goal_goal11, buffer, bufferOffset);
+    // Serialize message field [goal_goal12]
+    bufferOffset = _serializer.string(obj.goal_goal12, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -120,6 +174,18 @@ class ActionGoal {
     data.goal_goal5 = _deserializer.string(buffer, bufferOffset);
     // Deserialize message field [goal_goal6]
     data.goal_goal6 = _deserializer.string(buffer, bufferOffset);
+    // Deserialize message field [goal_goal7]
+    data.goal_goal7 = _deserializer.string(buffer, bufferOffset);
+    // Deserialize message field [goal_goal8]
+    data.goal_goal8 = _deserializer.string(buffer, bufferOffset);
+    // Deserialize message field [goal_goal9]
+    data.goal_goal9 = _deserializer.string(buffer, bufferOffset);
+    // Deserialize message field [goal_goal10]
+    data.goal_goal10 = _deserializer.string(buffer, bufferOffset);
+    // Deserialize message field [goal_goal11]
+    data.goal_goal11 = _deserializer.string(buffer, bufferOffset);
+    // Deserialize message field [goal_goal12]
+    data.goal_goal12 = _deserializer.string(buffer, bufferOffset);
     return data;
   }
 
@@ -133,7 +199,13 @@ class ActionGoal {
     length += object.goal_goal4.length;
     length += object.goal_goal5.length;
     length += object.goal_goal6.length;
-    return length + 32;
+    length += object.goal_goal7.length;
+    length += object.goal_goal8.length;
+    length += object.goal_goal9.length;
+    length += object.goal_goal10.length;
+    length += object.goal_goal11.length;
+    length += object.goal_goal12.length;
+    return length + 56;
   }
 
   static datatype() {
@@ -143,7 +215,7 @@ class ActionGoal {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'bdea93a608d7ca728e6127b539a20557';
+    return 'f77355aacb91e97eb06df0dbd18cbf5e';
   }
 
   static messageDefinition() {
@@ -159,6 +231,12 @@ class ActionGoal {
     string goal_goal4
     string goal_goal5
     string goal_goal6
+    string goal_goal7
+    string goal_goal8
+    string goal_goal9
+    string goal_goal10
+    string goal_goal11
+    string goal_goal12
     
     
     `;
@@ -224,6 +302,48 @@ class ActionGoal {
     }
     else {
       resolved.goal_goal6 = ''
+    }
+
+    if (msg.goal_goal7 !== undefined) {
+      resolved.goal_goal7 = msg.goal_goal7;
+    }
+    else {
+      resolved.goal_goal7 = ''
+    }
+
+    if (msg.goal_goal8 !== undefined) {
+      resolved.goal_goal8 = msg.goal_goal8;
+    }
+    else {
+      resolved.goal_goal8 = ''
+    }
+
+    if (msg.goal_goal9 !== undefined) {
+      resolved.goal_goal9 = msg.goal_goal9;
+    }
+    else {
+      resolved.goal_goal9 = ''
+    }
+
+    if (msg.goal_goal10 !== undefined) {
+      resolved.goal_goal10 = msg.goal_goal10;
+    }
+    else {
+      resolved.goal_goal10 = ''
+    }
+
+    if (msg.goal_goal11 !== undefined) {
+      resolved.goal_goal11 = msg.goal_goal11;
+    }
+    else {
+      resolved.goal_goal11 = ''
+    }
+
+    if (msg.goal_goal12 !== undefined) {
+      resolved.goal_goal12 = msg.goal_goal12;
+    }
+    else {
+      resolved.goal_goal12 = ''
     }
 
     return resolved;
