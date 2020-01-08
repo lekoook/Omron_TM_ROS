@@ -19,6 +19,8 @@ po = 502
 client = ModbusTcpClient(host, po)
 client.connect()
 
+
+
 #rosrun tm_motion pick_place_action_client.py -519.95 183.59 259.46 179.46 0.76 -89.77 -519.95 -195.63 259.46 179.46 0.76 -89.77
 
 class ActionServer():
@@ -46,6 +48,11 @@ class ActionServer():
         j4d = goal.goal_goal10
         j5d = goal.goal_goal11
         j6d = goal.goal_goal12
+        #start program
+        print "starting program"
+        status = client.write_coil(7104, True, unit=1)
+        print(status)
+        time.sleep(5)
         def socketconnect():
             global s
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -111,9 +118,9 @@ class ActionServer():
             socketconnect()
             check_server()
             BUFFER_SIZE = 1024
-            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3+100,j4,j5,j6))
-            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3+100,j4,j5,j6))
-            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3+100,j4,j5,j6,cs)
+            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3+50,j4,j5,j6))
+            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3+50,j4,j5,j6))
+            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3+50,j4,j5,j6,cs)
             # command = "$TMSCT,66,1,PTP(CPP,573.78,525.17,546.92,-179.31,1.27,163.44,50,200,0,false),*26"
             print "Running Command:", command
             command = command.encode('ascii')
@@ -122,7 +129,7 @@ class ActionServer():
             rcv = data.decode("utf-8")
             result.status = rcv
             print (rcv)
-            time.sleep(10)
+            time.sleep(3)
             # #stop program
             # print "stopping program"
             # status = client.write_coil(7105, True, unit=1)
@@ -222,7 +229,7 @@ class ActionServer():
             data = s.recv(BUFFER_SIZE)
             rcv = data.decode("utf-8")
             print rcv
-            time.sleep(10)
+            time.sleep(3)
             print "moving to dropoff position"
             utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1d,j2d,j3d,j4d,j5d,j6d))
             getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1d,j2d,j3d,j4d,j5d,j6d))
