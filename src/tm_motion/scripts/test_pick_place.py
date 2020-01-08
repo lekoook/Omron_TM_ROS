@@ -196,17 +196,19 @@ class ActionServer():
             rcv = data.decode("utf-8")
             print rcv
             time.sleep(10)
-            # print "moving to dropoff position"
-            # # command = "$TMSCT,67,1,PTP(CPP,-339.68,10.84,299.88,178.47,-1.18,-62.75,100,200,0,false),*13"
+            print "moving to dropoff position"
+            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1d,j2d,j3d,j4d,j5d,j6d))
+            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1d,j2d,j3d,j4d,j5d,j6d))
+            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1d,j2d,j3d,j4d,j5d,j6d,cs)
             # command = "$TMSCT,69,1,PTP(CPP,-519.88,-202.10,253.36,179.47,-0.47,-89.75,100,200,0,false),*0a"
-            # print "Running Command:", command
-            # command = command.encode('ascii')
-            # s.send(command+b"\r\n")
-            # data = s.recv(BUFFER_SIZE)
-            # rcv = data.decode("utf-8")
-            # print rcv
-            # time.sleep(10)
-            #stop program
+            print "Running Command:", command
+            command = command.encode('ascii')
+            s.send(command+b"\r\n")
+            data = s.recv(BUFFER_SIZE)
+            rcv = data.decode("utf-8")
+            print rcv
+            time.sleep(10)
+            stop program
             print "stopping program"
             status = client.write_coil(7105, True, unit=1)
             print(status)
