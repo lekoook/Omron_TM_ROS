@@ -19,6 +19,8 @@ po = 502
 client = ModbusTcpClient(host, po)
 client.connect()
 
+#rosrun tm_motion pick_place_action_client.py -519.95 183.59 259.46 179.46 0.76 -89.77 -519.95 -195.63 259.46 179.46 0.76 -89.77
+
 class ActionServer():
 
     def __init__(self):
@@ -78,35 +80,12 @@ class ActionServer():
             return cs
 
         def command():
-            #go into listen node
-            status = client.write_coil(0003, True, unit=1)
-            print(status)
-            # time.sleep(1)
-            BUFFER_SIZE = 1024
-            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3+100,j4,j5,j6))
-            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3+100,j4,j5,j6))
-            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3+100,j4,j5,j6,cs)
-            # command = "$TMSCT,66,1,PTP(CPP,573.78,525.17,546.92,-179.31,1.27,163.44,50,200,0,false),*26"
-            print "Running Command:", command
-            command = command.encode('ascii')
-            s.send(command+b"\r\n")
-            data = s.recv(BUFFER_SIZE)
-            rcv = data.decode("utf-8")
-            result.status = rcv
-            print (rcv)
-            time.sleep(10)
-            #stop program
-            print "stopping program"
-            status = client.write_coil(7105, True, unit=1)
-            print(status)
-            time.sleep(2)
-
             #open gripper
-            #start program
-            print "starting program"
-            status = client.write_coil(7104, True, unit=1)
-            print(status)
-            time.sleep(5)
+            # #start program
+            # print "starting program"
+            # status = client.write_coil(7104, True, unit=1)
+            # print(status)
+            # time.sleep(5)
             #go into gipper function
             status = client.write_coil(0002, True, unit=1)
             print(status)
@@ -128,6 +107,55 @@ class ActionServer():
             #go into listen node
             status = client.write_coil(0003, True, unit=1)
             print(status)
+            # time.sleep(1)
+            socketconnect()
+            check_server()
+            BUFFER_SIZE = 1024
+            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3+100,j4,j5,j6))
+            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3+100,j4,j5,j6))
+            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3+100,j4,j5,j6,cs)
+            # command = "$TMSCT,66,1,PTP(CPP,573.78,525.17,546.92,-179.31,1.27,163.44,50,200,0,false),*26"
+            print "Running Command:", command
+            command = command.encode('ascii')
+            s.send(command+b"\r\n")
+            data = s.recv(BUFFER_SIZE)
+            rcv = data.decode("utf-8")
+            result.status = rcv
+            print (rcv)
+            time.sleep(10)
+            # #stop program
+            # print "stopping program"
+            # status = client.write_coil(7105, True, unit=1)
+            # print(status)
+            # time.sleep(2)
+
+            # #open gripper
+            # #start program
+            # print "starting program"
+            # status = client.write_coil(7104, True, unit=1)
+            # print(status)
+            # time.sleep(5)
+            # #go into gipper function
+            # status = client.write_coil(0002, True, unit=1)
+            # print(status)
+            # time.sleep(1)
+            # #open gripper
+            # status = client.write_coil(0001, True, unit=1)
+            # time.sleep(0.5)
+            # #stop program
+            # print "stopping program"
+            # status = client.write_coil(7105, True, unit=1)
+            # print(status)
+            # time.sleep(2)
+
+            #start program
+            # print "starting program"
+            # status = client.write_coil(7104, True, unit=1)
+            # print(status)
+            # time.sleep(5)
+            # #go into listen node
+            # status = client.write_coil(0003, True, unit=1)
+            # print(status)
             print "moving to object"
             time.sleep(1)
             socketconnect()
@@ -135,7 +163,6 @@ class ActionServer():
             utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3,j4,j5,j6))
             getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
             command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3,j4,j5,j6,cs)
-
             # command = "$TMSCT,66,1,PTP(CPP,596.30,551.41,329.92,177.24,-0.58,168.35,50,200,0,false),*20"
             print "Running Command:", command
             command = command.encode('ascii')
@@ -185,9 +212,9 @@ class ActionServer():
             socketconnect()
             check_server()
             print "moving to dropoff on top position"
-            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1d,j2d,j3d+100,j4d,j5d,j6d))
-            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1d,j2d,j3d+100,j4d,j5d,j6d))
-            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1d,j2d,j3d+100,j4d,j5d,j6d,cs)
+            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1d,j2d,j3d+50,j4d,j5d,j6d))
+            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1d,j2d,j3d+50,j4d,j5d,j6d))
+            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1d,j2d,j3d+50,j4d,j5d,j6d,cs)
             # command = "$TMSCT,69,1,PTP(CPP,-519.88,-202.10,280,179.47,-0.47,-89.75,100,200,0,false),*0a"
             print "Running Command:", command
             command = command.encode('ascii')
@@ -225,6 +252,7 @@ class ActionServer():
             print(status)
             time.sleep(1)
             #open gripper
+            print "opening gripper"
             status = client.write_coil(0001, True, unit=1)
             time.sleep(0.5)
             #stop program
