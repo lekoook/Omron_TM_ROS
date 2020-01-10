@@ -104,6 +104,18 @@ class ActionServer():
             time.sleep(3)
             socketconnect()
             check_server()
+            print "moving to dropoff on top position"
+            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3+50,j4,j5,j6))
+            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3+50,j4,j5,j6))
+            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3+50,j4,j5,j6,cs)
+            # command = "$TMSCT,69,1,PTP(CPP,-519.88,-202.10,280,179.47,-0.47,-89.75,100,200,0,false),*0a"
+            print "Running Command:", command
+            command = command.encode('ascii')
+            s.send(command+b"\r\n")
+            data = s.recv(BUFFER_SIZE)
+            rcv = data.decode("utf-8")
+            print rcv
+            time.sleep(3)
             print "moving to dropoff position"
             # command = "$TMSCT,66,1,PTP(CPP,596.30,551.41,329.92,177.24,-0.58,168.35,50,200,0,false),*20"
             utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3,j4,j5,j6))
