@@ -34,7 +34,7 @@ class ActionServer():
         param = goal.goal_param
         j1 = goal.goal_goal1
         j2 = goal.goal_goal2
-        j3 = goal.goal_goal3
+        j3 = float(goal.goal_goal3)
         j4 = goal.goal_goal4
         j5 = goal.goal_goal5
         j6 = goal.goal_goal6
