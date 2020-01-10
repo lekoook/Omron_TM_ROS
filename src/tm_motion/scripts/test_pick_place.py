@@ -19,10 +19,6 @@ po = 502
 client = ModbusTcpClient(host, po)
 client.connect()
 
-
-
-#rosrun tm_motion pick_place_action_client.py -519.95 183.59 259.46 179.46 0.76 -89.77 -519.95 -195.63 259.46 179.46 0.76 -89.77
-
 class ActionServer():
 
     def __init__(self):
