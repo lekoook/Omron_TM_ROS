@@ -81,75 +81,74 @@ class ActionServer():
             print "entering vision program"
             status = client.write_coil(0004, True, unit=1)
             print(status)
-            time.sleep(20)
-            print "griping object"
-            status = client.write_coil(0000, True, unit=1)
-            time.sleep(2)
-
-            #stop program
-            print "stopping program"
-            status = client.write_coil(7105, True, unit=1)
-            print(status)
-            time.sleep(2)
-
-            #start program
-            print "starting program"
-            status = client.write_coil(7104, True, unit=1)
-            print(status)
-            time.sleep(5)
-            #go into listen node
-            print "going into listen node"
-            status = client.write_coil(0003, True, unit=1)
-            print(status)
-            time.sleep(3)
-            socketconnect()
-            check_server()
-            print "moving to dropoff on top position"
-            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3+50,j4,j5,j6))
-            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3+50,j4,j5,j6))
-            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3+50,j4,j5,j6,cs)
-            # command = "$TMSCT,69,1,PTP(CPP,-519.88,-202.10,280,179.47,-0.47,-89.75,100,200,0,false),*0a"
-            print "Running Command:", command
-            command = command.encode('ascii')
-            s.send(command+b"\r\n")
-            data = s.recv(BUFFER_SIZE)
-            rcv = data.decode("utf-8")
-            print rcv
-            time.sleep(3)
-            print "moving to dropoff position"
-            # command = "$TMSCT,66,1,PTP(CPP,596.30,551.41,329.92,177.24,-0.58,168.35,50,200,0,false),*20"
-            utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3,j4,j5,j6))
-            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
-            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3,j4,j5,j6,cs)
-            s.send(command+b"\r\n")
-            BUFFER_SIZE = 1024
-            data = s.recv(BUFFER_SIZE)
-            rcv = data.decode("utf-8")
-            print (rcv)
-            time.sleep(10)
-            #stop program
-            print "stopping program"
-            status = client.write_coil(7105, True, unit=1)
-            print(status)
-            time.sleep(2)
-
-            #start program
-            print "starting program"
-            status = client.write_coil(7104, True, unit=1)
-            print(status)
-            time.sleep(5)
-            #go into gipper function
-            status = client.write_coil(0002, True, unit=1)
-            print(status)
-            time.sleep(1)
-            #open gripper
-            print "opening gripper"
-            status = client.write_coil(0001, True, unit=1)
-            time.sleep(0.5)
-            #stop program
-            print "stopping program"
-            status = client.write_coil(7105, True, unit=1)
-            print(status)
+            # time.sleep(20)
+            # print "griping object"
+            # status = client.write_coil(0000, True, unit=1)
+            # time.sleep(2)
+            #
+            # #stop program
+            # print "stopping program"
+            # status = client.write_coil(7105, True, unit=1)
+            # print(status)
+            # time.sleep(2)
+            #
+            # #start program
+            # print "starting program"
+            # status = client.write_coil(7104, True, unit=1)
+            # print(status)
+            # time.sleep(5)
+            # #go into listen node
+            # print "going into listen node"
+            # status = client.write_coil(0003, True, unit=1)
+            # print(status)
+            # time.sleep(3)
+            # socketconnect()
+            # check_server()
+            # print "moving to dropoff on top position"
+            # utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3+50,j4,j5,j6))
+            # getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3+50,j4,j5,j6))
+            # command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3+50,j4,j5,j6,cs)
+            # print "Running Command:", command
+            # command = command.encode('ascii')
+            # s.send(command+b"\r\n")
+            # BUFFER_SIZE = 1024
+            # data = s.recv(BUFFER_SIZE)
+            # rcv = data.decode("utf-8")
+            # print rcv
+            # time.sleep(3)
+            # print "moving to dropoff position"
+            # utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3,j4,j5,j6))
+            # getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
+            # command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3,j4,j5,j6,cs)
+            # s.send(command+b"\r\n")
+            # BUFFER_SIZE = 1024
+            # data = s.recv(BUFFER_SIZE)
+            # rcv = data.decode("utf-8")
+            # print (rcv)
+            # time.sleep(10)
+            # #stop program
+            # print "stopping program"
+            # status = client.write_coil(7105, True, unit=1)
+            # print(status)
+            # time.sleep(2)
+            #
+            # #start program
+            # print "starting program"
+            # status = client.write_coil(7104, True, unit=1)
+            # print(status)
+            # time.sleep(5)
+            # #go into gipper function
+            # status = client.write_coil(0002, True, unit=1)
+            # print(status)
+            # time.sleep(1)
+            # #open gripper
+            # print "opening gripper"
+            # status = client.write_coil(0001, True, unit=1)
+            # time.sleep(0.5)
+            # #stop program
+            # print "stopping program"
+            # status = client.write_coil(7105, True, unit=1)
+            # print(status)
 
             result.status = "COMPLETED"
             print "COMPLETED"
@@ -161,7 +160,7 @@ class ActionServer():
         # socketconnect()
         # check_server()
         command()
-        s.close()
+        
 
 
 if __name__ == "__main__":
