@@ -99,9 +99,9 @@ def main_program():
     j5 = float(vision_Ry)
     j6 = float(vision_Rz)
     print "moving to dropoff on top position"
-    utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2,j3+300,j4,j5,j6-180))
-    getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2,j3+300,j4,j5,j6-180))
-    command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2,j3+300,j4,j5,j6-180,cs)
+    utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2+100,j3+350,j4,j5,j6-180))
+    getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2+100,j3+350,j4,j5,j6-180))
+    command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2+100,j3+350,j4,j5,j6-180,cs)
     print "Running Command:", command
     command = command.encode('ascii')
     s.send(command+b"\r\n")
