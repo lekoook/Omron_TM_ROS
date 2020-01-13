@@ -82,7 +82,7 @@ status = client.write_coil(0004, True, unit=1)
 print(status)
 
 def main_program():
-    time.sleep(5)
+    time.sleep(10)
     stop_program()
     start_program()
     #go into listen node
