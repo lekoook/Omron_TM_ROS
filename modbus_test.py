@@ -143,7 +143,7 @@ def main_program():
     j4 = float(vision_Rx)
     j5 = float(vision_Ry)
     j6 = float(vision_Rz)
-    print "moving to dropoff on top position"
+    print "moving to pickup position"
     utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1,j2+100,j3+350,j4,j5,j6-180))
     getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1,j2+100,j3+350,j4,j5,j6-180))
     command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1,j2+100,j3+350,j4,j5,j6-180,cs)
@@ -170,8 +170,59 @@ def main_program():
     start_program()
     grip()
     stop_program()
-    stop_program()
+    start_program()
+    #go into listen node
+    print "going into listen node"
+    status = client.write_coil(0003, True, unit=1)
+    print(status)
+    time.sleep(2)
+    socketconnect()
+    check_server()
+    j1 = float(vision_x)
+    j2 = float(vision_y)
+    j3 = float(vision_z)
+    j4 = float(vision_Rx)
+    j5 = float(vision_Ry)
+    j6 = float(vision_Rz)
+    print "moving to dropoff on top position"
+    utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1+200,j2+100,j3+250,j4,j5,j6-180))
+    getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1+200,j2+100,j3+250,j4,j5,j6-180))
+    command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1+200,j2+100,j3+250,j4,j5,j6-180,cs)
+    print "Running Command:", command
+    command = command.encode('ascii')
+    s.send(command+b"\r\n")
+    BUFFER_SIZE = 1024
+    data = s.recv(BUFFER_SIZE)
+    rcv = data.decode("utf-8")
+    print rcv
+    time.sleep(3)
+    print "moving to dropoff position"
+    utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1+200,j2+100,j3+350,j4,j5,j6-180))
+    getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1+200,j2+100,j3+350,j4,j5,j6-180))
+    command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1+200,j2+100,j3+350,j4,j5,j6-180,cs)
+    print "Running Command:", command
+    command = command.encode('ascii')
+    s.send(command+b"\r\n")
+    BUFFER_SIZE = 1024
+    data = s.recv(BUFFER_SIZE)
+    rcv = data.decode("utf-8")
+    print rcv
+    #check robot postion
+    try:
+        while not rospy.is_shutdown():
+            X = modbus(7001)
+            Y = modbus(7003)
+            Z = modbus(7005)
+            time.sleep(0.1)
+            #stop program when robot reached target position
+            if X == j1+200 and Y == j2+100 and Z == j3+350:
+                stop_program()
+                break
+    except rospy.ROSInterruptException:
+        pass
+    start_program()
     release()
+    stop_program()
 
 
 if __name__ == "__main__":
