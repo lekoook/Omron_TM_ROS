@@ -236,7 +236,6 @@ def main_program():
     release()
     stop_program()
 
-
 if __name__ == "__main__":
     Thread(target = main_program).start()
     Thread(target = vision).start()
