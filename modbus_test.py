@@ -58,6 +58,27 @@ def stop_program():
     print(status)
     time.sleep(2)
 
+def grip():
+    print "griping object"
+    #go into gipper function
+    status = client.write_coil(0003, False, unit=1)
+    print(status)
+    status = client.write_coil(0002, True, unit=1)
+    print(status)
+    time.sleep(1)
+    status = client.write_coil(0000, True, unit=1)
+    time.sleep(1)
+
+def release():
+    #go into gipper function
+    status = client.write_coil(0002, True, unit=1)
+    print(status)
+    time.sleep(1)
+    #open gripper
+    print "opening gripper"
+    status = client.write_coil(0001, True, unit=1)
+    time.sleep(0.5)
+
 def vision():
     global vision_x, vision_y, vision_z, vision_Rx, vision_Ry, vision_Rz
     #read tm landmark postion values
@@ -146,6 +167,12 @@ def main_program():
                 break
     except rospy.ROSInterruptException:
         pass
+    start_program()
+    grip()
+    stop_program()
+    stop_program()
+    release()
+
 
 if __name__ == "__main__":
     Thread(target = main_program).start()
