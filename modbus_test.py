@@ -162,9 +162,11 @@ def main_program():
             Z = modbus(7005)
             time.sleep(0.1)
             #stop program when robot reached target position
-            if X == j1 and Y == j2+100 and Z == j3+350:
+            if X == j1 and Y == j2+100, Z == j3+350:
+                print "reached pickup location"
                 stop_program()
                 break
+            print X,  Y,  Z
     except rospy.ROSInterruptException:
         pass
     start_program()
@@ -185,9 +187,9 @@ def main_program():
     j5 = float(vision_Ry)
     j6 = float(vision_Rz)
     print "moving to dropoff on top position"
-    utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1+200,j2+100,j3+250,j4,j5,j6-180))
-    getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1+200,j2+100,j3+250,j4,j5,j6-180))
-    command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1+200,j2+100,j3+250,j4,j5,j6-180,cs)
+    utf8len("1,PTP(CPP,{},{},{},{},{},{},50,200,0,false)".format(j1+200,j2+100,j3+450,j4,j5,j6-180))
+    getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),".format(length,j1+200,j2+100,j3+450,j4,j5,j6-180))
+    command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},50,200,0,false),*{}".format(length,j1+200,j2+100,j3+450,j4,j5,j6-180,cs)
     print "Running Command:", command
     command = command.encode('ascii')
     s.send(command+b"\r\n")
@@ -218,6 +220,7 @@ def main_program():
             if X == j1+200 and Y == j2+100 and Z == j3+350:
                 stop_program()
                 break
+            print X,  Y,  Z
     except rospy.ROSInterruptException:
         pass
     start_program()
