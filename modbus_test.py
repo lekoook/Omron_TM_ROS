@@ -162,8 +162,12 @@ def main_program():
             Z = modbus(7005)
             time.sleep(0.1)
             #stop program when robot reached target position
-            if X == j1 and Y == j2+100, Z == j3+350:
+            if X == j1 and Y == j2+100 and Z == j3+350:
                 print "reached pickup location"
+                stop_program()
+                break
+            if X < j1+1 and X >j1-1 and Y < j2+101 and Y >j2+99 and Z < j3+351 and Z > j3-349:
+                print "reached pickup locationn"
                 stop_program()
                 break
             print X,  Y,  Z
@@ -209,7 +213,7 @@ def main_program():
     data = s.recv(BUFFER_SIZE)
     rcv = data.decode("utf-8")
     print rcv
-    #check robot postion
+    #check current robot postion
     try:
         while not rospy.is_shutdown():
             X = modbus(7001)
@@ -218,6 +222,11 @@ def main_program():
             time.sleep(0.1)
             #stop program when robot reached target position
             if X == j1+200 and Y == j2+100 and Z == j3+350:
+                print "reached dropoff location"
+                stop_program()
+                break
+            if X < j1+201 and X >j1-199 and Y < j2+101 and Y >j2+99 and Z < j3+351 and Z > j3-349:
+                print "reached dropoff locationn"
                 stop_program()
                 break
             print X,  Y,  Z
