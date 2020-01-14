@@ -75,6 +75,29 @@ def vision():
     print float(vision_Ry)
     print float(vision_Rz)
 
+def modbus(address):
+    rr = client.read_input_registers(address,2,unit=2)
+    # print rr.registers
+    if rr.registers[1]<10000:
+        if rr.registers[0]<1000:
+            a = '{:04x}'.format(rr.registers[0])
+            b = '{:04x}'.format(rr.registers[1])
+            c = a+b
+            value = "%.2f" % struct.unpack('!f', c.decode('hex'))[0]
+            return float(value)
+        else:
+            a = hex(rr.registers[0])[2:]
+            b = '{:04x}'.format(rr.registers[1])
+            c = a+b
+            value = "%.2f" % struct.unpack('!f', c.decode('hex'))[0]
+            return float(value)
+    else:
+        a = hex(rr.registers[0])[2:]
+        b = hex(rr.registers[1])[2:]
+        c = a+b
+        value = "%.2f" % struct.unpack('!f', c.decode('hex'))[0]
+        return float(value)
+
 start_program()
 #go into vision program
 print "entering vision program"
@@ -82,6 +105,7 @@ status = client.write_coil(0004, True, unit=1)
 print(status)
 
 def main_program():
+    #wait 15 seconds for vision program to finish
     time.sleep(15)
     stop_program()
     start_program()
@@ -109,6 +133,19 @@ def main_program():
     data = s.recv(BUFFER_SIZE)
     rcv = data.decode("utf-8")
     print rcv
+    #check robot postion
+    try:
+        while not rospy.is_shutdown():
+            X = modbus(7001)
+            Y = modbus(7003)
+            Z = modbus(7005)
+            time.sleep(0.1)
+            #stop program when robot reached target position
+            if X == j1 and Y == j2+100 and Z == j3+350:
+                stop_program()
+                break
+    except rospy.ROSInterruptException:
+        pass
 
 if __name__ == "__main__":
     Thread(target = main_program).start()
