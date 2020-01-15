@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionAction.msg;/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionActionGoal.msg;/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionActionResult.msg;/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionActionFeedback.msg;/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionGoal.msg;/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionResult.msg;/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionFeedback.msg"
-services_str = ""
+services_str = "/home/tthmatt/Omron-TM-ROS/src/tm_motion/srv/TmMotion.srv"
 pkg_name = "tm_motion"
 dependencies_str = "actionlib_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

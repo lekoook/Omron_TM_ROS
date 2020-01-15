@@ -1,6 +1,8 @@
 tm_motion
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/cmake.lock /home/tthmatt/Omron-TM-ROS/devel/./cmake.lock
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/__init__.py /home/tthmatt/Omron-TM-ROS/devel/lib/python2.7/dist-packages/tm_motion/__init__.py
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/__init__.py /home/tthmatt/Omron-TM-ROS/devel/lib/python2.7/dist-packages/tm_motion/srv/__init__.py
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/_TmMotion.py /home/tthmatt/Omron-TM-ROS/devel/lib/python2.7/dist-packages/tm_motion/srv/_TmMotion.py
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionResult.py /home/tthmatt/Omron-TM-ROS/devel/lib/python2.7/dist-packages/tm_motion/msg/_ActionResult.py
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/__init__.py /home/tthmatt/Omron-TM-ROS/devel/lib/python2.7/dist-packages/tm_motion/msg/__init__.py
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionActionResult.py /home/tthmatt/Omron-TM-ROS/devel/lib/python2.7/dist-packages/tm_motion/msg/_ActionActionResult.py
@@ -10,6 +12,10 @@ tm_motion
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionAction.py /home/tthmatt/Omron-TM-ROS/devel/lib/python2.7/dist-packages/tm_motion/msg/_ActionAction.py
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionGoal.py /home/tthmatt/Omron-TM-ROS/devel/lib/python2.7/dist-packages/tm_motion/msg/_ActionGoal.py
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/pkgconfig/tm_motion.pc /home/tthmatt/Omron-TM-ROS/devel/lib/pkgconfig/tm_motion.pc
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/common-lisp/ros/tm_motion/srv/TmMotion.lisp /home/tthmatt/Omron-TM-ROS/devel/share/common-lisp/ros/tm_motion/srv/TmMotion.lisp
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/common-lisp/ros/tm_motion/srv/_package.lisp /home/tthmatt/Omron-TM-ROS/devel/share/common-lisp/ros/tm_motion/srv/_package.lisp
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/common-lisp/ros/tm_motion/srv/tm_motion-srv.asd /home/tthmatt/Omron-TM-ROS/devel/share/common-lisp/ros/tm_motion/srv/tm_motion-srv.asd
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/common-lisp/ros/tm_motion/srv/_package_TmMotion.lisp /home/tthmatt/Omron-TM-ROS/devel/share/common-lisp/ros/tm_motion/srv/_package_TmMotion.lisp
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/common-lisp/ros/tm_motion/msg/_package_ActionFeedback.lisp /home/tthmatt/Omron-TM-ROS/devel/share/common-lisp/ros/tm_motion/msg/_package_ActionFeedback.lisp
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/common-lisp/ros/tm_motion/msg/tm_motion-msg.asd /home/tthmatt/Omron-TM-ROS/devel/share/common-lisp/ros/tm_motion/msg/tm_motion-msg.asd
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/common-lisp/ros/tm_motion/msg/_package.lisp /home/tthmatt/Omron-TM-ROS/devel/share/common-lisp/ros/tm_motion/msg/_package.lisp
@@ -27,6 +33,8 @@ tm_motion
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/common-lisp/ros/tm_motion/msg/_package_ActionActionGoal.lisp /home/tthmatt/Omron-TM-ROS/devel/share/common-lisp/ros/tm_motion/msg/_package_ActionActionGoal.lisp
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/common-lisp/ros/tm_motion/msg/ActionActionFeedback.lisp /home/tthmatt/Omron-TM-ROS/devel/share/common-lisp/ros/tm_motion/msg/ActionActionFeedback.lisp
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/gennodejs/ros/tm_motion/_index.js /home/tthmatt/Omron-TM-ROS/devel/share/gennodejs/ros/tm_motion/_index.js
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/gennodejs/ros/tm_motion/srv/_index.js /home/tthmatt/Omron-TM-ROS/devel/share/gennodejs/ros/tm_motion/srv/_index.js
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/gennodejs/ros/tm_motion/srv/TmMotion.js /home/tthmatt/Omron-TM-ROS/devel/share/gennodejs/ros/tm_motion/srv/TmMotion.js
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/gennodejs/ros/tm_motion/msg/_index.js /home/tthmatt/Omron-TM-ROS/devel/share/gennodejs/ros/tm_motion/msg/_index.js
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/gennodejs/ros/tm_motion/msg/ActionResult.js /home/tthmatt/Omron-TM-ROS/devel/share/gennodejs/ros/tm_motion/msg/ActionResult.js
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/gennodejs/ros/tm_motion/msg/ActionActionFeedback.js /home/tthmatt/Omron-TM-ROS/devel/share/gennodejs/ros/tm_motion/msg/ActionActionFeedback.js
@@ -47,6 +55,7 @@ tm_motion
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionActionResult.msg /home/tthmatt/Omron-TM-ROS/devel/share/tm_motion/msg/ActionActionResult.msg
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionFeedback.msg /home/tthmatt/Omron-TM-ROS/devel/share/tm_motion/msg/ActionFeedback.msg
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/roseus/ros/tm_motion/manifest.l /home/tthmatt/Omron-TM-ROS/devel/share/roseus/ros/tm_motion/manifest.l
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/roseus/ros/tm_motion/srv/TmMotion.l /home/tthmatt/Omron-TM-ROS/devel/share/roseus/ros/tm_motion/srv/TmMotion.l
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/roseus/ros/tm_motion/msg/ActionAction.l /home/tthmatt/Omron-TM-ROS/devel/share/roseus/ros/tm_motion/msg/ActionAction.l
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/roseus/ros/tm_motion/msg/ActionActionGoal.l /home/tthmatt/Omron-TM-ROS/devel/share/roseus/ros/tm_motion/msg/ActionActionGoal.l
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/roseus/ros/tm_motion/msg/ActionResult.l /home/tthmatt/Omron-TM-ROS/devel/share/roseus/ros/tm_motion/msg/ActionResult.l
@@ -54,10 +63,13 @@ tm_motion
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/roseus/ros/tm_motion/msg/ActionFeedback.l /home/tthmatt/Omron-TM-ROS/devel/share/roseus/ros/tm_motion/msg/ActionFeedback.l
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/roseus/ros/tm_motion/msg/ActionActionResult.l /home/tthmatt/Omron-TM-ROS/devel/share/roseus/ros/tm_motion/msg/ActionActionResult.l
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/roseus/ros/tm_motion/msg/ActionActionFeedback.l /home/tthmatt/Omron-TM-ROS/devel/share/roseus/ros/tm_motion/msg/ActionActionFeedback.l
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include/tm_motion/TmMotion.h /home/tthmatt/Omron-TM-ROS/devel/include/tm_motion/TmMotion.h
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include/tm_motion/TmMotionResponse.h /home/tthmatt/Omron-TM-ROS/devel/include/tm_motion/TmMotionResponse.h
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include/tm_motion/ActionActionResult.h /home/tthmatt/Omron-TM-ROS/devel/include/tm_motion/ActionActionResult.h
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include/tm_motion/ActionActionGoal.h /home/tthmatt/Omron-TM-ROS/devel/include/tm_motion/ActionActionGoal.h
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include/tm_motion/ActionResult.h /home/tthmatt/Omron-TM-ROS/devel/include/tm_motion/ActionResult.h
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include/tm_motion/ActionGoal.h /home/tthmatt/Omron-TM-ROS/devel/include/tm_motion/ActionGoal.h
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include/tm_motion/ActionFeedback.h /home/tthmatt/Omron-TM-ROS/devel/include/tm_motion/ActionFeedback.h
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include/tm_motion/ActionAction.h /home/tthmatt/Omron-TM-ROS/devel/include/tm_motion/ActionAction.h
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include/tm_motion/TmMotionRequest.h /home/tthmatt/Omron-TM-ROS/devel/include/tm_motion/TmMotionRequest.h
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include/tm_motion/ActionActionFeedback.h /home/tthmatt/Omron-TM-ROS/devel/include/tm_motion/ActionActionFeedback.h

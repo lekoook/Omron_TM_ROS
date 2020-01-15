@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include/tm_motion/ActionGoal.h"
   "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include/tm_motion/ActionResult.h"
   "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include/tm_motion/ActionFeedback.h"
+  "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include/tm_motion/TmMotion.h"
 )
 
 # Per-language clean rules from dependency scanning.

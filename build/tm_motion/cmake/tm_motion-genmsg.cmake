@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "tm_motion: 7 messages, 0 services")
+message(STATUS "tm_motion: 7 messages, 1 services")
 
 set(MSG_I_FLAGS "-Itm_motion:/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg;-Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
 
@@ -50,6 +50,11 @@ add_custom_target(_tm_motion_generate_messages_check_deps_${_filename}
 get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionFeedback.msg" NAME_WE)
 add_custom_target(_tm_motion_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "tm_motion" "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionFeedback.msg" ""
+)
+
+get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/src/tm_motion/srv/TmMotion.srv" NAME_WE)
+add_custom_target(_tm_motion_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "tm_motion" "/home/tthmatt/Omron-TM-ROS/src/tm_motion/srv/TmMotion.srv" ""
 )
 
 #
@@ -102,6 +107,12 @@ _generate_msg_cpp(tm_motion
 )
 
 ### Generating Services
+_generate_srv_cpp(tm_motion
+  "/home/tthmatt/Omron-TM-ROS/src/tm_motion/srv/TmMotion.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/tm_motion
+)
 
 ### Generating Module File
 _generate_module_cpp(tm_motion
@@ -128,6 +139,8 @@ add_dependencies(tm_motion_generate_messages_cpp _tm_motion_generate_messages_ch
 get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionResult.msg" NAME_WE)
 add_dependencies(tm_motion_generate_messages_cpp _tm_motion_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionFeedback.msg" NAME_WE)
+add_dependencies(tm_motion_generate_messages_cpp _tm_motion_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/src/tm_motion/srv/TmMotion.srv" NAME_WE)
 add_dependencies(tm_motion_generate_messages_cpp _tm_motion_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -183,6 +196,12 @@ _generate_msg_eus(tm_motion
 )
 
 ### Generating Services
+_generate_srv_eus(tm_motion
+  "/home/tthmatt/Omron-TM-ROS/src/tm_motion/srv/TmMotion.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/tm_motion
+)
 
 ### Generating Module File
 _generate_module_eus(tm_motion
@@ -209,6 +228,8 @@ add_dependencies(tm_motion_generate_messages_eus _tm_motion_generate_messages_ch
 get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionResult.msg" NAME_WE)
 add_dependencies(tm_motion_generate_messages_eus _tm_motion_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionFeedback.msg" NAME_WE)
+add_dependencies(tm_motion_generate_messages_eus _tm_motion_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/src/tm_motion/srv/TmMotion.srv" NAME_WE)
 add_dependencies(tm_motion_generate_messages_eus _tm_motion_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -264,6 +285,12 @@ _generate_msg_lisp(tm_motion
 )
 
 ### Generating Services
+_generate_srv_lisp(tm_motion
+  "/home/tthmatt/Omron-TM-ROS/src/tm_motion/srv/TmMotion.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/tm_motion
+)
 
 ### Generating Module File
 _generate_module_lisp(tm_motion
@@ -290,6 +317,8 @@ add_dependencies(tm_motion_generate_messages_lisp _tm_motion_generate_messages_c
 get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionResult.msg" NAME_WE)
 add_dependencies(tm_motion_generate_messages_lisp _tm_motion_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionFeedback.msg" NAME_WE)
+add_dependencies(tm_motion_generate_messages_lisp _tm_motion_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/src/tm_motion/srv/TmMotion.srv" NAME_WE)
 add_dependencies(tm_motion_generate_messages_lisp _tm_motion_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -345,6 +374,12 @@ _generate_msg_nodejs(tm_motion
 )
 
 ### Generating Services
+_generate_srv_nodejs(tm_motion
+  "/home/tthmatt/Omron-TM-ROS/src/tm_motion/srv/TmMotion.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/tm_motion
+)
 
 ### Generating Module File
 _generate_module_nodejs(tm_motion
@@ -371,6 +406,8 @@ add_dependencies(tm_motion_generate_messages_nodejs _tm_motion_generate_messages
 get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionResult.msg" NAME_WE)
 add_dependencies(tm_motion_generate_messages_nodejs _tm_motion_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionFeedback.msg" NAME_WE)
+add_dependencies(tm_motion_generate_messages_nodejs _tm_motion_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/src/tm_motion/srv/TmMotion.srv" NAME_WE)
 add_dependencies(tm_motion_generate_messages_nodejs _tm_motion_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -426,6 +463,12 @@ _generate_msg_py(tm_motion
 )
 
 ### Generating Services
+_generate_srv_py(tm_motion
+  "/home/tthmatt/Omron-TM-ROS/src/tm_motion/srv/TmMotion.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/tm_motion
+)
 
 ### Generating Module File
 _generate_module_py(tm_motion
@@ -452,6 +495,8 @@ add_dependencies(tm_motion_generate_messages_py _tm_motion_generate_messages_che
 get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionResult.msg" NAME_WE)
 add_dependencies(tm_motion_generate_messages_py _tm_motion_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionFeedback.msg" NAME_WE)
+add_dependencies(tm_motion_generate_messages_py _tm_motion_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/tthmatt/Omron-TM-ROS/src/tm_motion/srv/TmMotion.srv" NAME_WE)
 add_dependencies(tm_motion_generate_messages_py _tm_motion_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

@@ -7,6 +7,7 @@ import socket
 import subprocess
 import os
 from threading import Thread
+from tm_motion.srv import TmMotion,TmMotionResponse
 host = '192.168.1.2'
 port = 502
 client = ModbusTcpClient(host, port)

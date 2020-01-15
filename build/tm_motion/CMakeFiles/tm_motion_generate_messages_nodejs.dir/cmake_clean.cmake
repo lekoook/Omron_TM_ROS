@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/gennodejs/ros/tm_motion/msg/ActionGoal.js"
   "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/gennodejs/ros/tm_motion/msg/ActionResult.js"
   "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/gennodejs/ros/tm_motion/msg/ActionFeedback.js"
+  "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/gennodejs/ros/tm_motion/srv/TmMotion.js"
 )
 
 # Per-language clean rules from dependency scanning.

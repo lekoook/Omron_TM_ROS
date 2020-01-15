@@ -60,7 +60,9 @@ CMakeFiles/tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.pri
 CMakeFiles/tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionGoal.py
 CMakeFiles/tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionResult.py
 CMakeFiles/tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionFeedback.py
+CMakeFiles/tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/_TmMotion.py
 CMakeFiles/tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/__init__.py
+CMakeFiles/tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/__init__.py
 
 
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionActionFeedback.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
@@ -118,6 +120,11 @@ CMakeFiles/tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.pri
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tthmatt/Omron-TM-ROS/build/tm_motion/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Python from MSG tm_motion/ActionFeedback"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg/ActionFeedback.msg -Itm_motion:/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p tm_motion -o /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg
 
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/_TmMotion.py: /opt/ros/melodic/lib/genpy/gensrv_py.py
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/_TmMotion.py: /home/tthmatt/Omron-TM-ROS/src/tm_motion/srv/TmMotion.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tthmatt/Omron-TM-ROS/build/tm_motion/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Python code from SRV tm_motion/TmMotion"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/tthmatt/Omron-TM-ROS/src/tm_motion/srv/TmMotion.srv -Itm_motion:/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p tm_motion -o /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv
+
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/__init__.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/__init__.py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionActionFeedback.py
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/__init__.py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionAction.py
@@ -126,8 +133,21 @@ CMakeFiles/tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.pri
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/__init__.py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionGoal.py
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/__init__.py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionResult.py
 /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/__init__.py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionFeedback.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tthmatt/Omron-TM-ROS/build/tm_motion/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Python msg __init__.py for tm_motion"
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/__init__.py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/_TmMotion.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tthmatt/Omron-TM-ROS/build/tm_motion/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Python msg __init__.py for tm_motion"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg --initpy
+
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/__init__.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/__init__.py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionActionFeedback.py
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/__init__.py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionAction.py
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/__init__.py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionActionResult.py
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/__init__.py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionActionGoal.py
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/__init__.py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionGoal.py
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/__init__.py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionResult.py
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/__init__.py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionFeedback.py
+/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/__init__.py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/_TmMotion.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tthmatt/Omron-TM-ROS/build/tm_motion/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating Python srv __init__.py for tm_motion"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv --initpy
 
 tm_motion_generate_messages_py: CMakeFiles/tm_motion_generate_messages_py
 tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionActionFeedback.py
@@ -137,7 +157,9 @@ tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_mot
 tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionGoal.py
 tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionResult.py
 tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/_ActionFeedback.py
+tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/_TmMotion.py
 tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/__init__.py
+tm_motion_generate_messages_py: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/srv/__init__.py
 tm_motion_generate_messages_py: CMakeFiles/tm_motion_generate_messages_py.dir/build.make
 
 .PHONY : tm_motion_generate_messages_py

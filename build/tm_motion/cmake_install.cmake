@@ -129,6 +129,10 @@ file(INSTALL DESTINATION "/home/tthmatt/Omron-TM-ROS/install" TYPE FILE FILES "/
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tm_motion/srv" TYPE FILE FILES "/home/tthmatt/Omron-TM-ROS/src/tm_motion/srv/TmMotion.srv")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tm_motion/action" TYPE FILE FILES "/home/tthmatt/Omron-TM-ROS/src/tm_motion/action/Action.action")
 endif()
 

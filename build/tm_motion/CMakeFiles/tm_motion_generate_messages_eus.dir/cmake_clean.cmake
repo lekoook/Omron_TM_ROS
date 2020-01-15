@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/roseus/ros/tm_motion/msg/ActionGoal.l"
   "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/roseus/ros/tm_motion/msg/ActionResult.l"
   "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/roseus/ros/tm_motion/msg/ActionFeedback.l"
+  "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/roseus/ros/tm_motion/srv/TmMotion.l"
   "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/roseus/ros/tm_motion/manifest.l"
 )
 
