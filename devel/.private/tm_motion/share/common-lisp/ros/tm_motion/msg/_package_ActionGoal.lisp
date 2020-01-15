@@ -15,16 +15,4 @@
           GOAL_GOAL5
           GOAL_GOAL6-VAL
           GOAL_GOAL6
-          GOAL_GOAL7-VAL
-          GOAL_GOAL7
-          GOAL_GOAL8-VAL
-          GOAL_GOAL8
-          GOAL_GOAL9-VAL
-          GOAL_GOAL9
-          GOAL_GOAL10-VAL
-          GOAL_GOAL10
-          GOAL_GOAL11-VAL
-          GOAL_GOAL11
-          GOAL_GOAL12-VAL
-          GOAL_GOAL12
 ))

@@ -2,16 +2,10 @@
 # Goal
 string goal_function
 string goal_param
-string goal_goal1
-string goal_goal2
-string goal_goal3
-string goal_goal4
-string goal_goal5
-string goal_goal6
-string goal_goal7
-string goal_goal8
-string goal_goal9
-string goal_goal10
-string goal_goal11
-string goal_goal12
+float64 goal_goal1
+float64 goal_goal2
+float64 goal_goal3
+float64 goal_goal4
+float64 goal_goal5
+float64 goal_goal6
 

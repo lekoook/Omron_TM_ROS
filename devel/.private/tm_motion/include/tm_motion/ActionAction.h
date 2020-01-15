@@ -127,12 +127,12 @@ struct MD5Sum< ::tm_motion::ActionAction_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "6e0fe85c0d52d60fb55764f694d59748";
+    return "ea8ba79cfc3cf0f5b2937da55ba4e653";
   }
 
   static const char* value(const ::tm_motion::ActionAction_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x6e0fe85c0d52d60fULL;
-  static const uint64_t static_value2 = 0xb55764f694d59748ULL;
+  static const uint64_t static_value1 = 0xea8ba79cfc3cf0f5ULL;
+  static const uint64_t static_value2 = 0xb2937da55ba4e653ULL;
 };
 
 template<class ContainerAllocator>
@@ -200,18 +200,12 @@ struct Definition< ::tm_motion::ActionAction_<ContainerAllocator> >
 "# Goal\n"
 "string goal_function\n"
 "string goal_param\n"
-"string goal_goal1\n"
-"string goal_goal2\n"
-"string goal_goal3\n"
-"string goal_goal4\n"
-"string goal_goal5\n"
-"string goal_goal6\n"
-"string goal_goal7\n"
-"string goal_goal8\n"
-"string goal_goal9\n"
-"string goal_goal10\n"
-"string goal_goal11\n"
-"string goal_goal12\n"
+"float64 goal_goal1\n"
+"float64 goal_goal2\n"
+"float64 goal_goal3\n"
+"float64 goal_goal4\n"
+"float64 goal_goal5\n"
+"float64 goal_goal6\n"
 "\n"
 "\n"
 "================================================================================\n"
