@@ -4,10 +4,23 @@ import rospy
 from tm_motion.srv import *
 import actionlib
 from tm_motion.msg import ActionAction, ActionGoal
+from pymodbus.client.sync import ModbusTcpClient
 host = '192.168.1.2'
 port_modbus = 502
 client = ModbusTcpClient(host, port_modbus)
 client.connect()
+
+def start_program():
+    print "starting program"
+    status = client.write_coil(7104, True, unit=1)
+    print(status)
+    time.sleep(5)
+
+def stop_program():
+    print "stopping program"
+    status = client.write_coil(7105, True, unit=1)
+    print(status)
+    time.sleep(2)
 
 def grip():
     print "griping object"
@@ -59,7 +72,6 @@ def call_server():
     result = client.get_result()
     return result
 
-
 if __name__ == "__main__":
     print landmark_location_service_client()
     vision_x = nc.partition("\\")[0]
@@ -76,6 +88,7 @@ if __name__ == "__main__":
     print float(vision_Rz)
     start_program()
     release()
+    stop_program()
     try:
         rospy.init_node('move_action_client')
         result = call_server()
