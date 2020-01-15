@@ -138,7 +138,7 @@ class ActionServer():
                         print "Moved to location"
                         self.a_server.set_succeeded(result)
                         return(0)
-                    if X < j1-1 and X >j1+1 and Y < j2-1 and Y >j2+1 and Z < j3-1 and Z > j3+1:
+                    if X < j1-1 and X > j1+1 and Y < j2-1 and Y >j2+1 and Z < j3-1 and Z > j3+1:
                         stop_program()
                         result.status = "Moved to location"
                         print "Moved to location"

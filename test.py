@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import sys
 import rospy
+import time
 from tm_motion.srv import *
 import actionlib
 from tm_motion.msg import ActionAction, ActionGoal
@@ -88,6 +89,7 @@ if __name__ == "__main__":
     print float(vision_Rz)
     start_program()
     release()
+    time.sleep(0.5)
     stop_program()
     try:
         rospy.init_node('move_action_client')
