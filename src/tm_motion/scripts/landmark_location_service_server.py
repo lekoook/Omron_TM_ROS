@@ -26,7 +26,7 @@ def stop_program():
     time.sleep(2)
 
 def vision():
-    global vision_x, vision_y, vision_z, vision_Rx, vision_Ry, vision_Rz
+    global vision_x, vision_y, vision_z, vision_Rx, vision_Ry, vision_Rz, nc
     #read tm landmark postion values
     nc = subprocess.check_output(["netcat", "-l", "9000"])
     vision_x = nc.partition("\\")[0]
@@ -45,8 +45,9 @@ def main_program():
     print float(vision_Rx)
     print float(vision_Ry)
     print float(vision_Rz)
+    return nc
 
-if __name__ == "__main__":
+def handle_landmark_location(req):
     start_program()
     #go into vision program
     print "entering vision program"
@@ -54,3 +55,9 @@ if __name__ == "__main__":
     print(status)
     Thread(target = main_program).start()
     Thread(target = vision).start()
+    return main_program()
+
+if __name__ == "__main__":
+    rospy.init_node('landmark_location_service_server')
+    s = rospy.Service('landmark_location', TmMotion, handle_landmark_location)
+    rospy.spin()
