@@ -2,7 +2,8 @@
 ### Requirements
 1. Ubuntu 18.04
 2. ROS Melodic
-3. pymodbus python module. To install, run in terminal:
+3. Modbus enabled in TM Flow settings 
+4. pymodbus python module. To install, run in terminal:
 ```
 pip install  -U pymodbus
 ```
@@ -11,5 +12,5 @@ pip install  -U pymodbus
 roslaunch tm_utils tm_utils.launch ip:=<robot ip address>
 ```
 ```
-rosrun tm_motion move_joint.py <ip address> <j1> <j2> <j3> <j4> <j5> <j6>
+rosrun tm_motion ......................
 ```
