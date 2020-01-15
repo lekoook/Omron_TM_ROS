@@ -4,6 +4,31 @@ import rospy
 from tm_motion.srv import *
 import actionlib
 from tm_motion.msg import ActionAction, ActionGoal
+host = '192.168.1.2'
+port_modbus = 502
+client = ModbusTcpClient(host, port_modbus)
+client.connect()
+
+def grip():
+    print "griping object"
+    #go into gipper function
+    status = client.write_coil(0003, False, unit=1)
+    print(status)
+    status = client.write_coil(0002, True, unit=1)
+    print(status)
+    time.sleep(1)
+    status = client.write_coil(0000, True, unit=1)
+    time.sleep(1)
+
+def release():
+    #go into gipper function
+    status = client.write_coil(0002, True, unit=1)
+    print(status)
+    time.sleep(1)
+    #open gripper
+    print "opening gripper"
+    status = client.write_coil(0001, True, unit=1)
+    time.sleep(0.5)
 
 def landmark_location_service_client():
     global nc
@@ -49,6 +74,8 @@ if __name__ == "__main__":
     print float(vision_Rx)
     print float(vision_Ry)
     print float(vision_Rz)
+    start_program()
+    release()
     try:
         rospy.init_node('move_action_client')
         result = call_server()
