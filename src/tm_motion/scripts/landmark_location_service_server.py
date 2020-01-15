@@ -36,7 +36,7 @@ def vision():
     vision_Rz = nc.replace(vision_x, '').replace(vision_y, '').replace(vision_z, '').replace(vision_Rx, '').replace(vision_Ry, '').replace('\\', '')
 
 def main_program():
-    time.sleep(5)
+    time.sleep(8)
     stop_program()
     print float(vision_x)
     print float(vision_y)
