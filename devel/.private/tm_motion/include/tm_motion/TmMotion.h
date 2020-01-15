@@ -40,7 +40,7 @@ template<>
 struct MD5Sum< ::tm_motion::TmMotion > {
   static const char* value()
   {
-    return "b2778cec932742b2c8b6d125219e8d85";
+    return "484bd188cd41111d4e02ce9b6e0a0b66";
   }
 
   static const char* value(const ::tm_motion::TmMotion&) { return value(); }

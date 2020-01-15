@@ -70,10 +70,10 @@
 (defmethod tm_motion::TmMotionResponse
   (:init
    (&key
-    ((:device __device) "")
+    ((:device __device) 0.0)
     )
    (send-super :init)
-   (setq _device (string __device))
+   (setq _device (float __device))
    self)
   (:device
    (&optional __device)
@@ -81,21 +81,21 @@
   (:serialization-length
    ()
    (+
-    ;; string _device
-    4 (length _device)
+    ;; float64 _device
+    8
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; string _device
-       (write-long (length _device) s) (princ _device s)
+     ;; float64 _device
+       (sys::poke _device (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; string _device
-     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _device (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
+   ;; float64 _device
+     (setq _device (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;;
    self)
   )
@@ -104,7 +104,7 @@
   :super ros::object
   :slots ())
 
-(setf (get tm_motion::TmMotion :md5sum-) "b2778cec932742b2c8b6d125219e8d85")
+(setf (get tm_motion::TmMotion :md5sum-) "484bd188cd41111d4e02ce9b6e0a0b66")
 (setf (get tm_motion::TmMotion :datatype-) "tm_motion/TmMotion")
 (setf (get tm_motion::TmMotion :request) tm_motion::TmMotionRequest)
 (setf (get tm_motion::TmMotion :response) tm_motion::TmMotionResponse)
@@ -112,26 +112,26 @@
 (defmethod tm_motion::TmMotionRequest
   (:response () (instance tm_motion::TmMotionResponse :init)))
 
-(setf (get tm_motion::TmMotionRequest :md5sum-) "b2778cec932742b2c8b6d125219e8d85")
+(setf (get tm_motion::TmMotionRequest :md5sum-) "484bd188cd41111d4e02ce9b6e0a0b66")
 (setf (get tm_motion::TmMotionRequest :datatype-) "tm_motion/TmMotionRequest")
 (setf (get tm_motion::TmMotionRequest :definition-)
       "string[] a
 ---
-string device
+float64 device
 
 ")
 
-(setf (get tm_motion::TmMotionResponse :md5sum-) "b2778cec932742b2c8b6d125219e8d85")
+(setf (get tm_motion::TmMotionResponse :md5sum-) "484bd188cd41111d4e02ce9b6e0a0b66")
 (setf (get tm_motion::TmMotionResponse :datatype-) "tm_motion/TmMotionResponse")
 (setf (get tm_motion::TmMotionResponse :definition-)
       "string[] a
 ---
-string device
+float64 device
 
 ")
 
 
 
-(provide :tm_motion/TmMotion "b2778cec932742b2c8b6d125219e8d85")
+(provide :tm_motion/TmMotion "484bd188cd41111d4e02ce9b6e0a0b66")
 
 

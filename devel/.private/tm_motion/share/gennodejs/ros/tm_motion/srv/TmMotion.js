@@ -103,7 +103,7 @@ class TmMotionResponse {
         this.device = initObj.device
       }
       else {
-        this.device = '';
+        this.device = 0.0;
       }
     }
   }
@@ -111,7 +111,7 @@ class TmMotionResponse {
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type TmMotionResponse
     // Serialize message field [device]
-    bufferOffset = _serializer.string(obj.device, buffer, bufferOffset);
+    bufferOffset = _serializer.float64(obj.device, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -120,14 +120,12 @@ class TmMotionResponse {
     let len;
     let data = new TmMotionResponse(null);
     // Deserialize message field [device]
-    data.device = _deserializer.string(buffer, bufferOffset);
+    data.device = _deserializer.float64(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    let length = 0;
-    length += object.device.length;
-    return length + 4;
+    return 8;
   }
 
   static datatype() {
@@ -137,13 +135,13 @@ class TmMotionResponse {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '25b143d1069c7861320973824c82b9d8';
+    return 'c7c8e2bbfbe24a7d431a1b7094d844bc';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    string device
+    float64 device
     
     
     `;
@@ -159,7 +157,7 @@ class TmMotionResponse {
       resolved.device = msg.device;
     }
     else {
-      resolved.device = ''
+      resolved.device = 0.0
     }
 
     return resolved;
@@ -169,6 +167,6 @@ class TmMotionResponse {
 module.exports = {
   Request: TmMotionRequest,
   Response: TmMotionResponse,
-  md5sum() { return 'b2778cec932742b2c8b6d125219e8d85'; },
+  md5sum() { return '484bd188cd41111d4e02ce9b6e0a0b66'; },
   datatype() { return 'tm_motion/TmMotion'; }
 };

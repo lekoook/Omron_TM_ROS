@@ -1,0 +1,16 @@
+[  0%] Built target actionlib_msgs_generate_messages_eus
+[  0%] Built target _tm_motion_generate_messages_check_deps_ActionActionFeedback
+[  0%] Built target _tm_motion_generate_messages_check_deps_ActionResult
+[  0%] Built target _tm_motion_generate_messages_check_deps_ActionAction
+[  0%] Built target _tm_motion_generate_messages_check_deps_ActionActionResult
+The dependencies of the message/service 'tm_motion/TmMotion' have changed. Please rerun cmake.
+CMakeFiles/_tm_motion_generate_messages_check_deps_TmMotion.dir/build.make:57: recipe for target 'CMakeFiles/_tm_motion_generate_messages_check_deps_TmMotion' failed
+make[2]: *** [CMakeFiles/_tm_motion_generate_messages_check_deps_TmMotion] Error 1
+CMakeFiles/Makefile2:764: recipe for target 'CMakeFiles/_tm_motion_generate_messages_check_deps_TmMotion.dir/all' failed
+make[1]: *** [CMakeFiles/_tm_motion_generate_messages_check_deps_TmMotion.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[  0%] Built target _tm_motion_generate_messages_check_deps_ActionActionGoal
+[  0%] Built target _tm_motion_generate_messages_check_deps_ActionFeedback
+[  0%] Built target _tm_motion_generate_messages_check_deps_ActionGoal
+Makefile:140: recipe for target 'all' failed
+make: *** [all] Error 2

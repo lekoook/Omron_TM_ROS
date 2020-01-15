@@ -1,0 +1,5 @@
+The dependencies of the message/service 'tm_motion/TmMotion' have changed. Please rerun cmake.
+make[2]: *** [CMakeFiles/_tm_motion_generate_messages_check_deps_TmMotion] Error 1
+make[1]: *** [CMakeFiles/_tm_motion_generate_messages_check_deps_TmMotion.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [all] Error 2

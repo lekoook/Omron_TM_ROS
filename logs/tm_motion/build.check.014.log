@@ -1,9 +1,0 @@
-[31m[1mCMake Error[0m at /home/tthmatt/Omron-TM-ROS/src/tm_motion/CMakeLists.txt:213:
-  Parse error.  Function missing ending ")".  End of file reached.
-
-
-[36m--[0m Configuring incomplete, errors occurred!
-See also "/home/tthmatt/Omron-TM-ROS/build/tm_motion/CMakeFiles/CMakeOutput.log".
-See also "/home/tthmatt/Omron-TM-ROS/build/tm_motion/CMakeFiles/CMakeError.log".
-Makefile:726: recipe for target 'cmake_check_build_system' failed
-make: *** [cmake_check_build_system] Error 1

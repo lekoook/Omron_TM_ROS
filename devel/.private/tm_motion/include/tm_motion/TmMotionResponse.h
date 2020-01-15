@@ -24,16 +24,16 @@ struct TmMotionResponse_
   typedef TmMotionResponse_<ContainerAllocator> Type;
 
   TmMotionResponse_()
-    : device()  {
+    : device(0.0)  {
     }
   TmMotionResponse_(const ContainerAllocator& _alloc)
-    : device(_alloc)  {
+    : device(0.0)  {
   (void)_alloc;
     }
 
 
 
-   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _device_type;
+   typedef double _device_type;
   _device_type device;
 
 
@@ -70,7 +70,7 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': False}
+// BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
 // {'actionlib_msgs': ['/opt/ros/melodic/share/actionlib_msgs/cmake/../msg'], 'tm_motion': ['/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/tm_motion/msg'], 'std_msgs': ['/opt/ros/melodic/share/std_msgs/cmake/../msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
@@ -80,12 +80,12 @@ namespace message_traits
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::tm_motion::TmMotionResponse_<ContainerAllocator> >
-  : FalseType
+  : TrueType
   { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::tm_motion::TmMotionResponse_<ContainerAllocator> const>
-  : FalseType
+  : TrueType
   { };
 
 template <class ContainerAllocator>
@@ -114,12 +114,12 @@ struct MD5Sum< ::tm_motion::TmMotionResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "25b143d1069c7861320973824c82b9d8";
+    return "c7c8e2bbfbe24a7d431a1b7094d844bc";
   }
 
   static const char* value(const ::tm_motion::TmMotionResponse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x25b143d1069c7861ULL;
-  static const uint64_t static_value2 = 0x320973824c82b9d8ULL;
+  static const uint64_t static_value1 = 0xc7c8e2bbfbe24a7dULL;
+  static const uint64_t static_value2 = 0x431a1b7094d844bcULL;
 };
 
 template<class ContainerAllocator>
@@ -138,7 +138,7 @@ struct Definition< ::tm_motion::TmMotionResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "string device\n"
+    return "float64 device\n"
 "\n"
 ;
   }
@@ -178,7 +178,7 @@ struct Printer< ::tm_motion::TmMotionResponse_<ContainerAllocator> >
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::tm_motion::TmMotionResponse_<ContainerAllocator>& v)
   {
     s << indent << "device: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.device);
+    Printer<double>::stream(s, indent + "  ", v.device);
   }
 };
 

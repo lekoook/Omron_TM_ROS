@@ -145,14 +145,14 @@ import struct
 
 
 class TmMotionResponse(genpy.Message):
-  _md5sum = "25b143d1069c7861320973824c82b9d8"
+  _md5sum = "c7c8e2bbfbe24a7d431a1b7094d844bc"
   _type = "tm_motion/TmMotionResponse"
   _has_header = False #flag to mark the presence of a Header object
-  _full_text = """string device
+  _full_text = """float64 device
 
 """
   __slots__ = ['device']
-  _slot_types = ['string']
+  _slot_types = ['float64']
 
   def __init__(self, *args, **kwds):
     """
@@ -172,9 +172,9 @@ class TmMotionResponse(genpy.Message):
       super(TmMotionResponse, self).__init__(*args, **kwds)
       #message fields cannot be None, assign default values for those that are
       if self.device is None:
-        self.device = ''
+        self.device = 0.
     else:
-      self.device = ''
+      self.device = 0.
 
   def _get_types(self):
     """
@@ -188,12 +188,7 @@ class TmMotionResponse(genpy.Message):
     :param buff: buffer, ``StringIO``
     """
     try:
-      _x = self.device
-      length = len(_x)
-      if python3 or type(_x) == unicode:
-        _x = _x.encode('utf-8')
-        length = len(_x)
-      buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(_get_struct_d().pack(self.device))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -205,14 +200,8 @@ class TmMotionResponse(genpy.Message):
     try:
       end = 0
       start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      start = end
-      end += length
-      if python3:
-        self.device = str[start:end].decode('utf-8')
-      else:
-        self.device = str[start:end]
+      end += 8
+      (self.device,) = _get_struct_d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -225,12 +214,7 @@ class TmMotionResponse(genpy.Message):
     :param numpy: numpy python module
     """
     try:
-      _x = self.device
-      length = len(_x)
-      if python3 or type(_x) == unicode:
-        _x = _x.encode('utf-8')
-        length = len(_x)
-      buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(_get_struct_d().pack(self.device))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -243,14 +227,8 @@ class TmMotionResponse(genpy.Message):
     try:
       end = 0
       start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      start = end
-      end += length
-      if python3:
-        self.device = str[start:end].decode('utf-8')
-      else:
-        self.device = str[start:end]
+      end += 8
+      (self.device,) = _get_struct_d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -259,8 +237,14 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
+_struct_d = None
+def _get_struct_d():
+    global _struct_d
+    if _struct_d is None:
+        _struct_d = struct.Struct("<d")
+    return _struct_d
 class TmMotion(object):
   _type          = 'tm_motion/TmMotion'
-  _md5sum = 'b2778cec932742b2c8b6d125219e8d85'
+  _md5sum = '484bd188cd41111d4e02ce9b6e0a0b66'
   _request_class  = TmMotionRequest
   _response_class = TmMotionResponse
