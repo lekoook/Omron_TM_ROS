@@ -30,14 +30,12 @@ class ActionServer():
         success = True
         feedback = ActionFeedback()
         result = ActionResult()
-        function = goal.goal_function
-        param = goal.goal_param
-        j1 = float(goal.goal_goal1)
-        j2 = float(goal.goal_goal2)
-        j3 = float(goal.goal_goal3)
-        j4 = float(goal.goal_goal4)
-        j5 = float(goal.goal_goal5)
-        j6 = float(goal.goal_goal6)
+        j1 = goal.goal_goal1
+        j2 = goal.goal_goal2
+        j3 = goal.goal_goal3
+        j4 = goal.goal_goal4
+        j5 = goal.goal_goal5
+        j6 = goal.goal_goal6
         def socketconnect():
             global s
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -134,13 +132,13 @@ class ActionServer():
                     Z = modbus(7005)
                     time.sleep(0.1)
                     #stop program when robot reached target position
-                    if X == j1 and Y == j2+100 and Z == j3+350:
+                    if X == j1 and Y == j2 and Z == j3:
                         stop_program()
                         result.status = "Moved to location"
                         print "Moved to location"
                         self.a_server.set_succeeded(result)
                         return(0)
-                    if X < j1+1 and X >j1-1 and Y < j2+101 and Y >j2+99 and Z < j3+351 and Z > j3-349:
+                    if X < j1-1 and X >j1+1 and Y < j2-1 and Y >j2+1 and Z < j3-1 and Z > j3+1:
                         stop_program()
                         result.status = "Moved to location"
                         print "Moved to location"
