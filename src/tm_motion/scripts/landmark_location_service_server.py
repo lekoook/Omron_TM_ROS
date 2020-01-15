@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from pymodbus.client.sync import ModbusTcpClient
 import struct
 import time
@@ -8,9 +9,10 @@ import subprocess
 import os
 from threading import Thread
 from tm_motion.srv import TmMotion,TmMotionResponse
-host = '192.168.1.2'
+ip_address = rospy.get_param("ip_address")
+# ip_address = '192.168.1.2'
 port = 502
-client = ModbusTcpClient(host, port)
+client = ModbusTcpClient(ip_address, port)
 client.connect()
 
 def start_program():

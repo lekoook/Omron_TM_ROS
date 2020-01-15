@@ -13,10 +13,11 @@ from pymodbus.client.sync import ModbusTcpClient
 import struct
 import time
 from ctypes import *
-host = '192.168.1.2'
+ip_address = rospy.get_param("ip_address")
+# ip_address = '192.168.1.2'
 port_modbus = 502
 
-client = ModbusTcpClient(host, port_modbus)
+client = ModbusTcpClient(ip_address, port_modbus)
 client.connect()
 
 class ActionServer():
@@ -44,9 +45,9 @@ class ActionServer():
             print"connecting to tm robot......"
 
         def check_server():
-            # ip_address = rospy.get_param("ip_address")
+            ip_address = rospy.get_param("ip_address")
             # port = rospy.get_param("port")
-            ip_address = '192.168.1.2'
+            # ip_address = '192.168.1.2'
             port = 5890
             try:
                 s.connect((ip_address, port))
@@ -130,7 +131,8 @@ class ActionServer():
                     X = modbus(7001)
                     Y = modbus(7003)
                     Z = modbus(7005)
-                    time.sleep(0.1)
+                    time.sleep(0.5)
+                    print X,  Y,  Z
                     #stop program when robot reached target position
                     if X == j1 and Y == j2 and Z == j3:
                         stop_program()
@@ -138,13 +140,12 @@ class ActionServer():
                         print "Moved to location"
                         self.a_server.set_succeeded(result)
                         return(0)
-                    if X < j1-1 and X > j1+1 and Y < j2-1 and Y >j2+1 and Z < j3-1 and Z > j3+1:
+                    if X < j1+1 and X > j1-1 and Y < j2+1 and Y >j2-1 and Z < j3+1 and Z > j3-1:
                         stop_program()
                         result.status = "Moved to location"
                         print "Moved to location"
                         self.a_server.set_succeeded(result)
                         return(0)
-                    print X,  Y,  Z
             except rospy.ROSInterruptException:
                 pass
 

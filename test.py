@@ -89,7 +89,6 @@ if __name__ == "__main__":
     print float(vision_Rz)
     start_program()
     release()
-    time.sleep(0.5)
     stop_program()
     try:
         rospy.init_node('move_action_client')
