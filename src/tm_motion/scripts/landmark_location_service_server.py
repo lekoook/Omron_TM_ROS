@@ -40,17 +40,16 @@ def vision():
     vision_Rx = nc.partition("\\\\\\\\")[0].replace(vision_x, '').replace(vision_y, '').replace(vision_z, '').replace('\\', '')
     vision_Ry = nc.partition("\\\\\\\\\\")[0].replace(vision_x, '').replace(vision_y, '').replace(vision_z, '').replace(vision_Rx, '').replace('\\', '')
     vision_Rz = nc.replace(vision_x, '').replace(vision_y, '').replace(vision_z, '').replace(vision_Rx, '').replace(vision_Ry, '').replace('\\', '')
-    vision_Rx = vision_Ry = vision_Rz = 0
 
 def main_program():
     time.sleep(8)
     stop_program()
-    print float(vision_x)
-    print float(vision_y)
-    print float(vision_z)
-    print float(vision_Rx)
-    print float(vision_Ry)
-    print float(vision_Rz)
+    print "x", float(vision_x)
+    print "y", float(vision_y)
+    print "z", float(vision_z)
+    print "Rx", float(vision_Rx)
+    print "Ry", float(vision_Ry)
+    print "Rz", float(vision_Rz)
     broadcaster = tf2_ros.StaticTransformBroadcaster()
     static_transformStamped = geometry_msgs.msg.TransformStamped()
     static_transformStamped.header.stamp = rospy.Time.now()
@@ -67,7 +66,7 @@ def main_program():
     static_transformStamped.transform.rotation.w = quat[3]
     broadcaster.sendTransform(static_transformStamped)
     # return nc
-    return "hello"
+    return None
 
 def handle_landmark_location(req):
     start_program()

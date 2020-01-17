@@ -8,7 +8,8 @@ from tm_motion.msg import ActionAction, ActionGoal
 from pymodbus.client.sync import ModbusTcpClient
 import tf
 import tf2_ros
-import geometry_msgs.msg 
+import geometry_msgs.msg
+import math
 host = '192.168.1.2'
 port_modbus = 502
 client = ModbusTcpClient(host, port_modbus)
@@ -70,21 +71,9 @@ def call_server():
     return result
 
 if __name__ == "__main__":
+    rospy.init_node('test_tf')
     print "scanning for tm landmark location"
     print landmark_location_service_client()
-    # vision_x = nc.partition("\\")[0]
-    # vision_y = nc.partition("\\\\")[0].replace(vision_x, '').replace('\\', '')
-    # vision_z = nc.partition("\\\\\\")[0].replace(vision_x, '').replace(vision_y, '').replace('\\', '')
-    # vision_Rx = nc.partition("\\\\\\\\")[0].replace(vision_x, '').replace(vision_y, '').replace(vision_z, '').replace('\\', '')
-    # vision_Ry = nc.partition("\\\\\\\\\\")[0].replace(vision_x, '').replace(vision_y, '').replace(vision_z, '').replace(vision_Rx, '').replace('\\', '')
-    # vision_Rz = nc.replace(vision_x, '').replace(vision_y, '').replace(vision_z, '').replace(vision_Rx, '').replace(vision_Ry, '').replace('\\', '')
-    # print float(vision_x)
-    # print float(vision_y)
-    # print float(vision_z)
-    # print float(vision_Rx)
-    # print float(vision_Ry)
-    # print float(vision_Rz)
-    rospy.init_node('tf2_listener')
     rate = rospy.Rate(10.0)
     tfBuffer = tf2_ros.Buffer()
     listener = tf2_ros.TransformListener(tfBuffer)
@@ -103,8 +92,8 @@ if __name__ == "__main__":
     landmark_to_obj.header.frame_id = "landmark_location"
     landmark_to_obj.child_frame_id = "object_location"
     landmark_to_obj.transform.translation.x = 0
-    landmark_to_obj.transform.translation.y = 100
-    landmark_to_obj.transform.translation.z = 100
+    landmark_to_obj.transform.translation.y = 0
+    landmark_to_obj.transform.translation.z = 0
     quat = tf.transformations.quaternion_from_euler(
                0,0,0)
     landmark_to_obj.transform.rotation.x = quat[0]
@@ -112,27 +101,47 @@ if __name__ == "__main__":
     landmark_to_obj.transform.rotation.z = quat[2]
     landmark_to_obj.transform.rotation.w = quat[3]
     broadcaster2.sendTransform(landmark_to_obj)
-    trans = tfBuffer.lookup_transform('base_link', 'object_location', rospy.Time())
-    print trans.transform
+    while not rospy.is_shutdown():
+        try:
+            trans = tfBuffer.lookup_transform('base_link', 'object_location', rospy.Time())
+            print "new values:"
+            print trans.transform
+            break
+        except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
+            rate.sleep()
+            continue
 
-    # pick_location = trans.transform * landmark_to_obj.transform
-    # print pick_location
+    quaternion = (
+    trans.transform.rotation.x,
+    trans.transform.rotation.y,
+    trans.transform.rotation.z,
+    trans.transform.rotation.w)
+    euler = tf.transformations.euler_from_quaternion(quaternion)
+    Rx = math.degrees(euler[0])
+    Ry = math.degrees(euler[1])
+    Rz = math.degrees(euler[2])
 
+    print trans.transform.translation.x
+    print trans.transform.translation.y
+    print trans.transform.translation.z
+    print Rx
+    print Ry
+    print Rz
 
-
+    exit()
 
     start_program()
     release()
     stop_program()
     try:
-        rospy.init_node('move_action_client')
+        # rospy.init_node('move_action_client')
         goal = ActionGoal()
-        goal.goal_goal1 = float(vision_x)
-        goal.goal_goal2 = float(vision_y)+100
-        goal.goal_goal3 = float(vision_z)+350
-        goal.goal_goal4 = float(vision_Rx)
-        goal.goal_goal5 = float(vision_Ry)
-        goal.goal_goal6 = float(vision_Rz)-180
+        goal.goal_goal1 = trans.transform.translation.x
+        goal.goal_goal2 = trans.transform.translation.y
+        goal.goal_goal3 = trans.transform.translation.z
+        goal.goal_goal4 = Rx
+        goal.goal_goal5 = Ry
+        goal.goal_goal6 = Rz
         result = call_server()
         print 'The result is:', result
         print "moved to pickup location"
