@@ -55,7 +55,7 @@ def handle_landmark_location(req):
     print "entering vision program"
     status = client.write_coil(0004, True, unit=1)
     print(status)
-    time.sleep(0.5)
+    time.sleep(1)
     Thread(target = main_program).start()
     Thread(target = vision).start()
     return main_program()
