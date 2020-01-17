@@ -1,19 +1,19 @@
 [  0%] Built target actionlib_msgs_generate_messages_eus
-[  0%] Built target _tm_motion_generate_messages_check_deps_ActionActionFeedback
-[  0%] Built target _tm_motion_generate_messages_check_deps_ActionResult
 [  0%] Built target _tm_motion_generate_messages_check_deps_ActionAction
+[  0%] Built target _tm_motion_generate_messages_check_deps_ActionResult
+[  0%] Built target _tm_motion_generate_messages_check_deps_ActionActionFeedback
 [  0%] Built target _tm_motion_generate_messages_check_deps_ActionActionResult
-[  0%] Built target _tm_motion_generate_messages_check_deps_ActionActionGoal
 [  0%] Built target _tm_motion_generate_messages_check_deps_TmMotion
+[  0%] Built target _tm_motion_generate_messages_check_deps_ActionActionGoal
 [  0%] Built target _tm_motion_generate_messages_check_deps_ActionFeedback
-[  0%] Built target actionlib_msgs_generate_messages_cpp
 [  0%] Built target _tm_motion_generate_messages_check_deps_ActionGoal
 [  0%] Built target actionlib_msgs_generate_messages_lisp
+[  0%] Built target actionlib_msgs_generate_messages_cpp
+[  0%] Built target actionlib_msgs_generate_messages_py
 [  0%] Built target actionlib_msgs_generate_messages_nodejs
 [ 20%] Built target tm_motion_generate_messages_eus
-[ 39%] Built target tm_motion_generate_messages_cpp
-[ 58%] Built target tm_motion_generate_messages_lisp
-[ 58%] Built target actionlib_msgs_generate_messages_py
-[ 76%] Built target tm_motion_generate_messages_nodejs
-[100%] Built target tm_motion_generate_messages_py
+[ 39%] Built target tm_motion_generate_messages_lisp
+[ 58%] Built target tm_motion_generate_messages_cpp
+[ 81%] Built target tm_motion_generate_messages_py
+[100%] Built target tm_motion_generate_messages_nodejs
 [100%] Built target tm_motion_generate_messages
