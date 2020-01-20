@@ -14,5 +14,5 @@ For vision pick and place:
 roslaunch tm_motion tm_motion.launch ip:=<robot ip address>
 ```
 ```
-rosrun tm_motion ......................
+rosrun tm_motion vision_pick_place_client.py
 ```
