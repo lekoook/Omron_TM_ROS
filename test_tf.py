@@ -95,7 +95,7 @@ if __name__ == "__main__":
     landmark_to_obj.transform.translation.y = 0
     landmark_to_obj.transform.translation.z = -350
     quat = tf.transformations.quaternion_from_euler(
-               0,0,-3.142)
+               0,0,-math.pi)
     landmark_to_obj.transform.rotation.x = quat[0]
     landmark_to_obj.transform.rotation.y = quat[1]
     landmark_to_obj.transform.rotation.z = quat[2]
@@ -188,7 +188,7 @@ if __name__ == "__main__":
     landmark_to_obj.transform.translation.y = 0
     landmark_to_obj.transform.translation.z = -350
     quat = tf.transformations.quaternion_from_euler(
-               0,0,-3.142)
+               0,0,-math.pi)
     landmark_to_obj.transform.rotation.x = quat[0]
     landmark_to_obj.transform.rotation.y = quat[1]
     landmark_to_obj.transform.rotation.z = quat[2]
