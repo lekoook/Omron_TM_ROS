@@ -134,7 +134,6 @@ if __name__ == "__main__":
     release()
     stop_program()
     try:
-        # rospy.init_node('move_action_client')
         goal = ActionGoal()
         goal.goal_goal1 = trans.transform.translation.x
         goal.goal_goal2 = trans.transform.translation.y
@@ -152,7 +151,6 @@ if __name__ == "__main__":
     print "gripped object"
     stop_program()
     try:
-        # rospy.init_node('move_action_client')
         goal = ActionGoal()
         goal.goal_goal1 = trans.transform.translation.x
         goal.goal_goal2 = trans.transform.translation.y
@@ -221,7 +219,6 @@ if __name__ == "__main__":
     print Ry
     print Rz
     try:
-        # rospy.init_node('move_action_client')
         goal = ActionGoal()
         goal.goal_goal1 = trans.transform.translation.x
         goal.goal_goal2 = trans.transform.translation.y
