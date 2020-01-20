@@ -12,6 +12,7 @@ from tm_motion.srv import TmMotion,TmMotionResponse
 import tf
 import tf2_ros
 import geometry_msgs.msg
+import math
 ip_address = rospy.get_param("ip_address")
 # ip_address = '192.168.1.2'
 port = 502
@@ -40,6 +41,7 @@ def vision():
     vision_Rx = nc.partition("\\\\\\\\")[0].replace(vision_x, '').replace(vision_y, '').replace(vision_z, '').replace('\\', '')
     vision_Ry = nc.partition("\\\\\\\\\\")[0].replace(vision_x, '').replace(vision_y, '').replace(vision_z, '').replace(vision_Rx, '').replace('\\', '')
     vision_Rz = nc.replace(vision_x, '').replace(vision_y, '').replace(vision_z, '').replace(vision_Rx, '').replace(vision_Ry, '').replace('\\', '')
+    # vision_Rx = vision_Ry = vision_Rz = 0
 
 def main_program():
     time.sleep(8)
@@ -59,7 +61,7 @@ def main_program():
     static_transformStamped.transform.translation.y = float(vision_y)
     static_transformStamped.transform.translation.z = float(vision_z)
     quat = tf.transformations.quaternion_from_euler(
-               float(vision_Rx),float(vision_Ry),float(vision_Rz))
+               math.radians(float(vision_Rx)),math.radians(float(vision_Ry)),math.radians(float(vision_Rz)))
     static_transformStamped.transform.rotation.x = quat[0]
     static_transformStamped.transform.rotation.y = quat[1]
     static_transformStamped.transform.rotation.z = quat[2]
