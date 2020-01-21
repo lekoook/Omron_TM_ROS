@@ -13,7 +13,7 @@ import tf
 import tf2_ros
 import geometry_msgs.msg
 import math
-ip_address = rospy.get_param("ip_address")
+ip_address = rospy.get_param("ip_address_tm")
 # ip_address = '192.168.1.2'
 port = 502
 client = ModbusTcpClient(ip_address, port)

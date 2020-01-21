@@ -9,7 +9,7 @@
       <!-- <param name="ip_address" value="172.21.5.123" />
       <param name="port" value="7171" /> -->
       <arg name="ip" />
-      <param name="ip_address" value="$(arg ip)" />
+      <param name="ip_address_tm" value="$(arg ip)" />
       <!-- <param name="port" value="5890" /> -->
   <!-- </group> -->
 

@@ -13,7 +13,7 @@ from pymodbus.client.sync import ModbusTcpClient
 import struct
 import time
 from ctypes import *
-ip_address = rospy.get_param("ip_address")
+ip_address = rospy.get_param("ip_address_tm")
 # ip_address = '192.168.1.2'
 port_modbus = 502
 
@@ -45,7 +45,7 @@ class ActionServer():
             print"connecting to tm robot......"
 
         def check_server():
-            ip_address = rospy.get_param("ip_address")
+            ip_address = rospy.get_param("ip_address_tm")
             # port = rospy.get_param("port")
             # ip_address = '192.168.1.2'
             port = 5890
