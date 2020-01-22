@@ -1,1 +1,1 @@
-/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/__init__.py
+/home/tthmatt/Omron_TM_ROS/devel/.private/tm_motion/lib/python2.7/dist-packages/tm_motion/msg/__init__.py

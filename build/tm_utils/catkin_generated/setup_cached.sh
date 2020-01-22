@@ -7,6 +7,6 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/tthmatt/Omron-TM-ROS/devel/.private/tm_utils:$CMAKE_PREFIX_PATH"
-export PWD="/home/tthmatt/Omron-TM-ROS/build/tm_utils"
-export ROS_PACKAGE_PATH="/home/tthmatt/Omron-TM-ROS/src/tm_utils:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/tthmatt/Omron_TM_ROS/devel/.private/tm_utils:$CMAKE_PREFIX_PATH"
+export PWD="/home/tthmatt/Omron_TM_ROS/build/tm_utils"
+export ROS_PACKAGE_PATH="/home/tthmatt/Omron_TM_ROS/src/tm_utils:$ROS_PACKAGE_PATH"

@@ -1,1 +1,1 @@
-/home/tthmatt/Omron-TM-ROS/devel/.private/tm_utils/lib/pkgconfig/tm_utils.pc
+/home/tthmatt/Omron_TM_ROS/devel/.private/tm_utils/lib/pkgconfig/tm_utils.pc

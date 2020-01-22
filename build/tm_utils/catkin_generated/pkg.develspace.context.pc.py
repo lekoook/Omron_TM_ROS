@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "tm_utils"
-PROJECT_SPACE_DIR = "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_utils"
+PROJECT_SPACE_DIR = "/home/tthmatt/Omron_TM_ROS/devel/.private/tm_utils"
 PROJECT_VERSION = "0.0.0"

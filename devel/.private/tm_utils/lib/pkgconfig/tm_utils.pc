@@ -1,8 +1,8 @@
-prefix=/home/tthmatt/Omron-TM-ROS/devel/.private/tm_utils
+prefix=/home/tthmatt/Omron_TM_ROS/devel/.private/tm_utils
 
 Name: tm_utils
 Description: Description of tm_utils
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/tthmatt/Omron-TM-ROS/devel/.private/tm_utils/lib 
+Libs: -L/home/tthmatt/Omron_TM_ROS/devel/.private/tm_utils/lib 
 Requires: 

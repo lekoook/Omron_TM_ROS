@@ -67,14 +67,14 @@ set(tm_motion_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(tm_motion_SOURCE_PREFIX /home/tthmatt/Omron-TM-ROS/src/tm_motion)
-  set(tm_motion_DEVEL_PREFIX /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion)
+  set(tm_motion_SOURCE_PREFIX /home/tthmatt/Omron_TM_ROS/src/tm_motion)
+  set(tm_motion_DEVEL_PREFIX /home/tthmatt/Omron_TM_ROS/devel/.private/tm_motion)
   set(tm_motion_INSTALL_PREFIX "")
   set(tm_motion_PREFIX ${tm_motion_DEVEL_PREFIX})
 else()
   set(tm_motion_SOURCE_PREFIX "")
   set(tm_motion_DEVEL_PREFIX "")
-  set(tm_motion_INSTALL_PREFIX /home/tthmatt/Omron-TM-ROS/install)
+  set(tm_motion_INSTALL_PREFIX /home/tthmatt/Omron_TM_ROS/install)
   set(tm_motion_PREFIX ${tm_motion_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(tm_motion_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include " STREQUAL " ")
+if(NOT "/home/tthmatt/Omron_TM_ROS/devel/.private/tm_motion/include " STREQUAL " ")
   set(tm_motion_INCLUDE_DIRS "")
-  set(_include_dirs "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include")
+  set(_include_dirs "/home/tthmatt/Omron_TM_ROS/devel/.private/tm_motion/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/include " STREQUAL "
         message(FATAL_ERROR "Project 'tm_motion' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'tm_motion' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/tthmatt/Omron-TM-ROS/src/tm_motion/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'tm_motion' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/tthmatt/Omron_TM_ROS/src/tm_motion/${idir}'.  ${_report}")
     endif()
     _list_append_unique(tm_motion_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib;/home/tthmatt/Omron-TM-ROS/devel/lib;/home/tthmatt/Omron_LD_ROS_Package/devel/lib;/home/tthmatt/ws/devel/lib;/home/tthmatt/catkin_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/tthmatt/Omron_TM_ROS/devel/.private/tm_motion/lib;/home/tthmatt/Omron_TM_ROS/devel/lib;/home/tthmatt/Omron_MoMa_ROS/devel/lib;/home/tthmatt/learning_tf2_ws/devel/lib;/home/tthmatt/Omron_LD_ROS_Package/devel/lib;/home/tthmatt/ws/devel/lib;/home/tthmatt/catkin_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

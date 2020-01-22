@@ -1,8 +1,8 @@
-prefix=/home/tthmatt/Omron-TM-ROS/install
+prefix=/home/tthmatt/Omron_TM_ROS/install
 
 Name: tm_motion
 Description: Description of tm_motion
 Version: 0.0.0
-Cflags: -I/home/tthmatt/Omron-TM-ROS/install/include
-Libs: -L/home/tthmatt/Omron-TM-ROS/install/lib -ltm_actions
+Cflags: -I/home/tthmatt/Omron_TM_ROS/install/include
+Libs: -L/home/tthmatt/Omron_TM_ROS/install/lib -ltm_actions
 Requires: actionlib_msgs rospy std_msgs message_runtime

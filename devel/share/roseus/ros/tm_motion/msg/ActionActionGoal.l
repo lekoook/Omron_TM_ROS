@@ -1,1 +1,1 @@
-/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/share/roseus/ros/tm_motion/msg/ActionActionGoal.l
+/home/tthmatt/Omron_TM_ROS/devel/.private/tm_motion/share/roseus/ros/tm_motion/msg/ActionActionGoal.l

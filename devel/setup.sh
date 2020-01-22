@@ -1,1 +1,1 @@
-/home/tthmatt/Omron-TM-ROS/devel/.private/catkin_tools_prebuild/setup.sh
+/home/tthmatt/Omron_TM_ROS/devel/.private/catkin_tools_prebuild/setup.sh

@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/setup.sh
+    local-name: /home/tthmatt/Omron_TM_ROS/devel/.private/tm_motion/setup.sh

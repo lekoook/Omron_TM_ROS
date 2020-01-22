@@ -7,9 +7,6 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PWD="/home/tthmatt/Omron-TM-ROS/build/tm_motion"
-export PYTHONPATH="/home/tthmatt/Omron-TM-ROS/devel/.private/tm_motion/lib/python2.7/dist-packages:$PYTHONPATH"
-export ROS_PACKAGE_PATH="/home/tthmatt/Omron-TM-ROS/src/tm_motion:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/tthmatt/Omron_TM_ROS/devel/.private/tm_motion:$CMAKE_PREFIX_PATH"
+export PWD="/home/tthmatt/Omron_TM_ROS/build/tm_motion"
+export ROS_PACKAGE_PATH="/home/tthmatt/Omron_TM_ROS/src/tm_motion:$ROS_PACKAGE_PATH"
