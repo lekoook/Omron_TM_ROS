@@ -8,6 +8,8 @@
 ```
 pip install  -U pymodbus
 ```
+6. ROS_vision_pick_place program has to be set as current project in TM Flow
+
 ### Usage
 For vision pick and place:
 ```
