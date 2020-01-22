@@ -72,6 +72,21 @@ def call_server():
 
 if __name__ == "__main__":
     rospy.init_node('test_tf')
+
+    print "moving to initial location to scan tm landmark"
+    try:
+        goal = ActionGoal()
+        goal.goal_goal1 = -326.47
+        goal.goal_goal2 = -53.09
+        goal.goal_goal3 = 646.33
+        goal.goal_goal4 = -177.09
+        goal.goal_goal5 = -1.64
+        goal.goal_goal6 = -90.20
+        result = call_server()
+        print 'The result is:', result
+    except rospy.ROSInterruptException as e:
+        print 'Something went wrong:', e
+
     print "scanning for tm landmark location"
     print landmark_location_service_client()
     rate = rospy.Rate(10.0)
@@ -162,7 +177,21 @@ if __name__ == "__main__":
         print 'The result is:', result
     except rospy.ROSInterruptException as e:
         print 'Something went wrong:', e
-    time.sleep(1)
+
+    print "moving to dropoff location to scan tm landmark"
+    try:
+        goal = ActionGoal()
+        goal.goal_goal1 = -326.47
+        goal.goal_goal2 = -53.09
+        goal.goal_goal3 = 646.33
+        goal.goal_goal4 = -177.09
+        goal.goal_goal5 = -1.64
+        goal.goal_goal6 = -90.20
+        result = call_server()
+        print 'The result is:', result
+    except rospy.ROSInterruptException as e:
+        print 'Something went wrong:', e
+
     print "scanning for tm landmark location"
     print landmark_location_service_client()
     rate = rospy.Rate(10.0)
