@@ -72,6 +72,21 @@ def call_server():
 
 if __name__ == "__main__":
     rospy.init_node('test_tf')
+
+    print "moving to initial location to scan tm landmark"
+    try:
+        goal = ActionGoal()
+        goal.goal_goal1 = -326.47
+        goal.goal_goal2 = -53.09
+        goal.goal_goal3 = 646.33
+        goal.goal_goal4 = -177.09
+        goal.goal_goal5 = -1.64
+        goal.goal_goal6 = -90.20
+        result = call_server()
+        print 'The result is:', result
+    except rospy.ROSInterruptException as e:
+        print 'Something went wrong:', e
+
     print "scanning for tm landmark location"
     print landmark_location_service_client()
     rate = rospy.Rate(10.0)
@@ -110,7 +125,6 @@ if __name__ == "__main__":
         except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
             rate.sleep()
             continue
-
     quaternion = (
     trans.transform.rotation.x,
     trans.transform.rotation.y,
@@ -120,7 +134,6 @@ if __name__ == "__main__":
     Rx = math.degrees(euler[0])
     Ry = math.degrees(euler[1])
     Rz = math.degrees(euler[2])
-
     print trans.transform.translation.x
     print trans.transform.translation.y
     print trans.transform.translation.z
@@ -128,11 +141,10 @@ if __name__ == "__main__":
     print Ry
     print Rz
 
-    # exit()
-
     start_program()
     release()
     stop_program()
+
     try:
         goal = ActionGoal()
         goal.goal_goal1 = trans.transform.translation.x
@@ -146,10 +158,12 @@ if __name__ == "__main__":
         print "moved to pickup location"
     except rospy.ROSInterruptException as e:
         print 'Something went wrong:', e
+
     start_program()
     grip()
     print "gripped object"
     stop_program()
+
     try:
         goal = ActionGoal()
         goal.goal_goal1 = trans.transform.translation.x
@@ -162,7 +176,21 @@ if __name__ == "__main__":
         print 'The result is:', result
     except rospy.ROSInterruptException as e:
         print 'Something went wrong:', e
-    time.sleep(1)
+
+    print "moving to dropoff location to scan tm landmark"
+    try:
+        goal = ActionGoal()
+        goal.goal_goal1 = -326.47
+        goal.goal_goal2 = -53.09
+        goal.goal_goal3 = 646.33
+        goal.goal_goal4 = -177.09
+        goal.goal_goal5 = -1.64
+        goal.goal_goal6 = -90.20
+        result = call_server()
+        print 'The result is:', result
+    except rospy.ROSInterruptException as e:
+        print 'Something went wrong:', e
+
     print "scanning for tm landmark location"
     print landmark_location_service_client()
     rate = rospy.Rate(10.0)
@@ -201,7 +229,6 @@ if __name__ == "__main__":
         except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
             rate.sleep()
             continue
-
     quaternion = (
     trans.transform.rotation.x,
     trans.transform.rotation.y,
@@ -211,13 +238,13 @@ if __name__ == "__main__":
     Rx = math.degrees(euler[0])
     Ry = math.degrees(euler[1])
     Rz = math.degrees(euler[2])
-
     print trans.transform.translation.x
     print trans.transform.translation.y
     print trans.transform.translation.z
     print Rx
     print Ry
     print Rz
+
     try:
         goal = ActionGoal()
         goal.goal_goal1 = trans.transform.translation.x
@@ -231,6 +258,7 @@ if __name__ == "__main__":
         print "moved to dropoff location"
     except rospy.ROSInterruptException as e:
         print 'Something went wrong:', e
+        
     start_program()
     release()
     stop_program()
