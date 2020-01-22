@@ -10,6 +10,35 @@ pip install  -U pymodbus
 ```
 6. Import ROS_Vision_Pick_Place program (TM_Export folder is included in the root of this workspace) and it has to be set as the current project in TM Flow.
 
+### Compatibility
+
+Tested on TM Flow 1.72 and 1.76
+
+### Installation
+
+This readme assumes that you have installed catkin and sourced your environment. If you installed catkin via apt-get for ROS melodic, your command would look like this:
+```
+source /opt/ros/melodic/setup.bash
+```
+Clone the repository into the your home directory:
+```
+git clone https://github.com/tthmatt/Omron_TM_ROS.git
+```
+Your workspace hierarchy should look like this:
+
+
+
+Use catkin build to compile and make sure to source the workspace:
+```
+cd ~/Omron_TM_ROS
+
+catkin clean
+
+catkin build
+
+source ~/Omron_TM_ROS/devel/setup.bash
+```
+
 ### Usage
 For vision pick and place:
 ```
