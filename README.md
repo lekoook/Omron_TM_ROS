@@ -42,6 +42,7 @@ source ~/Omron_TM_ROS/devel/setup.bash
 
 ### Usage
 For vision pick and place:
+
 set robot coordinates to scan tm landmark and offset from tm landmark in launch file. Then run in terminal: 
 ```
 roslaunch tm_motion tm_motion.launch ip:=<robot ip address>
