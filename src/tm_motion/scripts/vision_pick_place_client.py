@@ -180,12 +180,12 @@ if __name__ == "__main__":
     print "moving to dropoff location to scan tm landmark"
     try:
         goal = ActionGoal()
-        goal.goal_goal1 = -326.47
-        goal.goal_goal2 = -53.09
-        goal.goal_goal3 = 646.33
-        goal.goal_goal4 = -177.09
-        goal.goal_goal5 = -1.64
-        goal.goal_goal6 = -90.20
+        goal.goal_goal1 = -202
+        goal.goal_goal2 = 530.38
+        goal.goal_goal3 = 437.76
+        goal.goal_goal4 = 179.13
+        goal.goal_goal5 = -0.58
+        goal.goal_goal6 = -87.82
         result = call_server()
         print 'The result is:', result
     except rospy.ROSInterruptException as e:
@@ -258,7 +258,7 @@ if __name__ == "__main__":
         print "moved to dropoff location"
     except rospy.ROSInterruptException as e:
         print 'Something went wrong:', e
-        
+
     start_program()
     release()
     stop_program()
