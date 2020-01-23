@@ -17,6 +17,7 @@
       <param name="place_scan_location" value="-202,530.38,437.76,179.13,-0.58,-87.82" />
 
       <!-- specify x, y, z offset from tm landmark for robot to place object separated by commars without spaces -->
-      <param name="place_offset" value="100,0,-300" />
+      <!-- <param name="place_offset" value="100,0,-280" /> -->
+      <param name="place_offset" value="100,0,-350" />
 
 </launch>
