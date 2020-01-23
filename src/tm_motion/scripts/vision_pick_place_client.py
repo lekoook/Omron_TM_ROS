@@ -73,15 +73,23 @@ def call_server():
 if __name__ == "__main__":
     rospy.init_node('test_tf')
 
-    print "moving to initial location to scan tm landmark"
+    values = rospy.get_param("pick_scan_location").split(",")
+    print "pick_scan_location: ", values
+    print "moving to pick location to scan tm landmark"
     try:
         goal = ActionGoal()
-        goal.goal_goal1 = -326.47
-        goal.goal_goal2 = -53.09
-        goal.goal_goal3 = 646.33
-        goal.goal_goal4 = -177.09
-        goal.goal_goal5 = -1.64
-        goal.goal_goal6 = -90.20
+        goal.goal_goal1 = float(values[0])
+        goal.goal_goal2 = float(values[1])
+        goal.goal_goal3 = float(values[2])
+        goal.goal_goal4 = float(values[3])
+        goal.goal_goal5 = float(values[4])
+        goal.goal_goal6 = float(values[5])
+        # goal.goal_goal1 = -326.47
+        # goal.goal_goal2 = -53.09
+        # goal.goal_goal3 = 646.33
+        # goal.goal_goal4 = -177.09
+        # goal.goal_goal5 = -1.64
+        # goal.goal_goal6 = -90.20
         result = call_server()
         print 'The result is:', result
     except rospy.ROSInterruptException as e:
@@ -101,14 +109,19 @@ if __name__ == "__main__":
             rate.sleep()
             continue
 
+    values2 = rospy.get_param("pick_offset").split(",")
+    print "pick_offset: ", values2
     broadcaster2 = tf2_ros.StaticTransformBroadcaster()
     landmark_to_obj = geometry_msgs.msg.TransformStamped()
     landmark_to_obj.header.stamp = rospy.Time.now()
     landmark_to_obj.header.frame_id = "landmark_location"
     landmark_to_obj.child_frame_id = "object_location"
-    landmark_to_obj.transform.translation.x = 100
-    landmark_to_obj.transform.translation.y = 0
-    landmark_to_obj.transform.translation.z = -350
+    landmark_to_obj.transform.translation.x = float(values2[0])
+    landmark_to_obj.transform.translation.y = float(values2[1])
+    landmark_to_obj.transform.translation.z = float(values2[2])
+    # landmark_to_obj.transform.translation.x = 100
+    # landmark_to_obj.transform.translation.y = 0
+    # landmark_to_obj.transform.translation.z = -350
     quat = tf.transformations.quaternion_from_euler(
                0,0,-math.pi)
     landmark_to_obj.transform.rotation.x = quat[0]
@@ -177,15 +190,23 @@ if __name__ == "__main__":
     except rospy.ROSInterruptException as e:
         print 'Something went wrong:', e
 
+    values3 = rospy.get_param("place_scan_location").split(",")
+    print "place_scan_location: ", values3
     print "moving to dropoff location to scan tm landmark"
     try:
         goal = ActionGoal()
-        goal.goal_goal1 = -202
-        goal.goal_goal2 = 530.38
-        goal.goal_goal3 = 437.76
-        goal.goal_goal4 = 179.13
-        goal.goal_goal5 = -0.58
-        goal.goal_goal6 = -87.82
+        goal.goal_goal1 = float(values3[0])
+        goal.goal_goal2 = float(values3[1])
+        goal.goal_goal3 = float(values3[2])
+        goal.goal_goal4 = float(values3[3])
+        goal.goal_goal5 = float(values3[4])
+        goal.goal_goal6 = float(values3[5])
+        # goal.goal_goal1 = -202
+        # goal.goal_goal2 = 530.38
+        # goal.goal_goal3 = 437.76
+        # goal.goal_goal4 = 179.13
+        # goal.goal_goal5 = -0.58
+        # goal.goal_goal6 = -87.82
         result = call_server()
         print 'The result is:', result
     except rospy.ROSInterruptException as e:
@@ -205,14 +226,19 @@ if __name__ == "__main__":
             rate.sleep()
             continue
 
+    values4 = rospy.get_param("place_offset").split(",")
+    print "place_offset: ", values4
     broadcaster2 = tf2_ros.StaticTransformBroadcaster()
     landmark_to_obj = geometry_msgs.msg.TransformStamped()
     landmark_to_obj.header.stamp = rospy.Time.now()
     landmark_to_obj.header.frame_id = "landmark_location"
     landmark_to_obj.child_frame_id = "place_location"
-    landmark_to_obj.transform.translation.x = 100
-    landmark_to_obj.transform.translation.y = 0
-    landmark_to_obj.transform.translation.z = -250
+    landmark_to_obj.transform.translation.x = float(values4[0])
+    landmark_to_obj.transform.translation.y = float(values4[1])
+    landmark_to_obj.transform.translation.z = float(values4[2])
+    # landmark_to_obj.transform.translation.x = 100
+    # landmark_to_obj.transform.translation.y = 0
+    # landmark_to_obj.transform.translation.z = -300
     quat = tf.transformations.quaternion_from_euler(
                0,0,-math.pi)
     landmark_to_obj.transform.rotation.x = quat[0]

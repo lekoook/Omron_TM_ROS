@@ -108,6 +108,7 @@ class ActionServer():
         def command():
             start_program()
             #go into listen node
+            time.sleep(1)
             print "going into listen node"
             status = client.write_coil(0003, True, unit=1)
             print(status)

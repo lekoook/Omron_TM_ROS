@@ -73,6 +73,7 @@ def main_program():
 def handle_landmark_location(req):
     start_program()
     #go into vision program
+    time.sleep(1)
     print "entering vision program"
     status = client.write_coil(0004, True, unit=1)
     print(status)

@@ -1,17 +1,22 @@
 <launch>
 
-  <!-- BEGIN ROBOT 1-->
-  <!-- <group ns="robot1"> -->
-  <!-- <arg name="name" />
-  <group ns="$(arg name)"> -->
     <node name="landmark_location_service_server" pkg="tm_motion" type="landmark_location_service_server.py" output="screen" />
     <node name="move_action_server" pkg="tm_motion" type="move_action_server.py" output="screen" />
-      <!-- <param name="ip_address" value="172.21.5.123" />
-      <param name="port" value="7171" /> -->
       <arg name="ip" />
       <param name="ip_address_tm" value="$(arg ip)" />
-      <!-- <param name="port" value="5890" /> -->
-  <!-- </group> -->
 
+    <node name="vision_pick_place_client" pkg="tm_motion" type="vision_pick_place_client.py" output="screen" />
+
+      <!-- specify robot corrdinates to scan tm landmark at object pick location separated by commars without spaces -->
+      <param name="pick_scan_location" value="-326.47,-53.09,646.33,-177.09,-1.64,-90.20" />
+
+      <!-- specify x, y, z offset from tm landmark for robot to pick object separated by commars without spaces -->
+      <param name="pick_offset" value="100,0,-350" />
+
+      <!-- specify robot corrdinates to scan tm landmark at object dropoff location separated by commars without spaces -->
+      <param name="place_scan_location" value="-202,530.38,437.76,179.13,-0.58,-87.82" />
+
+      <!-- specify x, y, z offset from tm landmark for robot to place object separated by commars without spaces -->
+      <param name="place_offset" value="100,0,-300" />
 
 </launch>
