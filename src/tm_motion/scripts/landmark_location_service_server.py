@@ -44,7 +44,7 @@ def vision():
     # vision_Rx = vision_Ry = vision_Rz = 0
 
 def main_program():
-    time.sleep(1)
+    time.sleep(2)
     stop_program()
     print "x", float(vision_x)
     print "y", float(vision_y)
