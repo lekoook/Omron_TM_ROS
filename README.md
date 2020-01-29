@@ -50,7 +50,7 @@ For example:
 
 param name="pick_scan_location" value="-326.47,-53.09,646.33,-177.09,-1.64,-90.20"
 
-<param name="pick_offset" value="100,0,-350" />
+\<param name="pick_offset" value="100,0,-350" />\
 
 Then run in terminal: 
 ```
