@@ -153,8 +153,9 @@ if __name__ == "__main__":
     print Rx
     print Ry
     print Rz
-
+    
     start_program()
+    time.sleep(1)
     release()
     stop_program()
 
