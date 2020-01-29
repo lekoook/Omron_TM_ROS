@@ -43,14 +43,14 @@ source ~/Omron_TM_ROS/devel/setup.bash
 ### Usage
 For vision pick and place:
 
-set robot coordinates to scan tm landmark and offset from tm landmark(refer to image below) in launch file. 
+set robot coordinates to scan tm landmark and offset from tm landmark(refer to image below) separated by commars without spaces in launch file. 
 ![tm_landmark_coordinates](https://user-images.githubusercontent.com/8951670/73336836-dba4af80-42ad-11ea-8c8e-25acb1e09006.png)
 
 For example: 
 
 param name="pick_scan_location" value="-326.47,-53.09,646.33,-177.09,-1.64,-90.20"
 
-pick_offset" value="100,0,-350
+pick_offset" value="100,0,-350"
 
 Then run in terminal: 
 ```
