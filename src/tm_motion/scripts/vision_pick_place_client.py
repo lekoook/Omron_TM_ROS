@@ -71,7 +71,7 @@ def call_server():
     return result
 
 if __name__ == "__main__":
-    rospy.init_node('test_tf')
+    rospy.init_node('vision_pick_place_client')
 
     values = rospy.get_param("pick_scan_location").split(",")
     print "pick_scan_location: ", values
@@ -153,7 +153,7 @@ if __name__ == "__main__":
     print Rx
     print Ry
     print Rz
-    
+
     start_program()
     time.sleep(1)
     release()
