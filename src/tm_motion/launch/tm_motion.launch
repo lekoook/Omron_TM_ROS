@@ -7,13 +7,13 @@
 
     <node name="vision_pick_place_client" pkg="tm_motion" type="vision_pick_place_client.py" output="screen" />
 
-      <!-- specify robot corrdinates to scan tm landmark at object pick location separated by commars without spaces -->
+      <!-- specify robot coordinates to scan tm landmark at object pick location separated by commars without spaces -->
       <param name="pick_scan_location" value="-326.47,-53.09,646.33,-177.09,-1.64,-90.20" />
 
       <!-- specify x, y, z offset from tm landmark for robot to pick object separated by commars without spaces -->
       <param name="pick_offset" value="100,0,-350" />
 
-      <!-- specify robot corrdinates to scan tm landmark at object dropoff location separated by commars without spaces -->
+      <!-- specify robot coordinates to scan tm landmark at object dropoff location separated by commars without spaces -->
       <param name="place_scan_location" value="-202,530.38,437.76,179.13,-0.58,-87.82" />
 
       <!-- specify x, y, z offset from tm landmark for robot to place object separated by commars without spaces -->
