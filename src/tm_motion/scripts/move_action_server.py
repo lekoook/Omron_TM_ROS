@@ -16,7 +16,7 @@ from ctypes import *
 ip_address = rospy.get_param("ip_address_tm")
 # ip_address = '192.168.1.2'
 port_modbus = 502
-
+#connect to modbus
 client = ModbusTcpClient(ip_address, port_modbus)
 client.connect()
 
@@ -31,12 +31,12 @@ class ActionServer():
         success = True
         feedback = ActionFeedback()
         result = ActionResult()
-        j1 = goal.goal_goal1
-        j2 = goal.goal_goal2
-        j3 = goal.goal_goal3
-        j4 = goal.goal_goal4
-        j5 = goal.goal_goal5
-        j6 = goal.goal_goal6
+        j1 = goal.goal_goal1 #x
+        j2 = goal.goal_goal2 #y
+        j3 = goal.goal_goal3 #z
+        j4 = goal.goal_goal4 #Rx
+        j5 = goal.goal_goal5 #Ry
+        j6 = goal.goal_goal6 #rz
         def socketconnect():
             global s
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -46,8 +46,8 @@ class ActionServer():
 
         def check_server():
             ip_address = rospy.get_param("ip_address_tm")
-            # port = rospy.get_param("port")
             # ip_address = '192.168.1.2'
+            #default port for listen node
             port = 5890
             try:
                 s.connect((ip_address, port))
@@ -84,7 +84,6 @@ class ActionServer():
 
         def modbus(address):
             rr = client.read_input_registers(address,2,unit=2)
-            # print rr.registers
             if rr.registers[1]<10000:
                 if rr.registers[0]<1000:
                     a = '{:04x}'.format(rr.registers[0])
