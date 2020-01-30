@@ -5,6 +5,7 @@
 2. ROS Melodic
 3. Modbus enabled in TM Flow settings (might need to turn it off and on).
 4. Set computer ethernet ipv4 address as 192.168.1.100 and subnet 255.255.255.0 in ubuntu settings.
+![ipv4 settings](https://user-images.githubusercontent.com/8951670/73414272-40f9ae80-4349-11ea-90aa-3d5ec7d12a5c.png)
 5. pymodbus python module. To install, run in terminal:
 ```
 pip install  -U pymodbus
