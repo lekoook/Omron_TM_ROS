@@ -11,7 +11,7 @@ pip install  -U pymodbus
 ```
 6. Import ROS_Vision_Pick_Place program (TM_Export folder is included in the root of this workspace) and it has to be set as the current project in TM Flow.
 
-###TM Flow program explanation 
+### TM Flow program explanation 
 ![tm_ros_program_pic1](https://user-images.githubusercontent.com/8951670/73413992-74880900-4348-11ea-88c0-7152199c0be8.png)
 
 ### Compatibility
