@@ -76,11 +76,23 @@ class ActionServer():
             print(status)
             time.sleep(5)
 
-        def stop_program():
-            print "stopping program"
-            status = client.write_coil(7105, True, unit=1)
-            print(status)
-            time.sleep(2)
+        # def stop_program():
+        #     print "stopping program"
+        #     status = client.write_coil(7105, True, unit=1)
+        #     print(status)
+        #     time.sleep(2)
+
+        def script_exit():
+            utf8len("1,ScriptExit()".format())
+            getCheckSum("TMSCT,{},1,ScriptExit(),".format(length))
+            command =  "$TMSCT,{},1,ScriptExit(),*{}".format(length, cs)
+            print "Running scriptExit:", command
+            command = command.encode('ascii')
+            s.send(command+b"\r\n")
+            BUFFER_SIZE = 1024
+            data = s.recv(BUFFER_SIZE)
+            rcv = data.decode("utf-8")
+            print rcv
 
         def modbus(address):
             rr = client.read_input_registers(address,2,unit=2)
@@ -141,7 +153,9 @@ class ActionServer():
                     #     self.a_server.set_succeeded(result)
                     #     return(0)
                     if X < j1+1 and X > j1-1 and Y < j2+1 and Y >j2-1 and Z < j3+1 and Z > j3-1 and Rz < j6+1 and Rz >j6-1:
-                        stop_program()
+                        script_exit()
+                        status2 = client.write_coil(0003, False, unit=1)
+                        print(status2)
                         result.status = "Moved to location"
                         print "Moved to location"
                         self.a_server.set_succeeded(result)

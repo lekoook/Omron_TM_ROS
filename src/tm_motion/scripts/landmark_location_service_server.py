@@ -31,10 +31,57 @@ def stop_program():
     print(status)
     time.sleep(2)
 
+def utf8len(s):
+    global length
+    length = len(s.encode('utf-8'))
+    return length
+
+def getCheckSum(packet):
+    global cs
+    checksum = 0
+    for el in packet:
+        checksum ^= ord(el)
+    cs = '{:02x}'.format(checksum)
+    return cs
+def socketconnect():
+    global s
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.settimeout(10)
+    print"socket timeout:" , s.gettimeout(),"s"
+    print"connecting to tm robot......"
+
+def check_server():
+    ip_address = rospy.get_param("ip_address_tm")
+    # ip_address = '192.168.1.2'
+    #default port for listen node
+    port = 5890
+    try:
+        s.connect((ip_address, port))
+        print("Connected")
+
+    except socket.error:
+        print("Connection  failed. Did you run listen node?")
+        exit(0)
+
+def script_exit():
+    socketconnect()
+    check_server()
+    utf8len("1,ScriptExit()".format())
+    getCheckSum("TMSCT,{},1,ScriptExit(),".format(length))
+    command =  "$TMSCT,{},1,ScriptExit(),*{}".format(length, cs)
+    print "Running scriptExit:", command
+    command = command.encode('ascii')
+    s.send(command+b"\r\n")
+    BUFFER_SIZE = 1024
+    data = s.recv(BUFFER_SIZE)
+    rcv = data.decode("utf-8")
+    print rcv
+
 def vision():
     global vision_x, vision_y, vision_z, vision_Rx, vision_Ry, vision_Rz, nc
     #read tm landmark postion values
-    nc = subprocess.check_output(["netcat", "-l", "9000"])
+    nc = subprocess.check_output(["netcat", "-l", "9000", "-w", "1"])
+    print nc
     vision_x = nc.partition("\\")[0]
     vision_y = nc.partition("\\\\")[0].replace(vision_x, '').replace('\\', '')
     vision_z = nc.partition("\\\\\\")[0].replace(vision_x, '').replace(vision_y, '').replace('\\', '')
@@ -44,8 +91,8 @@ def vision():
     # vision_Rx = vision_Ry = vision_Rz = 0
 
 def main_program():
-    time.sleep(2)
-    stop_program()
+    time.sleep(5)
+    # stop_program()
     print "x", float(vision_x)
     print "y", float(vision_y)
     print "z", float(vision_z)
@@ -71,13 +118,16 @@ def main_program():
     return None
 
 def handle_landmark_location(req):
-    start_program()
+    # start_program()
     #go into vision program
     time.sleep(1)
-    print "entering vision program"
+    print "entering vision program, setting DO4 to 1"
     status = client.write_coil(0004, True, unit=1)
     print(status)
     time.sleep(1)
+    print "setting DO4 to 0"
+    status2 = client.write_coil(0004, False, unit=1)
+    print(status2)
     Thread(target = main_program).start()
     Thread(target = vision).start()
     return main_program()
