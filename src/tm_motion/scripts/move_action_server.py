@@ -40,7 +40,7 @@ class ActionServer():
         def socketconnect():
             global s
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.settimeout(5)
+            s.settimeout(10)
             print"socket timeout:" , s.gettimeout(),"s"
             print"connecting to tm robot......"
 
@@ -130,16 +130,17 @@ class ActionServer():
                     X = modbus(7001)
                     Y = modbus(7003)
                     Z = modbus(7005)
+                    Rz = modbus(7011)
                     time.sleep(0.5)
-                    print X,  Y,  Z
+                    print X,  Y,  Z, Rz
                     #stop program when robot reached target position
-                    if X == j1 and Y == j2 and Z == j3:
-                        stop_program()
-                        result.status = "Moved to location"
-                        print "Moved to location"
-                        self.a_server.set_succeeded(result)
-                        return(0)
-                    if X < j1+1 and X > j1-1 and Y < j2+1 and Y >j2-1 and Z < j3+1 and Z > j3-1:
+                    # if X == j1 and Y == j2 and Z == j3:
+                    #     stop_program()
+                    #     result.status = "Moved to location"
+                    #     print "Moved to location"
+                    #     self.a_server.set_succeeded(result)
+                    #     return(0)
+                    if X < j1+1 and X > j1-1 and Y < j2+1 and Y >j2-1 and Z < j3+1 and Z > j3-1 and Rz < j6+1 and Rz >j6-1:
                         stop_program()
                         result.status = "Moved to location"
                         print "Moved to location"
