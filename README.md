@@ -62,4 +62,5 @@ Then run in terminal:
 ```
 roslaunch tm_motion tm_motion.launch ip:=<robot ip address>
 ```
+### Limitations
 
