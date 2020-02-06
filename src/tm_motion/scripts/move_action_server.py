@@ -94,6 +94,18 @@ class ActionServer():
             rcv = data.decode("utf-8")
             print rcv
 
+        def set_payload():
+            utf8len("1,ChangeLoad(5)".format())
+            getCheckSum("TMSCT,{},1,ChangeLoad(5),".format(length))
+            command =  "$TMSCT,{},1,ChangeLoad(5),*{}".format(length, cs)
+            print "Running ChangeLoad(5)", command
+            command = command.encode('ascii')
+            s.send(command+b"\r\n")
+            BUFFER_SIZE = 1024
+            data = s.recv(BUFFER_SIZE)
+            rcv = data.decode("utf-8")
+            print rcv
+
         def modbus(address):
             rr = client.read_input_registers(address,2,unit=2)
             if rr.registers[1]<10000:
@@ -125,6 +137,7 @@ class ActionServer():
             time.sleep(2)
             socketconnect()
             check_server()
+            set_payload()
             utf8len("1,PTP(CPP,{},{},{},{},{},{},80,200,0,false)".format(j1,j2,j3,j4,j5,j6))
             getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},80,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
             command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},80,200,0,false),*{}".format(length,j1,j2,j3,j4,j5,j6,cs)
@@ -161,6 +174,7 @@ class ActionServer():
                         return(0)
             except rospy.ROSInterruptException:
                 pass
+
 
         command()
 
