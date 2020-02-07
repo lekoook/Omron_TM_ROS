@@ -138,9 +138,9 @@ class ActionServer():
             socketconnect()
             check_server()
             set_payload()
-            utf8len("1,PTP(CPP,{},{},{},{},{},{},80,200,0,false)".format(j1,j2,j3,j4,j5,j6))
-            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},80,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
-            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},80,200,0,false),*{}".format(length,j1,j2,j3,j4,j5,j6,cs)
+            utf8len("1,PTP(CPP,{},{},{},{},{},{},100,200,0,false)".format(j1,j2,j3,j4,j5,j6))
+            getCheckSum("TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},100,200,0,false),".format(length,j1,j2,j3,j4,j5,j6))
+            command =  "$TMSCT,{},1,PTP(CPP,{},{},{},{},{},{},100,200,0,false),*{}".format(length,j1,j2,j3,j4,j5,j6,cs)
             print "Running Command:", command
             command = command.encode('ascii')
             s.send(command+b"\r\n")
